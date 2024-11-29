@@ -8,9 +8,10 @@ If you are working as a team, at the end, you can duplicate the project and add 
 
 ## To-do
 
-* [ ] Explore possible topics by brainstorming with GPT 
-* [ ] write a technical methods sections for K-means
-* [ ] write a technical methods sections for PCA
+* [ ] Explore possible topics by brainstorming
+* [ ] Review related literature
+* [ ] Identify potential data sources
+* [ ] Utilize APIs to access and collect data
 
 ... etc 
 
@@ -23,14 +24,18 @@ Also, describe a log of their project roles.
 **Weekly project contribution log:**
 
 
-**T: 10-15-2024** 
+**M: 11-4-2024** 
 
 * [x] Coordinate with team member to set up weekly meeting time 
 
 
-**M: 10-14-2024** 
+**M: 11-11-2024** 
 
-* [x] Do a first draft of the project landing page 
+* [x] Discuss and brainstorm the main themes during the first meeting 
+
+**M: 11-18-2024** 
+
+* [x] Identify and explore potential data sources relevant to the project
 
 
 ## Member-2
@@ -42,6 +47,15 @@ Also, describe a log of their project roles.
 **Weekly project contribution log:**
 
 
-**W: 10-16-2024** 
+**M: 11-4-2024** 
 
-* [x] Attend first group meeting
+* [x] Coordinate with team member to set up weekly meeting time
+
+**M: 11-11-2024** 
+
+* [x] Discuss and brainstorm the main themes during the first meeting
+
+**M: 11-18-2024** 
+
+* [x] Identify and explore potential data sources relevant to the project 
+
