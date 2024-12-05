@@ -12,6 +12,8 @@ If you are working as a team, at the end, you can duplicate the project and add 
 * [ ] Review related literature
 * [ ] Identify potential data sources
 * [ ] Utilize APIs to access and collect data
+* [ ] Apply data cleaning
+* [ ] Discuss the technical methods for conducting exploratory data analysis (EDA)
 
 ... etc 
 
@@ -28,7 +30,6 @@ Also, describe a log of their project roles.
 
 * [x] Coordinate with team member to set up weekly meeting time 
 
-
 **M: 11-11-2024** 
 
 * [x] Discuss and brainstorm the main themes during the first meeting 
@@ -36,6 +37,15 @@ Also, describe a log of their project roles.
 **M: 11-18-2024** 
 
 * [x] Identify and explore potential data sources relevant to the project
+
+**W: 11-20-2024** 
+
+* [x] Discuss which API to use for data crawling, and finally settled on the EDGAR API
+
+**F: 11-22-2024** 
+
+* [x] Discuss the strategy for merging datasets and performing initial data cleaning
+
 
 
 ## Member-2
@@ -55,7 +65,11 @@ Also, describe a log of their project roles.
 
 * [x] Discuss and brainstorm the main themes during the first meeting
 
-**M: 11-18-2024** 
+**W: 11-20-2024** 
 
-* [x] Identify and explore potential data sources relevant to the project 
+* [x] Discuss which API to use for data crawling, and finally settled on the EDGAR API
+
+**F: 11-22-2024** 
+
+* [x] Discuss the strategy for merging datasets and performing initial data cleaning
 
