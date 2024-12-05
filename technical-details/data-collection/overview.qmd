@@ -1,12 +1,16 @@
 # Overview
 
-In this section, provide a high-level overview for technical staff, summarizing the key tasks and processes carried out here. Include the following elements:
+- **Goals**: This project aims to analyze the relationship between the gender of a company's CEO and the company's gender equality score with respect to its financial performance. By incorporating financial indicators and diversity metrics, the study seeks to uncover patterns and insights that may highlight the impact of gender representation and equality on business success.
 
-- **Goals**: Clearly define the purpose of the tasks or analysis being conducted.
-- **Motivation**: Explain the reasoning behind the work, such as solving a specific problem, improving a system, or optimizing performance.
-- **Objectives**: Outline the specific outcomes you aim to achieve, whether it's implementing a solution, analyzing data, or building a model.
+- **Motivation**: The motivation stems from the growing emphasis on diversity, equity, and inclusion (DEI) in corporate governance. Understanding the potential correlation between leadership gender, gender equality policies, and financial outcomes is crucial for advocating progressive policies and fostering environments that prioritize equity while driving performance.
 
-This overview should give technical staff a clear understanding of the context and importance of the work, while guiding them on what to focus on in the details that follow.
+- **Objectives**: 
+1. Data Integration: Merge datasets containing company CEO gender, gender equality scores, and financial metrics for a comprehensive analysis.
+2. Statistical Analysis: Identify significant relationships between gender-related variables and key financial indicators such as revenue, profitability, and market capitalization.
+3. Predictive Modeling: Build models to predict financial performance based on gender-related attributes and other control variables.
+4. Insights and Recommendations: Provide actionable insights for stakeholders to understand and leverage the impact of gender equity on organizational outcomes.
+
+Overall, this study combines financial and diversity data to provide evidence-based recommendations, supporting the integration of DEI practices in business strategies.
 
 
 
