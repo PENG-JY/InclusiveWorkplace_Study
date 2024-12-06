@@ -73,3 +73,8 @@ Also, describe a log of their project roles.
 
 * [x] Discuss the strategy for merging datasets and performing initial data cleaning
 
+Manually select which financial statement indicators to use based on accounting and finance knowledge
+Discuss about which eda metrics to use
+Conduct Univariate eda and Bivariate eda
+
+
