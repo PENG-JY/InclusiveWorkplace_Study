@@ -81,3 +81,10 @@ By following these steps, you can 10X the efficiency of your literature review p
 - **Use Cases/Examples**: A brief teaser of compelling stories or case studies you’ve worked on.
 - **Call to Action**: Invite visitors to explore the content, follow along, or contact you for more information.
 - **Visual/Infographic**: Add a simple graphic or visual element to make the page more dynamic.
+
+
+
+Research Questions:
+Is there a gender inequality problem in North American companies?
+Does a company’s gender equality score have an impact on the company’s financial performance?
+Does the gender of a company's CEO have an impact on the company's financial performance?
