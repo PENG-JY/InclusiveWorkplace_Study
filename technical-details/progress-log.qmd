@@ -17,7 +17,7 @@ If you are working as a team, at the end, you can duplicate the project and add 
 
 ... etc 
 
-## Member-1:
+## Member-1: Jiayi Peng
 
 Provide their name, a link to their "About Me" page.
 
@@ -46,9 +46,24 @@ Also, describe a log of their project roles.
 
 * [x] Discuss the strategy for merging datasets and performing initial data cleaning
 
+**T: 11-28-2024** 
+
+* [x] Discuss about which eda metrics to use
+
+**W: 12-04-2024** 
+
+* [x] Conduct text data cleaning
+
+**T: 12-05-2024** 
+
+* [x] Conduct text data eda
+
+**S: 12-08-2024** 
+
+* [x] Explore supervised learning analysis
 
 
-## Member-2
+## Member-2 Kexin Lyu
 
 Provide their name, a link to their "About Me" page.
 
@@ -73,8 +88,20 @@ Also, describe a log of their project roles.
 
 * [x] Discuss the strategy for merging datasets and performing initial data cleaning
 
-Manually select which financial statement indicators to use based on accounting and finance knowledge
-Discuss about which eda metrics to use
-Conduct Univariate eda and Bivariate eda
+**T: 11-26-2024** 
+
+* [x] Manually select which financial statement indicators to use based on accounting and finance knowledge
+
+**T: 11-28-2024** 
+
+* [x] Discuss about which eda metrics to use
+
+**W: 12-04-2024** 
+
+* [x] Conduct Univariate eda and Bivariate eda
+
+**S: 12-08-2024** 
+
+* [x] Explore unsupervised learning analysis
 
 
