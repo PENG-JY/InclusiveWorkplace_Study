@@ -88,3 +88,28 @@ Research Questions:
 Is there a gender inequality problem in North American companies?
 Does a company’s gender equality score have an impact on the company’s financial performance?
 Does the gender of a company's CEO have an impact on the company's financial performance?
+
+# Exploring the Intersection of Gender Equality and Financial Performance: Analyzing Leadership and Organizational Practices
+
+
+## Introduction
+
+## Questions We Are Addressing
+
+Is there a gender inequality problem in North American companies?
+
+Does a company’s gender equality score have an impact on the company’s financial performance? And conversely, how does a company’s financial performance influence its commitment to gender equality practices?
+
+Does the gender of a company's CEO have an impact on the company's financial performance?
+
+How do financial indicators and operational factors influence a company's decision to procure from women-owned businesses?
+
+How can textual evidence in reports be used to automate the assessment of a company’s performance in gender equality and healthcare standards?
+
+## Motivation
+
+## Key Topics
+
+## Use Cases/Examples
+
+## Call to Action
