@@ -74,3 +74,16 @@ Possible things to include:
 - **Rationale**: Justify why you chose to work with a particular subset of the data.
 
 
+# Introduction and Motivation
+
+Data cleaning is a crucial step in the data analysis process, ensuring that the data used for modeling is accurate, consistent, and ready for analysis. In this project, the goal of data cleaning is to prepare our dataset for meaningful insights into gender equality practices within organizations, specifically focusing on the impact of factors like financial health, company governance, and gender-related policies.
+
+The data cleaning process involves several key steps: handling missing values, correcting inconsistencies, and transforming data into a suitable format for analysis. This ensures that the machine learning models we build are based on high-quality data, reducing the risk of inaccurate or misleading conclusions. By addressing issues like missing or incorrect data, we aim to improve the reliability and validity of our models, ultimately leading to more actionable insights.
+
+# Overview of Methods
+
+In this project, we integrated multiple datasets to ensure that we could draw meaningful insights from both company-specific and financial data. We merged the company dataset with the financial dataset using the CIK (Central Index Key) number, which serves as a unique identifier for each company. This step allowed us to combine financial metrics with relevant company attributes for comprehensive analysis.
+
+For text data, the preprocessing steps involved removing unnecessary symbols and converting all text to lowercase. We then removed stopwords to ensure that the analysis focused on the most meaningful words, which is essential for tasks like sentiment analysis, topic modeling, and keyword extraction. These data cleaning steps ensured that both numerical and text data were ready for the analysis and modeling phases.
+
+To handle missing values, we applied different strategies depending on the importance of the variables. For critical variables, we dropped any rows with missing values to ensure the integrity of the data. For less important numerical variables, we used multiple imputation to fill in missing values, as these variables were not essential but still valuable for analysis. Once the missing values were handled, we performed Z-score standardization followed by Min-Max scaling to prepare the data for machine learning models.

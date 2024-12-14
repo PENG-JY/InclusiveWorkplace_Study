@@ -81,3 +81,31 @@ Here are suggestions for things to include on this page
  - Outline any further data cleaning or preparation required before moving into modeling.
 
 
+# Introduction and Motivation
+
+The Exploratory Data Analysis (EDA) in this project aims to explore the factors influencing gender equality practices within companies, particularly focusing on financial and governance indicators that impact key areas such as the gender equality score (Total) and CEO gender. By analyzing the relationships between financial metrics (e.g., revenue, assets, operating income) and gender-related practices, we seek to uncover patterns that reveal how companies with strong financial health align their operations with gender equity goals.
+
+This analysis is motivated by the growing importance of gender equality in the workplace, both for achieving social justice and for enhancing corporate performance. We aim to identify the key drivers that support gender equality in leadership roles and across organizational practices. The findings could offer valuable insights for companies striving to improve their gender equity efforts and for policymakers advocating for gender-responsive policies within the corporate sector.
+
+# Overview of Methods
+
+
+
+## Overview of Methods for Text Analysis and Feature Engineering
+
+In this project, text analysis plays a critical role in understanding the gender equality practices within companies, particularly through the lens of the evidence provided in relation to gender equality policies. To effectively analyze textual data, several techniques were employed to transform raw text into meaningful features that can be used for prediction and classification tasks.
+
+- **TF-IDF (Term Frequency-Inverse Document Frequency)**:
+TF-IDF transforms text into numerical features by evaluating the importance of terms in a document relative to the whole dataset. It helps identify key terms such as "gender balance", "pay equity", and "women-owned businesses", which highlight a company’s commitment to gender equality.
+
+- **Sentiment Analysis**:
+Sentiment analysis classifies text into positive, neutral, or negative categories to assess a company's stance on gender equality issues like pay equity or harassment prevention.
+
+- **Topic Modeling**:
+Topic modeling uncovers hidden themes in company policies, helping to identify how companies address aspects like pay gap data collection, violence prevention, and gender balance in leadership.
+
+- **Keyword and Network Analysis**:
+Keyword analysis identifies frequently discussed topics related to gender equality, while network analysis visualizes relationships between key terms (e.g., "gender equality" and "pay equity") to understand company policies.
+
+- **Feature Engineering**:
+Features derived from sentiment scores, topic distributions, and keyword frequencies are integrated with numerical data to create a comprehensive dataset for machine learning, offering deeper insights into a company’s gender equality practices.
