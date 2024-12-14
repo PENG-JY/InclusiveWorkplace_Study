@@ -86,4 +86,6 @@ In this project, we integrated multiple datasets to ensure that we could draw me
 
 For text data, the preprocessing steps involved removing unnecessary symbols and converting all text to lowercase. We then removed stopwords to ensure that the analysis focused on the most meaningful words, which is essential for tasks like sentiment analysis, topic modeling, and keyword extraction. These data cleaning steps ensured that both numerical and text data were ready for the analysis and modeling phases.
 
-To handle missing values, we applied different strategies depending on the importance of the variables. For critical variables, we dropped any rows with missing values to ensure the integrity of the data. For less important numerical variables, we used multiple imputation to fill in missing values, as these variables were not essential but still valuable for analysis. Once the missing values were handled, we performed Z-score standardization followed by Min-Max scaling to prepare the data for machine learning models.
+For data normalization, we performed Z-score standardization followed by Min-Max scaling to prepare the data for machine learning models.
+
+To handle missing values, we applied different strategies depending on the importance of the variables. For critical variables, we dropped any rows with missing values to ensure the integrity of the data. For less important numerical variables, we used multiple imputation to fill in missing values, as these variables were not essential but still valuable for analysis. 
