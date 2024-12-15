@@ -1,5 +1,5 @@
 ---
-title: "About us"
+title: "About Us"
 ---
 
 # What to include in an about me page 
@@ -48,13 +48,26 @@ A well-crafted "About Me" page on a professional website can help you make a gre
 
 Would you like to expand on any of these sections based on your specific professional focus?
 
+James Hickman is an Assistant Teaching Professor in the Data Science and Analytics program at Georgetown University. He received his Ph.D. in Computational-Physics from George Mason University (GMU) in 2017, an M.S. in Engineering-Physics from GMU in 2014, and a double-major in Physics and Applied Mathematics from Shippensburg University in 2011. His graduate work focused on applying classical atomistic simulations to various material science and condensed matter physics problems. In 2018, he was awarded an NRC postdoctoral fellowship at the National Institute of Standards and Technology (NIST) in Gaithersburg, Maryland. Dr. Hickman’s post-doctoral research focused on improving inter-atomic bonding models for both metallic and covalent systems. This was done by combining the transferability of physically derived approaches with the flexibility of artificial neural networks. These perturbative hybrid models achieve near quantum accuracy in their training region while exhibiting physical extrapolation outside the training domain. Dr. Hickman continues at NIST as a guest researcher, where he focuses on problems at the intersection of machine learning and material science.
 
-# Example
+
+
+# Team members
 :::: {.columns}
 
 ::: {.column width="45%"}
 
-James Hickman is an Assistant Teaching Professor in the Data Science and Analytics program at Georgetown University. He received his Ph.D. in Computational-Physics from George Mason University (GMU) in 2017, an M.S. in Engineering-Physics from GMU in 2014, and a double-major in Physics and Applied Mathematics from Shippensburg University in 2011. His graduate work focused on applying classical atomistic simulations to various material science and condensed matter physics problems. In 2018, he was awarded an NRC postdoctoral fellowship at the National Institute of Standards and Technology (NIST) in Gaithersburg, Maryland. Dr. Hickman’s post-doctoral research focused on improving inter-atomic bonding models for both metallic and covalent systems. This was done by combining the transferability of physically derived approaches with the flexibility of artificial neural networks. These perturbative hybrid models achieve near quantum accuracy in their training region while exhibiting physical extrapolation outside the training domain. Dr. Hickman continues at NIST as a guest researcher, where he focuses on problems at the intersection of machine learning and material science.
+![](assets/Jiayi_Peng_headshot.jpg){width=100% height=100%}
+
+**Jiayi Peng**
+
+Georgetown University '26
+Master's in Data Science & Analytics
+
+Jiayi Peng is currently pursing a masters degree in Data Science and Analytics at Georgetown University. With a strong background in the intersection of finance and data, she is eager to explore how data science can be applied to solve real-world challenges in the financial industry and beyond. She has explored the decision-making impacts of supply chain structures and conducted NLP analysis of financial markets. She is dedicated to gaining deeper insights into data science methods and leveraging these skills to contribute to diverse industries.
+
+Her weekly project contribution log: [Click here to learn about: ](./technical-details/progress-log.qmd)
+
 :::
 
 ::: {.column width="10%"}
@@ -63,8 +76,12 @@ James Hickman is an Assistant Teaching Professor in the Data Science and Analyti
 
 ::: {.column width="45%"}
 
-![](images/2024-10-14-16-56-34.png)
+![](assets/2024-10-14-16-56-34.png){width=100% height=100%}
 
+** **
+
+
+Her weekly project contribution log: [Click here to learn about: ](./technical-details/progress-log.qmd)
 :::
 
 ::::

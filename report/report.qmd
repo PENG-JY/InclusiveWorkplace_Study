@@ -74,10 +74,8 @@ These are just examples, you can use any structure that is suitable for your pro
 - **Emphasize Impact**: Always link data insights to business outcomes.
 
 
-# Literature Reviw（只是备注我们到时候再看插入哪里！这个part估计要插入introduction
-Enterprises are an important economic organization that is widespread in society. How to create an inclusive environment at the firm level, especially for gender equality, is a very important proposition that we would like to study in conjunction with the financial health, governance structure and business practices of firms.
+# Introduction/Summary确定导向之后可以想一下
 
-Reviewing previous research on the association of gender inequality with other factors at the firm level, Hoogendoorn et al. (2013) found that gender-balanced teams in business teams were more likely to have better sales and profit performance, although no direct factors were found to support this difference. Eagly and Heilman (2016) mentioned that the business case of “female participation enhances corporate financial performance” and argue that more in-depth analysis is needed if this idea is to be validated. Simionescu et al. (2021) argue that female board members have a positive impact on corporate performance, particularly in terms of price-earnings ratios. All of the above were studied using traditional qualitative analysis methods or econometric methods.
 
 # Objective这个感觉我们可以一起讨论一下，综合一下eda unsupervised learning和 supervised learning
 

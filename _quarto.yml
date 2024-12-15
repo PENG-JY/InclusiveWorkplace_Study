@@ -14,8 +14,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: instructions/overview.qmd
-        text: Instructions
+      - href: Collaborators.qmd
+        text: About Us
 
       - href: report/report.qmd
         text: Report

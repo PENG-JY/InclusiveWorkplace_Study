@@ -2,10 +2,6 @@
 title: "Progress log"
 ---
 
-Use this page to track your progress and keep a log of your contributions to the project, please update this each time you work on your project, it is generally a good habit to adopt.
-
-If you are working as a team, at the end, you can duplicate the project and add it to your individual portfolio websites. If you do, you **MUST** retain attribution to your teammates. Removing attribution would constitute plagiarism.
-
 ## To-do
 
 * [ ] Explore possible topics by brainstorming
@@ -14,14 +10,14 @@ If you are working as a team, at the end, you can duplicate the project and add 
 * [ ] Utilize APIs to access and collect data
 * [ ] Apply data cleaning
 * [ ] Discuss the technical methods for conducting exploratory data analysis (EDA)
+* [ ] Assign unsupervised and supervised tasks
+* [ ] Construct and write the report
+* [ ] Deploy the project on the web
 
-... etc 
 
 ## Member-1: Jiayi Peng
 
-Provide their name, a link to their "About Me" page.
-
-Also, describe a log of their project roles.
+[Click here to learn about Jiayi Peng](../Collaborators.qmd)
 
 **Weekly project contribution log:**
 
@@ -62,12 +58,14 @@ Also, describe a log of their project roles.
 
 * [x] Explore supervised learning analysis
 
+**F: 12-13-2024** 
 
-## Member-2 Kexin Lyu
+* [x] Discuss how to write our report
 
-Provide their name, a link to their "About Me" page.
 
-Also, describe a log of their project roles.
+## Member-2: Kexin Lyu
+
+[Click here to learn about Kexin Lyu](../Collaborators.qmd)
 
 **Weekly project contribution log:**
 
@@ -104,4 +102,6 @@ Also, describe a log of their project roles.
 
 * [x] Explore unsupervised learning analysis
 
+**F: 12-13-2024** 
 
+* [x] Discuss how to write our report
