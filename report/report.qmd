@@ -74,7 +74,63 @@ These are just examples, you can use any structure that is suitable for your pro
 - **Emphasize Impact**: Always link data insights to business outcomes.
 
 
-#
+# Literature Reviw（只是备注我们到时候再看插入哪里！这个part估计要插入introduction
 Enterprises are an important economic organization that is widespread in society. How to create an inclusive environment at the firm level, especially for gender equality, is a very important proposition that we would like to study in conjunction with the financial health, governance structure and business practices of firms.
 
 Reviewing previous research on the association of gender inequality with other factors at the firm level, Hoogendoorn et al. (2013) found that gender-balanced teams in business teams were more likely to have better sales and profit performance, although no direct factors were found to support this difference. Eagly and Heilman (2016) mentioned that the business case of “female participation enhances corporate financial performance” and argue that more in-depth analysis is needed if this idea is to be validated. Simionescu et al. (2021) argue that female board members have a positive impact on corporate performance, particularly in terms of price-earnings ratios. All of the above were studied using traditional qualitative analysis methods or econometric methods.
+
+# Objective这个感觉我们可以一起讨论一下，综合一下eda unsupervised learning和 supervised learning
+
+# Key xxx 我先写一下我这边的，就是text eda和supervised learning；比较草率，后面可能会有key insights的修改，有的如果我们探索主题类似的可以合在一起讲
+
+- **Gender Equality in Business Practices**:
+
+Organizations with a stronger focus on gender equality, both in the workplace and supply chain, tend to prioritize policies for equity and accountability. In contrast, the supply chain is more action-oriented, with a focus on compliance and addressing operational challenges. Proactive measures towards gender equality are common, as indicated by the positive sentiment in the data. However, negative sentiment often points to challenges related to violence and harassment, emphasizing areas for improvement.
+
+- **Importance of Financial Health and Gender Equality in Procurement**:
+
+Financially stable companies with better performance (comprehensive income, operating income, and revenue) are more likely to engage in gender-responsive procurement, such as sourcing from women-owned businesses. This suggests that improving financial health could be an effective strategy for companies aiming to boost their gender equity initiatives.
+
+- **Gender Representation in Leadership**:
+
+Financial and governance-related factors are key in determining the gender of a company's CEO. Larger companies with more significant assets and a commitment to gender equality are more likely to have female CEOs. On the other hand, companies with higher public shareholding and a balanced gender representation at the governance level are more likely to have male CEOs.
+
+- **Factors Influencing Gender Equality Scores**:
+
+Several factors, including gender-responsive procurement, financial health, and gender equity in governance, significantly influence a company’s overall gender equality score. Companies that demonstrate a commitment to gender equality, such as procuring from women-owned businesses and addressing the gender pay gap, score higher in gender equality assessments.
+
+- **Automated Scoring Potential**:
+
+Through text data modeling and analysis of health coverage evidence, we can automate the process of assessing companies' compliance with gender equity and healthcare standards. By applying machine learning techniques to the text, we can generate scores indicating whether a company fully meets, partially meets, or does not meet gender equity criteria related to health coverage. This automated approach allows for scalable and efficient evaluation, making it easier for companies and policymakers to identify gaps and opportunities for improving gender-equity and healthcare access in organizational practices.
+
+# Visualizations 我先写一下我这边的，就是text eda和supervised learning; 比较草率，后续应该会修改添加一点文字
+
+- **Gender Equality in Business Practices**:
+
+![](../assets/workplace_keywords.png)
+
+![](../assets/supply_chain_keywords.png)
+
+![](../assets/sentiment_analysis.png)
+
+- **Importance of Financial Health and Gender Equality in Procurement**:
+
+![](../assets/svm_feature_importances.png)
+
+- **Gender Representation in Leadership**:
+
+![](../assets/gender_pay_gap.png)
+
+![](../assets/logistic_feature.png)
+
+- **Factors Influencing Gender Equality Scores**:
+
+![](../assets/scores_features.png)
+
+- **Health Coverage and Gender Equity**:
+
+![](../assets/health_feature_wordcloud.png)
+
+# Implications
+
+# Conclusion这个也可以一起讨论一下

@@ -93,7 +93,7 @@ This analysis is motivated by the growing importance of gender equality in the w
 
 ## Overview of Methods for Text Analysis and Feature Engineering
 
-In this project, text analysis plays a critical role in understanding the gender equality practices within companies, particularly through the lens of the evidence provided in relation to gender equality policies. To effectively analyze textual data, several techniques were employed to transform raw text into meaningful features that can be used for prediction and classification tasks.
+In this project, text analysis plays a critical role in understanding the gender equality practices within companies, particularly through the lens of the evidence provided in relation to gender equality policies. To effectively analyze textual data, several techniques were employed to transform raw text into meaningful features that can be used for classification tasks.
 
 - **TF-IDF (Term Frequency-Inverse Document Frequency)**:
 TF-IDF transforms text into numerical features by evaluating the importance of terms in a document relative to the whole dataset. It helps identify key terms such as "gender balance", "pay equity", and "women-owned businesses", which highlight a company’s commitment to gender equality.
