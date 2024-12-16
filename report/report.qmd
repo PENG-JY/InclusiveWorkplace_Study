@@ -93,6 +93,8 @@ Financially stable companies with better performance (comprehensive income, oper
 
 Financial and governance-related factors are key in determining the gender of a company's CEO. Larger companies with more significant assets and a commitment to gender equality are more likely to have female CEOs. On the other hand, companies with higher public shareholding and a balanced gender representation at the governance level are more likely to have male CEOs.
 
+In addition, from the eda, more female CEOs are willing to contribute to gender pay gap.
+
 - **Factors Influencing Gender Equality Scores**:
 
 Several factors, including gender-responsive procurement, financial health, and gender equity in governance, significantly influence a company’s overall gender equality score. Companies that demonstrate a commitment to gender equality, such as procuring from women-owned businesses and addressing the gender pay gap, score higher in gender equality assessments.
