@@ -1,8 +1,8 @@
 ---
-title: "<span style='color: #6C63FF;'>Exploring the Intersection of Gender Equality and Financial Performance: Analyzing Leadership and Organizational Practices</span>"
+title: "Exploring the Intersection of Gender Equality and Financial Performance: Analyzing Leadership and Organizational Practices"
 ---
 
-<img src="./assets/undraw_working.svg" />
+<img src="./assets/2.jpg" style="max-width: 100%; height: auto;" />
 
 # Introduction
 
@@ -45,7 +45,7 @@ In this era, more and more people notice that the high levels of inclusion in a 
 
 ::: {.column width="45%"}
 
-<img src="./assets/undraw_motivation.png" style="max-width: 100%; height: auto;" />
+<img src="./assets/1.jpg" style="max-width: 100%; height: auto;" />
 
 :::
 
