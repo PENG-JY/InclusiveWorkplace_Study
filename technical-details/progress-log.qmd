@@ -4,15 +4,15 @@ title: "Progress log"
 
 ## To-do
 
-* [ ] Explore possible topics by brainstorming
-* [ ] Review related literature
-* [ ] Identify potential data sources
-* [ ] Utilize APIs to access and collect data
-* [ ] Apply data cleaning
-* [ ] Discuss the technical methods for conducting exploratory data analysis (EDA)
-* [ ] Assign unsupervised and supervised tasks
-* [ ] Construct and write the report
-* [ ] Deploy the project on the web
+* [x] Explore possible topics by brainstorming
+* [x] Review related literature
+* [x] Identify potential data sources
+* [x] Utilize APIs to access and collect data
+* [x] Apply data cleaning
+* [x] Discuss the technical methods for conducting exploratory data analysis (EDA)
+* [x] Assign unsupervised and supervised tasks
+* [x] Construct and write the report
+* [x] Deploy the project on the web
 
 
 ## Member-1: Jiayi Peng

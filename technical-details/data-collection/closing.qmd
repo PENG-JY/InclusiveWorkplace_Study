@@ -24,7 +24,6 @@
 2. Automating data retrieval processes, particularly for CEO gender and financial metrics, would streamline data updates for scalability.
 3. Applying advanced non-linear models (e.g., Random Forests, XGBoost) or deep learning techniques may better capture complex relationships in the data.
 
-
 ## Benchmarks
 
 **Industry Comparisons:**
@@ -35,7 +34,6 @@
 **Research Alignment:**
 
 1， Studies emphasize the importance of contextual variables like industry and market conditions in explaining diversity-performance linkages. Future iterations of this project could integrate these benchmarks to improve interpretability.
-
 
 ## Conclusion and Future Steps
 
