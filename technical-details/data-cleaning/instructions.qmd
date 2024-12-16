@@ -1,15 +1,16 @@
 # Introduction and Motivation
 
-Data cleaning is a crucial step in the data analysis process, ensuring that the data used for modeling is accurate, consistent, and ready for analysis. In this project, the goal of data cleaning is to prepare our dataset for meaningful insights into gender equality practices within organizations, specifically focusing on the impact of factors like financial health, company governance, and gender-related policies.
-
-The data cleaning process involves several key steps: handling missing values, correcting inconsistencies, and transforming data into a suitable format for analysis. This ensures that the machine learning models we build are based on high-quality data, reducing the risk of inaccurate or misleading conclusions. By addressing issues like missing or incorrect data, we aim to improve the reliability and validity of our models, ultimately leading to more actionable insights.
+Data cleaning is a necessary step in data analysis, where our main goal is to merge different data sets and clean them to ensure consistency for next steps. We hope to ensure the stability of the model through data cleaning and explore meaningful insights into gender equality practices within the companies, especially for text data and financial data.
 
 # Overview of Methods
 
-In this project, we integrated multiple datasets to ensure that we could draw meaningful insights from both company-specific and financial data. We merged the company dataset with the financial dataset using the CIK (Central Index Key) number, which serves as a unique identifier for each company. This step allowed us to combine financial metrics with relevant company attributes for comprehensive analysis.
+First,  we will merge the company dataset with the financial data set using the CIK (Central Index Key) number as a unique identifier for each company with company gender assessment data set[@Gender2023]. As a result, we will generate a large dataset to explore more completely.
 
-For text data, the preprocessing steps involved removing unnecessary symbols and converting all text to lowercase. We then removed stopwords to ensure that the analysis focused on the most meaningful words, which is essential for tasks like sentiment analysis, topic modeling, and keyword extraction. These data cleaning steps ensured that both numerical and text data were ready for the analysis and modeling phases.
+For text data, we will remove unnecessary punctuation, convert cases, remove stop words, so that we can prepare for subsequent analysis, such as TFIDF.
 
-For data normalization, we performed Z-score standardization followed by Min-Max scaling to prepare the data for machine learning models.
+For data normalization, we first use Z-score normalization and then Min-Max scaling.
 
-To handle missing values, we applied different strategies depending on the importance of the variables. For critical variables, we dropped any rows with missing values to ensure the integrity of the data. For less important numerical variables, we used multiple imputation to fill in missing values, as these variables were not essential but still valuable for analysis. 
+To deal with missing values, we apply different strategies depending on the importance of the variable. For example, for the most critical variables, CIK identifiers, we will delete all missing rows. For relatively less important variables, we use multiple imputation to fill in the missing values because these variables are valuable to the analysis.
+
+In order to ensure consistency, some data preprocessing code of some content is displayed in the corresponding part, such as unsupervised learning, and we hope that the audience can understand the reason for our processing more coherently.
+ 

@@ -1,10 +1,12 @@
-# Final Report
+---
+title: "Final Report"
+---
 
-## Executive Summary
+# Executive Summary
 
 This business-oriented study analyzes the relationship between gender equality implementations, CEO gender, and financial performance across 202 companies. The findings highlight that most companies exhibit low gender equality scores, with female-led companies showing less variability and lower financial performance compared to male-led companies. The analysis suggests significant opportunities for improving gender inclusivity, which may also enhance business performance in terms of profitability and employee satisfaction. The findings are highly relevant for companies aiming to align their diversity initiatives with business success and to improve their market position by fostering a more equitable environment.
 
-## Objective
+# Objective
 
 This project aims to explore the intersection of gender equality and corporate financial performance. The main objectives are:
 
@@ -12,17 +14,27 @@ This project aims to explore the intersection of gender equality and corporate f
 - To examine the impact of CEO gender on gender equality practices and business outcomes.
 - To provide actionable insights on how organizations can improve their gender equality measures to enhance both social and financial performance.
 
-## Key Insights
+# Key Insights
 
 - **Gender Equality in Business Practices**:
 
 The analysis reveals strong correlations between gross profit, allocated share-based compensation, and accounts receivable with the gender equality scores, suggesting that companies with gender equality tend to exhibit higher profitability, invest more in their employees, and demonstrate superior operational efficiency.
 
-Organizations with a stronger focus on gender equality, both in the workplace and supply chain, tend to prioritize policies for equity and accountability. In contrast, the supply chain is more action-oriented, with a focus on compliance and addressing operational challenges. Proactive measures towards gender equality are common, as indicated by the positive sentiment in the data. However, negative sentiment often points to challenges related to violence and harassment, emphasizing areas for improvement.
+As shown in the bar chart below, workplace and supply chain are two crucial terms in the business practices and thus the implementation of the concept of gender equality pertaining to these two areas is highly significant. By examining the keywords in the text, we can find the action-oriented nature of the keywords concerning gender equality in supply chains. On the other hand, the concern over workplace keywords has more emphasis on policy, which is an indication of the greater attention that most companies lay on the reporting of these two factors: workplace and supply chain.
+
+![](../assets/workplace_keywords.png)
+
+![](../assets/supply_chain_keywords.png)
+
+In addition, there are more positive emotions in the report, which might reflect that company managers want to transmit an impression to the people that their company shall be able to maintain fairness under any conditions by such positive emotions, whether or not the company genuinely fulfills this intention in practice, as shown in the following figure.
+
+![](../assets/sentiment_analysis.png)
 
 - **Importance of Financial Health and Gender Equality in Procurement**:
 
-Financially stable companies with better performance (comprehensive income, operating income, and revenue) are more likely to engage in gender-responsive procurement, such as sourcing from women-owned businesses. This suggests that improving financial health could be an effective strategy for companies aiming to boost their gender equity initiatives.
+The evidence suggests that financially stable, better performing companies are more likely to procure from sources that promote the gender-equal procurement, such as women-owned enterprises. This may reflect the fact that these companies hold financial health are more likely to have some strategy of driving gender equality initiatives along the supply chain, whether intentionally or not.
+
+![](../assets/svm_feature_importances.png)
 
 - **Gender Representation in Leadership**:
 
@@ -30,86 +42,77 @@ Top-performing companies are predominantly led by male CEOs, reflecting the hist
 
 Conversely, female-led companies may offer potential for balancing gender equality with strong financial performance. The presence of women in leadership positions can foster a positive organizational culture and enhance workplace dynamics, which may, in turn, contribute to financial growth. However, the underrepresentation of women in leadership roles, coupled with low gender equality scores, highlights the systemic issues that persist within these organizations.
 
-Financial and governance-related factors are key in determining the gender of a company's CEO. Larger companies with more significant assets and a commitment to gender equality are more likely to have female CEOs. On the other hand, companies with higher public shareholding and a balanced gender representation at the governance level are more likely to have male CEOs.
-
-In addition, from the eda, more female CEOs are willing to contribute to gender pay gap.
-
-- **Factors Influencing Gender Equality Scores**:
-
-Several factors, including gender-responsive procurement, financial health, and gender equity in governance, significantly influence a company’s overall gender equality score. Companies that demonstrate a commitment to gender equality, such as procuring from women-owned businesses and addressing the gender pay gap, score higher in gender equality assessments.
-
-- **Automated Scoring Potential**:
-
-Through text data modeling and analysis of health coverage evidence, we can automate the process of assessing companies' compliance with gender equity and healthcare standards. By applying machine learning techniques to the text, we can generate scores indicating whether a company fully meets, partially meets, or does not meet gender equity criteria related to health coverage. This automated approach allows for scalable and efficient evaluation, making it easier for companies and policymakers to identify gaps and opportunities for improving gender-equity and healthcare access in organizational practices.
-
-## Visualizations
-
-- **Gender Equality in Business Practices**:
-
-![](../assets/workplace_keywords.png)
-
-![](../assets/supply_chain_keywords.png)
-
-![](../assets/sentiment_analysis.png)
-
-- **Importance of Financial Health and Gender Equality in Procurement**:
-
-![](../assets/svm_feature_importances.png)
-
-- **Gender Representation in Leadership**:
-
-![](../assets/gender_pay_gap.png)
+Financial and governance-related factors are key in determining the gender of a company's CEO. Based on unsupervised learning, we already know the systemic advantages of male ceos. But we wanted to explore which specific financial metrics tend to point to male CEOs and which point to female CEOs? By training gradient boosting regressor, we found that companies that have more assets and are committed to gender equality are more likely to have female ceos. On the other hand, companies with high public ownership and balanced gender representation at the governance level are more likely to hire male CEOs.
 
 ![](../assets/logistic_feature.png)
 
+In addition, according to EDA, more female CEOs are willing to contribute to the gender pay gap.
+
+![](../assets/gender_pay_gap.png)
+
 - **Factors Influencing Gender Equality Scores**:
+
+Similarly, we wanted to explore which factors significantly influence overall gender equality scores. We explored selected variables from gender-responsive procurement, financial health, and gender equality in governance. As the chart below shows, companies that demonstrate a commitment to gender equality, such as sourcing from women-owned businesses and addressing the gender pay gap, generally score higher on the gender equality assessment.
 
 ![](../assets/scores_features.png)
 
-- **Health Coverage and Gender Equity**:
+- **Automated Scoring Potential**:
+
+Through text data modeling, we can automate the assessment of a company's compliance with gender equality in an area. In this exploration, we mainly focus on health cover. We can judge whether a company fully meets, partially meets, or does not meet the gender equality criteria related to health insurance by generating a corresponding score. This automated approach allows for scalable and efficient assessments, which can make it easier for companies and policymakers to identify gaps. Below is a word cloud of keywords for health cover compliance.
 
 ![](../assets/health_feature_wordcloud.png)
 
-## Business Implications
+# Business Implications
 
-- **Addressing Gender Equality**:
+- **Addressing Gender Equality**: 
 
-The significant underperformance in gender equality across most companies suggests that there is room for improvement. Companies with higher gender equality scores show better operational outcomes, which could lead to improved profitability and market position.
+It indicates that existing companies have a long way to go in terms of gender equality. As the results shown, companies whose score of gender equality is higher also show for operational outcomes that might affect improved profitability and market position. 
 
-Companies should focus on improving gender equality not only to align with social responsibility goals but also to unlock financial benefits through better employee engagement and operational efficiency.
+This should be worked on by all companies, improving gender equality not only because it fits into the social responsibility agenda but also because it yields benefits in financial terms, engaged employees, and operational efficiencies.
 
 - **CEO Gender and Business Performance**:
 
-The data shows that female CEOs are underrepresented and tend to lead companies with lower financial performance. This suggests that increasing the representation of women in leadership roles could have a positive effect on both gender equality and financial outcomes.
+The data shows that female CEOs are underrepresented and tend to lead companies with lower financial performance. This suggests that increasing the representation of women in leadership roles could have a positive effect on both gender equality and financial outcomes. 
+
+In addition, we can notice that CEOs of different genders tend to perform better on different financial metrics, which may imply differences in operational policies.
 
 - **Financial and Operational Efficiency**:
 
-Gender equality practices appear to influence profitability, especially in terms of gross profit and employee-focused financial measures. Companies could benefit from a more inclusive approach, which might lead to better financial efficiency, especially in sectors focused on employee welfare and customer engagement.
+Profitability differential impacts gender inclusivity practices, not in both measures of gross profit but also in finance dependent on people. Inclusiveness in the organizations would protect them from great loss due to low profitability or profit bias, especially in employee-focused and customer-related industries.
 
-## Recommendations
+- **The Overlooked Impact of Gender Equality in Supply Chains**:
+
+The supply chain seems to be an overlooked factor when assessing whether a company is taking gender equality measures, because it is not a "direct" factor. However, our research found that gender equality in the supply chain is more action-oriented, and action can better reflect a company's determination. In addition, supply chain was the factor that had the highest impact on gender equality scores among the factors we screened. Because the supply chain is an easily overlooked factor, companies that can also focus on gender equality in the supply chain will have a higher overall rating.
+
+# Recommendations
 
 - **Enhance Gender Equality Initiatives**:
 
-Companies should implement stronger gender equality policies, focusing on creating equitable opportunities for women in leadership roles. This may include mentorship programs, gender diversity training, and policies to support work-life balance.
+Companies should adopt more stringent gender equality policies with gender-equitable opportunities for women in leadership positions. This could be mentorship programs, gender diversity training, and policies to support work and life balance.
 
-Companies should set clear diversity goals and regularly track progress, ensuring that gender equality is prioritized at all levels of the organization.
+The organizations should set clear goals in terms of diversity and subsequently track progress, in which gender equality should apply at all levels in the organization.
 
 - **Focus on Female Leadership**:
 
-Organizations should make a concerted effort to increase the representation of female executives. Research shows that gender diversity at the top can improve organizational culture, employee satisfaction, and overall performance.
+It is essential that retirement to see a significant increase in the number of women in top management. It has been proved that top management gender diversity can bring improvement in organization's climate, job satisfaction, and general performance.
 
-Recruitment practices should be reviewed to ensure that qualified female candidates are being considered for leadership roles.
+Employment practice is being reviewed to take into consideration that those selected as candidates for leadership roles should also include well-qualified women.
 
 - **Leverage Financial Performance to Support Gender Equality**:
 
-Companies should align their financial strategies with diversity goals. Allocating more resources to gender equality initiatives can lead to higher employee satisfaction and retention, which can, in turn, improve financial performance.
+Organizations should make a concerted effort to increase the representation of female executives. Research shows that gender diversity at the top can improve organizational culture, employee satisfaction, and overall performance.
 
-Further investments in gender-inclusive policies could be supported by data-driven approaches that show the correlation between diversity practices and financial success.
+They should also revise their recruitment practices in order to make sure that qualified women are recruited for leadership positions.
 
 - **Increase Transparency in Gender Equality Metrics**:
 
-Companies should publicly report on their gender equality progress to stakeholders. Transparent reporting not only aligns with best practices in corporate governance but also enhances the company's reputation among investors, employees, and customers.
+Companies should publicly report on their gender equality progress to stakeholders. Such transparent reporting is now the norm for corporate governance best practices and has earned a good reputation among investors, employees and customers.
 
-## Conclusion
+- **Introduce Automated Scoring System**:
 
-This study shows that gender equality is not just a moral imperative but a key factor that can drive business success. Companies with higher gender equality scores tend to perform better in operational metrics, which ultimately boosts their market position. Addressing gender imbalances at the leadership level, enhancing inclusivity practices, and aligning business operations with gender equality goals will help companies improve both their social responsibility impact and their financial performance. Moving forward, companies should integrate diversity metrics into their corporate strategy and ensure that gender inclusivity is woven into the fabric of their business operations.
+When it comes to how well a company performs in gender equality, we can find information from its related news or reports, and we can find it requires a large quantity of time to assess its performance. Applying an automated scoring system will be an effective way in the future to evaluate and give senior management a more quantitative picture.
+
+# Conclusion
+
+This study shows that gender equality is not just a moral imperative but a key factor that can drive business success. Companies with higher gender equality scores tend to perform better in operational metrics, which ultimately boosts their market position. Addressing gender imbalances at the leadership level, enhancing inclusivity practices, and aligning business operations with gender equality goals will help companies improve both their social responsibility impact and their financial performance. In addition, automated evaluation processes can help ensure social oversight of corporate behavior. Moving forward, companies should integrate diversity metrics into their corporate strategy and ensure that gender inclusivity is woven into the fabric of their business operations.
+

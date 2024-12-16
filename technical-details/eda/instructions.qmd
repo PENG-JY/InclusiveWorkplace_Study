@@ -1,8 +1,8 @@
 # Introduction and Motivation
 
-The Exploratory Data Analysis (EDA) in this project aims to explore the factors influencing gender equality practices within companies, particularly focusing on financial and governance indicators that impact key areas such as the gender equality score (Total) and CEO gender. By analyzing the relationships between financial metrics (e.g., revenue, assets, operating income) and gender-related practices, we seek to uncover patterns that reveal how companies with strong financial health align their operations with gender equity goals.
+Exploratory Data Analysis (EDA) aims to initially explore the factors that influence gender equality practices within a company, with a particular focus on the data structures themselves that influence key areas such as gender equality scores and CEO gender, and how they relate to financial metrics and governance metrics.
 
-This analysis is motivated by the growing importance of gender equality in the workplace, both for achieving social justice and for enhancing corporate performance. We aim to identify the key drivers that support gender equality in leadership roles and across organizational practices. The findings could offer valuable insights for companies striving to improve their gender equity efforts and for policymakers advocating for gender-responsive policies within the corporate sector.
+The motivation for this analysis is that gender equality in the workplace is a trend in today's society. We want to do a preliminary exploration for the next part of machine learning to determine the direction of our future exploration.
 
 # Overview of Methods
 

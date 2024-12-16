@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Supervised Learning</title>
+<title>Supervised Learning – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,6 +122,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -93,15 +176,15 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
+    <a class="nav-link" href="../../Collaborators.html"> 
+<span class="menu-text">About Us</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
@@ -137,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -151,18 +234,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#overview-of-methods" id="toc-overview-of-methods" class="nav-link" data-scroll-target="#overview-of-methods">Overview of Methods</a>
   <ul class="collapse">
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
-  <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
-  <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link" data-scroll-target="#data-preprocessing">Data Preprocessing</a></li>
-  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model Selection</a></li>
-  <li><a href="#training-and-testing-strategy" id="toc-training-and-testing-strategy" class="nav-link" data-scroll-target="#training-and-testing-strategy">Training and Testing Strategy</a></li>
-  <li><a href="#model-evaluation-metrics" id="toc-model-evaluation-metrics" class="nav-link" data-scroll-target="#model-evaluation-metrics">Model Evaluation Metrics</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#binary-classification" id="toc-binary-classification" class="nav-link" data-scroll-target="#binary-classification">Binary Classification</a></li>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a></li>
+  <li><a href="#multi-class-classification" id="toc-multi-class-classification" class="nav-link" data-scroll-target="#multi-class-classification">Multi-Class Classification</a></li>
   </ul></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
+  <ul class="collapse">
+  <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link" data-scroll-target="#data-preprocessing">Data Preprocessing</a></li>
+  <li><a href="#binary-classification-1" id="toc-binary-classification-1" class="nav-link" data-scroll-target="#binary-classification-1">Binary Classification</a>
+  <ul class="collapse">
+  <li><a href="#support-vector-machine-svm" id="toc-support-vector-machine-svm" class="nav-link" data-scroll-target="#support-vector-machine-svm">Support Vector Machine (SVM)</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic Regression</a></li>
+  </ul></li>
+  <li><a href="#regression-1" id="toc-regression-1" class="nav-link" data-scroll-target="#regression-1">Regression</a>
+  <ul class="collapse">
+  <li><a href="#gradient-boosting-regression" id="toc-gradient-boosting-regression" class="nav-link" data-scroll-target="#gradient-boosting-regression">Gradient Boosting Regression</a></li>
+  </ul></li>
+  <li><a href="#multi-class-classification-1" id="toc-multi-class-classification-1" class="nav-link" data-scroll-target="#multi-class-classification-1">Multi-class classification</a>
+  <ul class="collapse">
+  <li><a href="#random-forest-classifier" id="toc-random-forest-classifier" class="nav-link" data-scroll-target="#random-forest-classifier">Random Forest Classifier</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
+  <ul class="collapse">
+  <li><a href="#result-interpretation" id="toc-result-interpretation" class="nav-link" data-scroll-target="#result-interpretation">Result Interpretation:</a></li>
+  <li><a href="#model-performance-comparison" id="toc-model-performance-comparison" class="nav-link" data-scroll-target="#model-performance-comparison">Model Performance Comparison:</a></li>
+  <li><a href="#insights-gained" id="toc-insights-gained" class="nav-link" data-scroll-target="#insights-gained">Insights Gained:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -189,84 +290,1004 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- After digesting the instructions, you can delete this cell, these are assignment instructions and do not need to be included in your final submission.  -->
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<p><code>Note</code>: You should remove these instruction once you have read and understood them. They should not be included in your final submission.</p>
-<p><code>Remember:</code> Exactly what do you put on this page will be specific you your project and data. Some things might “make more sense” on one page rather than another, depending on your workflow. Organize your project in a logical way that makes the most sense to you.</p>
-<section id="suggested-page-structure" class="level2">
-<h2 class="anchored" data-anchor-id="suggested-page-structure">Suggested page structure</h2>
-<p>Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:</p>
-<p><code>Audience</code>:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts.</p>
+<section id="introduction-and-motivation" class="level1">
+<h1>Introduction and Motivation</h1>
+<p>In recent years, much attention has been paid to the importance of gender equality in the corporate world, which is critical to promoting an inclusive environment. Through this study, we hope to explore how to create a more equitable society and strengthen aspects of corporate responsibility. Therefore, in this section, we will explore the intersection of business practices, performance and gender equality in enterprises based on supervised learning. In addition, this study explores the possibility of automatically assessing a company’s gender score from text data reported by companies.</p>
+</section>
+<section id="overview-of-methods" class="level1">
+<h1>Overview of Methods</h1>
+<p>In this study, four different supervised learning models were employed to analyze various aspects of gender equality and business practices.</p>
+<section id="binary-classification" class="level2">
+<h2 class="anchored" data-anchor-id="binary-classification">Binary Classification</h2>
 <ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
-<li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
+<li><p><strong>Support Vector Machine (SVM)</strong> SVM are supervised learning models that analyze data for classification and regression analysis. It is suitable for binary classification.<span class="citation" data-cites="jakkula2006tutorial"><sup><a href="#ref-jakkula2006tutorial" role="doc-biblioref">1</a></sup></span></p></li>
+<li><p><strong>Logistic Regression</strong> Logistic regression is a supervised learning model that applies primarily to two or more categories using a logical function.<span class="citation" data-cites="hosmer2013applied"><sup><a href="#ref-hosmer2013applied" role="doc-biblioref">2</a></sup></span></p></li>
 </ul>
 </section>
-<section id="what-to-address" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
-<p>The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.</p>
-<p>Please do some form of “Feature selection” in your project and include a section on it. Discuss the process you went through to select the features that you used in your model, this should be done for both classification models and regression models. What did you include and why? What did you exclude? What was the reasoning behind your decisions? This section can be included here, or you can make a new page in the dropdown menu for it.</p>
-<p>Please break this page into a “regression” section, “binary classification” section, and a “Multi-class classification” section. For each case you should try multiple methods, including those discussed in class, and compare and contrast their preformance and results.</p>
+<section id="regression" class="level2">
+<h2 class="anchored" data-anchor-id="regression">Regression</h2>
+<ul>
+<li><strong>Gradient Boosting Regression</strong> It is a supervised learning method based on boosting in a functional space, is pseudo-residuals rather than residuals, as in conventional boosting.<span class="citation" data-cites="friedman2001greedy"><sup><a href="#ref-friedman2001greedy" role="doc-biblioref">3</a></sup></span></li>
+</ul>
 </section>
-<section id="data-preprocessing" class="level2">
-<h2 class="anchored" data-anchor-id="data-preprocessing">Data Preprocessing</h2>
-<ol type="1">
-<li><strong>Normalization or Standardization</strong>: Apply techniques to scale the data appropriately.</li>
-<li><strong>Feature Selection or Extraction</strong>: Identify and select the most relevant features for your analysis.</li>
-<li><strong>Encoding Categorical Variables</strong>: Convert categorical variables into a suitable format for modeling.</li>
-</ol>
-</section>
-<section id="model-selection" class="level2">
-<h2 class="anchored" data-anchor-id="model-selection">Model Selection</h2>
-<ol type="1">
-<li><strong>Model Rationale</strong>: Explain the reasons for selecting specific models or algorithms.</li>
-<li><strong>Overview of Algorithms</strong>: Provide a brief overview of the algorithms used</li>
-</ol>
-</section>
-<section id="training-and-testing-strategy" class="level2">
-<h2 class="anchored" data-anchor-id="training-and-testing-strategy">Training and Testing Strategy</h2>
-<ol type="1">
-<li><strong>Split Methods</strong>: Detail the splitting methods used (e.g., train-test split, cross-validation).</li>
-<li><strong>Dataset Proportions</strong>: Specify the proportions used for splitting the dataset.</li>
-</ol>
-</section>
-<section id="model-evaluation-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="model-evaluation-metrics">Model Evaluation Metrics</h2>
-<ol type="1">
-<li><strong>Binary Classification Metrics</strong>: Discuss metrics such as accuracy, precision, recall, F1 score, and ROC-AUC.</li>
-<li><strong>Multiclass Classification Metrics</strong>: Include metrics such as confusion matrix and macro/micro F1 score.</li>
-<li><strong>Regression Metrics</strong>: Explain metrics such as RMSE, MAE, and R-squared, parity plots, etc.</li>
-</ol>
-</section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">Results</h2>
-<ol type="1">
-<li><strong>Model Performance Summary</strong>: Provide a summary of the model’s performance.</li>
-<li><strong>Visualizations</strong>: Include visualizations of results (e.g., ROC curves, feature importance plots).</li>
-</ol>
-</section>
-<section id="discussion" class="level2">
-<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<ol type="1">
-<li><strong>Result Interpretation</strong>: Interpret the results obtained from the analysis.</li>
-<li><strong>Model Performance Comparison</strong>: Compare the performance of different models.</li>
-<li><strong>Insights Gained</strong>: Share insights learned from the analysis.</li>
-</ol>
+<section id="multi-class-classification" class="level2">
+<h2 class="anchored" data-anchor-id="multi-class-classification">Multi-Class Classification</h2>
+<ul>
+<li><strong>Random Forest Classifier</strong> Random Forest Classifier is an ensemble learning technique for classification or regression, the Random Forest Classifier will generate a large number of decision trees during training.<span class="citation" data-cites="belgiu2016random"><sup><a href="#ref-belgiu2016random" role="doc-biblioref">4</a></sup></span></li>
+</ul>
 </section>
 </section>
 <section id="code" class="level1">
 <h1>Code</h1>
-<p>Provide the source code used for this section of the project here.</p>
-<p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
-<p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
-<p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<div id="cell-3" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, MinMaxScaler</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fancyimpute <span class="im">import</span> IterativeImputer</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score, StratifiedKFold</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix, roc_curve, classification_report</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> textblob <span class="im">import</span> TextBlob</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier, plot_tree</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> GradientBoostingRegressor</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-4" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the CSV file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'../../data/processed-data/merged_data.csv'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="data-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-preprocessing">Data Preprocessing</h2>
+<p>We will use the IterativeImputer method to perform multiple imputations on the financial variables. This will estimate missing values based on other features in the dataset.</p>
+<div id="cell-7" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the financial columns that require imputation</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Asset_Profitability_columns <span class="op">=</span> [</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Assets (k)'</span>, <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OperatingIncomeLoss (k)'</span>, <span class="st">'ComprehensiveIncomeNetOfTax (k)'</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform multiple imputation for missing values in the financial columns</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>imputer <span class="op">=</span> IterativeImputer()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>data[Asset_Profitability_columns] <span class="op">=</span> imputer.fit_transform(data[Asset_Profitability_columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will apply Z-score normalization to the financial columns and Total. This transformation scales the data such that the mean is 0 and the standard deviation is 1. After Z-score normalization, we apply Min-Max normalization to scale the data within the range [0, 1].</p>
+<div id="cell-9" class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the columns to normalize (financial columns + Total)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>columns_to_standardize <span class="op">=</span> Asset_Profitability_columns <span class="op">+</span> [<span class="st">'Total'</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Z-score normalization</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data[columns_to_standardize] <span class="op">=</span> scaler.fit_transform(data[columns_to_standardize])</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Min-Max normalization to the same columns</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>min_max_scaler <span class="op">=</span> MinMaxScaler()</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>data[columns_to_standardize] <span class="op">=</span> min_max_scaler.fit_transform(data[columns_to_standardize])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will convert the values of some columns. If the value is ‘Met’, we will change it to 1, and if it is ‘Unmet’, we will change it to 0.</p>
+<div id="cell-11" class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'GR-B07.EA- Assessment'</span>] <span class="op">=</span> data[<span class="st">'GR-B07.EA- Assessment'</span>].<span class="bu">map</span>({<span class="st">'Met'</span>: <span class="dv">1</span>, <span class="st">'Unmet'</span>: <span class="dv">0</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will create the data frame for SVM.</p>
+<div id="cell-13" class="cell" data-execution_count="272">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_svm <span class="op">=</span> data[[<span class="st">'Assets (k)'</span>, <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>               <span class="st">'OperatingIncomeLoss (k)'</span>, <span class="st">'ComprehensiveIncomeNetOfTax (k)'</span>, <span class="st">'Total'</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">'GR-B07.EA- Assessment'</span>]]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_svm.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Assets (k)  RevenueFromContractWithCustomerExcludingAssessedTax (k)  \
+0    0.014250                                           0.008925         
+1    0.110727                                           0.033700         
+2    0.129706                                           0.075024         
+3    0.050717                                           0.016509         
+4    0.018646                                           0.016485         
+
+   OperatingIncomeLoss (k)  ComprehensiveIncomeNetOfTax (k)     Total  \
+0                 0.044333                         0.024057  0.400749   
+1                 0.030927                         0.011276  0.430712   
+2                 0.081382                         0.061669  0.123596   
+3                 0.043063                         0.022815  0.408240   
+4                 0.040476                         0.025715  0.314607   
+
+   GR-B07.EA- Assessment  
+0                      1  
+1                      1  
+2                      0  
+3                      0  
+4                      0  </code></pre>
+</div>
+</div>
+<p>We will normalize some other financial columns.</p>
+<div id="cell-15" class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Liquidity_Market_columns <span class="op">=</span> [</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'EarningsPerShareBasic'</span>, <span class="st">'EntityPublicFloat (k)'</span>, <span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CashAndCashEquivalentsAtCarryingValue (k)'</span>, <span class="st">'AccountsReceivableNetCurrent (k)'</span>]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform multiple imputation for missing values in the financial columns</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>imputer <span class="op">=</span> IterativeImputer()</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>data[Liquidity_Market_columns] <span class="op">=</span> imputer.fit_transform(data[Liquidity_Market_columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the columns to normalize (financial columns + Total)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>columns_to_standardize <span class="op">=</span> Liquidity_Market_columns</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Z-score normalization</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>data[columns_to_standardize] <span class="op">=</span> scaler.fit_transform(data[columns_to_standardize])</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Min-Max normalization to the same columns</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>min_max_scaler <span class="op">=</span> MinMaxScaler()</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>data[columns_to_standardize] <span class="op">=</span> min_max_scaler.fit_transform(data[columns_to_standardize])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will choose to convert CEO Gender to binary (1 for Male, 0 for Female)</p>
+<div id="cell-18" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert CEO Gender to binary (1 for Male, 0 for Female)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'CEO Gender'</span>] <span class="op">=</span> data[<span class="st">'CEO Gender'</span>].<span class="bu">map</span>({<span class="st">'Male'</span>: <span class="dv">1</span>, <span class="st">'Female'</span>: <span class="dv">0</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'GL-B01.EA-Assessment'</span>] <span class="op">=</span> data[<span class="st">'GL-B01.EA-Assessment'</span>].<span class="bu">map</span>({<span class="st">'Met'</span>: <span class="dv">1</span>, <span class="st">'Unmet'</span>: <span class="dv">0</span>})</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'EE-B06.EB-Assessment'</span>] <span class="op">=</span> data[<span class="st">'EE-B06.EB-Assessment'</span>].<span class="bu">map</span>({<span class="st">'Met'</span>: <span class="dv">1</span>, <span class="st">'Unmet'</span>: <span class="dv">0</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will create the data frame for logistic regression model.</p>
+<div id="cell-21" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_lr <span class="op">=</span> data[[<span class="st">'Assets (k)'</span>, <span class="st">'EntityPublicFloat (k)'</span>, <span class="st">'CEO Gender'</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">'AccountsReceivableNetCurrent (k)'</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">'GL-B01.EA-Assessment'</span>, <span class="st">'EE-B06.EB-Assessment'</span>]]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_lr.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Assets (k)  EntityPublicFloat (k)  CEO Gender  \
+0    0.014250               0.002023           1   
+1    0.110727               0.002541           1   
+2    0.129706               0.013596           1   
+3    0.050717               0.003250           1   
+4    0.018646               0.000391           1   
+
+   AccountsReceivableNetCurrent (k)  GL-B01.EA-Assessment  \
+0                          0.017058                     0   
+1                          0.057146                     0   
+2                          0.084879                     0   
+3                          0.056278                     0   
+4                          0.034306                     1   
+
+   EE-B06.EB-Assessment  
+0                     0  
+1                     0  
+2                     0  
+3                     0  
+4                     0  </code></pre>
+</div>
+</div>
+<p>We will apply sentiment analysis using TextBlob to the textual data in the ‘SE-A06.EA-Evidence’, ‘GPG-C01.EA-Evidence_Sentiment’ and ‘EE-B06.EB-Evidence’ columns to calculate the sentiment polarity score for each row.</p>
+<div id="cell-23" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function to calculate sentiment score for a given text</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_sentiment_score(text):</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pd.isna(text):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> TextBlob(<span class="bu">str</span>(text)).sentiment.polarity  <span class="co"># Return the sentiment polarity score for non-missing text</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform sentiment analysis on 'SE-A06.EA-Evidence' and 'EE-B06.EB-Evidence' columns</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'SE-A06.EA-Evidence_Sentiment'</span>] <span class="op">=</span> data[<span class="st">'SE-A06.EA-Evidence'</span>].<span class="bu">apply</span>(get_sentiment_score)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'GPG-C01.EA-Evidence_Sentiment'</span>] <span class="op">=</span> data[<span class="st">'GPG-C01.EA-Evidence'</span>].<span class="bu">apply</span>(get_sentiment_score)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'EE-B06.EB-Evidence_Sentiment'</span>] <span class="op">=</span> data[<span class="st">'EE-B06.EB-Evidence'</span>].<span class="bu">apply</span>(get_sentiment_score)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results of sentiment analysis</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[[<span class="st">'SE-A06.EA-Evidence_Sentiment'</span>, <span class="st">'GPG-C01.EA-Evidence_Sentiment'</span>,<span class="st">'EE-B06.EB-Evidence_Sentiment'</span>]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   SE-A06.EA-Evidence_Sentiment  GPG-C01.EA-Evidence_Sentiment  \
+0                         0.200                       0.000000   
+1                         0.135                       0.000000   
+2                         0.000                      -0.122917   
+3                        -0.125                       0.200000   
+4                         0.000                       0.000000   
+
+   EE-B06.EB-Evidence_Sentiment  
+0                      0.200000  
+1                      0.000000  
+2                      0.210204  
+3                      0.000000  
+4                      0.000000  </code></pre>
+</div>
+</div>
+<p>We will create the data frame for Gradient Boosting Regression.</p>
+<div id="cell-25" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_br <span class="op">=</span> data[[<span class="st">'ComprehensiveIncomeNetOfTax (k)'</span>, <span class="st">'EntityPublicFloat (k)'</span>, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">'GPG-C01.EA-Evidence_Sentiment'</span>, <span class="st">'GR-B07.EA- Assessment'</span>, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">'GL-B01.EA-Assessment'</span>,<span class="st">'Total'</span>]]</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_br.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   ComprehensiveIncomeNetOfTax (k)  EntityPublicFloat (k)  \
+0                         0.024057               0.002023   
+1                         0.011276               0.002541   
+2                         0.061669               0.013596   
+3                         0.022815               0.003250   
+4                         0.025715               0.000391   
+
+   GPG-C01.EA-Evidence_Sentiment  GR-B07.EA- Assessment  GL-B01.EA-Assessment  \
+0                       0.000000                      1                     0   
+1                       0.000000                      1                     0   
+2                      -0.122917                      0                     0   
+3                       0.200000                      0                     0   
+4                       0.000000                      0                     1   
+
+      Total  
+0  0.400749  
+1  0.430712  
+2  0.123596  
+3  0.408240  
+4  0.314607  </code></pre>
+</div>
+</div>
+<p>We will choose to convert ‘HSW-D01.EC-Assessment’ to multiclasses (1 for Met, 0 for Unmet, 2 for Partially Met)</p>
+<div id="cell-27" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'HSW-D01.EC-Assessment'</span>] <span class="op">=</span> data[<span class="st">'HSW-D01.EC-Assessment'</span>].<span class="bu">map</span>({<span class="st">'Met'</span>: <span class="dv">1</span>, <span class="st">'Unmet'</span>: <span class="dv">0</span>, <span class="st">'Partially Met'</span>: <span class="dv">2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Some company do not have evidence, so we will create a new column ‘HSW-D01.EC-evidence_filled’, where missing evidence values are filled with the explanation text.</p>
+<div id="cell-29" class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function to fill NaN values with the corresponding explanation</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_na_with_explanation(row, explanation):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pd.isna(row):</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> explanation  <span class="co"># Use the explanation from the 'explanation' column</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> row</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the function to the 'evidence' column and create a new column 'evidence_filled'</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'HSW-D01.EC-evidence_filled'</span>] <span class="op">=</span> data.<span class="bu">apply</span>(<span class="kw">lambda</span> row: fill_na_with_explanation(row[<span class="st">'HSW-D01.EC-Evidence'</span>], row[<span class="st">'HSW-D01.EC-Explanation'</span>]), axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will create the data frame for random forest.</p>
+<div id="cell-31" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_rf <span class="op">=</span> data[[<span class="st">'HSW-D01.EC-Assessment'</span>, <span class="st">'HSW-D01.EC-evidence_filled'</span>]]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_rf.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   HSW-D01.EC-Assessment                         HSW-D01.EC-evidence_filled
+0                      0  evidence found regarding whether company provi...
+1                      0  employees families access digital physical the...
+2                      0  assessment evaluated publicly available inform...
+3                      2  fertility support winfertilitys fertility supp...
+4                      0  evidence found regarding whether company provi...</code></pre>
+</div>
+</div>
+</section>
+<section id="binary-classification-1" class="level2">
+<h2 class="anchored" data-anchor-id="binary-classification-1">Binary Classification</h2>
+<section id="support-vector-machine-svm" class="level3">
+<h3 class="anchored" data-anchor-id="support-vector-machine-svm">Support Vector Machine (SVM)</h3>
+<section id="feature-selection-for-svm" class="level4">
+<h4 class="anchored" data-anchor-id="feature-selection-for-svm">Feature Selection For SVM</h4>
+<p><strong>Features</strong>:</p>
+<p>Dependent Variable:</p>
+<p>GR-B07.EA- Assessment: Whether the company procures from women-owned businesses, which reflects a company’s commitment to diversity and inclusion within its supply chain.</p>
+<p>Independent Variable:</p>
+<p>Assets (k): The total assets of the company. Assets provide a measure of the company’s overall size and financial stability, reflecting the resources available for operation, expansion, or investments.</p>
+<p>RevenueFromContractWithCustomerExcludingAssessedTax (k): The revenue generated from contracts with customers, excluding taxes, which reflects the company’s revenue streams.</p>
+<p>OperatingIncomeLoss (k): The operating income or loss of the company. It reflects the company’s ability to generate profit from its regular business operations.</p>
+<p>ComprehensiveIncomeNetOfTax (k): The comprehensive income, which is net of taxes. It reflects the overall financial health of the company, considering both operational and non-operational factors.</p>
+<p>Total: The company’s overall gender equality assessment scores.</p>
+<p><strong>Objective</strong>:</p>
+<p>The objective of choosing the model is to explore the relationship between whether a company procures from women-owned businesses based on selecting financial and operational factors. The target variable, GR-B07.EA-Assessment, is a binary variable that means whether the company engages in procurement from women-owned businesses, reflecting its commitment to diversity and inclusion in the supply chain. This variable is crucial as it helps assess the company’s alignment with gender equity goals and broader social responsibility practices.</p>
+<p>By using Support Vector Machine (SVM) for classification, we aim to understand how the selected independent variables—such as company assets, revenue, operating income, comprehensive income, and gender equality scores—affect the company’s willingness and ability to support women-owned businesses. SVM can identify non-linear relationships between these financial indicators and the target variable.</p>
+</section>
+<section id="model-selection" class="level4">
+<h4 class="anchored" data-anchor-id="model-selection">Model Selection</h4>
+<section id="model-rationale" class="level5">
+<h5 class="anchored" data-anchor-id="model-rationale">Model Rationale:</h5>
+<p>The Support Vector Machine (SVM) is selected for this classification task because it effectively handles both linear and non-linear classification problems, especially with high-dimensional data. SVM is well-suited for predicting whether a company procures from women-owned businesses, using financial and gender equality features, as it maximizes the margin between classes for better generalization. Key advantages of SVM include its ability to handle high-dimensional spaces, suitability for binary classification, capability to capture non-linear relationships through kernel functions, and regularization via the CC parameter, which prevents overfitting by balancing margin maximization and error minimization.</p>
+</section>
+<section id="overview-of-algorithms" class="level5">
+<h5 class="anchored" data-anchor-id="overview-of-algorithms">Overview of Algorithms:</h5>
+<p>The Support Vector Machine (SVM) algorithm is based on finding a hyperplane that best separates different classes by maximizing the margin between them. If the data is not linearly separable, SVM uses kernel functions to transform the data into a higher-dimensional space, where a linear hyperplane can be found. The decision rule is based on the equation of the hyperplane:</p>
+<p><span class="math display">\[ f(x) = \langle w, x \rangle + b \]</span></p>
+<p>where w is the weight vector, x is the input feature vector, and b is the bias term.</p>
+</section>
+</section>
+<section id="training-and-testing-strategy-for-svm" class="level4">
+<h4 class="anchored" data-anchor-id="training-and-testing-strategy-for-svm">Training and Testing Strategy For SVM</h4>
+<p>First, we split the data into training set and testing set. We split the dataset into 80% for training and 20% for testing.</p>
+<div id="cell-46" class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming 'df_svm' contains the relevant features and 'CEO_Gender' is the target variable</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_svm.drop(columns<span class="op">=</span>[<span class="st">'GR-B07.EA- Assessment'</span>])</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_svm[<span class="st">'GR-B07.EA- Assessment'</span>]</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into 80% training and 20% testing</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will use Stratified K-Fold Cross-Validation to ensure balanced distributions of the target variable in each fold.</p>
+<div id="cell-48" class="cell" data-execution_count="245">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define SVM model</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SVC()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameter grid for hyperparameter tuning</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'C'</span>: [<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>, <span class="dv">1</span>, <span class="dv">10</span>],  <span class="co"># Range of values for C (regularization parameter)</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'kernel'</span>: [<span class="st">'linear'</span>, <span class="st">'rbf'</span>, <span class="st">'poly'</span>],  <span class="co"># Selection of kernel types</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'gamma'</span>: [<span class="st">'scale'</span>, <span class="st">'auto'</span>],  <span class="co"># Gamma parameter options</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'class_weight'</span>: [<span class="va">None</span>, <span class="st">'balanced'</span>]  <span class="co"># Whether to use class weights</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform GridSearchCV for hyperparameter tuning</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>grid_search <span class="op">=</span> GridSearchCV(estimator<span class="op">=</span>model, param_grid<span class="op">=</span>param_grid, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span><span class="st">'accuracy'</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>grid_search.fit(X_train, y_train)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the best parameters</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Best Parameters: "</span>, grid_search.best_params_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best Parameters:  {'C': 1, 'class_weight': 'balanced', 'gamma': 'scale', 'kernel': 'rbf'}</code></pre>
+</div>
+</div>
+</section>
+<section id="model-evaluation-metrics-for-svm" class="level4">
+<h4 class="anchored" data-anchor-id="model-evaluation-metrics-for-svm">Model Evaluation Metrics For SVM</h4>
+<p>And then, we will evaluate the performance.</p>
+<div id="cell-51" class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> best_model.predict(X_test)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate binary classification metrics</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_test, y_pred)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_test, y_pred)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y_test, y_pred)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>roc_auc <span class="op">=</span> roc_auc_score(y_test, y_pred)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Confusion Matrix</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_pred)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate ROC Curve</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>fpr, tpr, thresholds <span class="op">=</span> roc_curve(y_test, best_model.decision_function(X_test))</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the evaluation metrics</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy: </span><span class="sc">{</span>accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Precision: </span><span class="sc">{</span>precision<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Recall: </span><span class="sc">{</span>recall<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F1 Score: </span><span class="sc">{</span>f1<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ROC-AUC: </span><span class="sc">{</span>roc_auc<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.73
+Precision: 0.79
+Recall: 0.68
+F1 Score: 0.73
+ROC-AUC: 0.74</code></pre>
+</div>
+</div>
+</section>
+<section id="results-for-svm" class="level4">
+<h4 class="anchored" data-anchor-id="results-for-svm">Results For SVM</h4>
+<section id="model-performance-summary" class="level5">
+<h5 class="anchored" data-anchor-id="model-performance-summary">Model Performance Summary</h5>
+<p>The model’s performance shows that it has a moderate ability to predict whether a firm buys from women-owned businesses based on financial data and the firm’s gender equity rating. The accuracy rate was 0.73, indicating that the model correctly classified 73% of the events. The accuracy is 0.79, indicating that when the model predicts a positive class, the accuracy is 79%. However, the recall rate of 0.68 indicates that the model missed about 32% of the actual positive events. An F1 score of 0.73 implies a trade-off between accuracy and recall, but a ROC-AUC of 0.74 indicates a moderate level of performance for the model in the distinction between the two classes.</p>
+</section>
+<section id="visualization" class="level5">
+<h5 class="anchored" data-anchor-id="visualization">Visualization</h5>
+<section id="roc-curve" class="level6">
+<h6 class="anchored" data-anchor-id="roc-curve">ROC Curve</h6>
+<p>The ROC curve shows the model’s ability to distinguish between companies that procure from women-owned businesses and those that do not. The curve is plotted with the false positive rate on the x-axis and the true positive rate on the y-axis.</p>
+<div id="cell-58" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the ROC curve</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.plot(fpr, tpr, color<span class="op">=</span><span class="st">'blue'</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'ROC curve (area = </span><span class="sc">{</span>roc_auc<span class="sc">:.2f}</span><span class="ss">)'</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>plt.xlim([<span class="fl">0.0</span>, <span class="fl">1.0</span>])</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>plt.ylim([<span class="fl">0.0</span>, <span class="fl">1.05</span>])</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'False Positive Rate'</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'True Positive Rate'</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Receiver Operating Characteristic (ROC) Curve'</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"lower right"</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>The model performs decently, with an AUC of 0.74, indicating it has a 74% chance of correctly distinguishing between the two classes.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>The model performs better than random guessing (as the curve is above the diagonal), there is still room for improvement in its ability to make accurate predictions.</p>
+</section>
+<section id="feature-importance-plot" class="level6">
+<h6 class="anchored" data-anchor-id="feature-importance-plot">Feature Importance Plot</h6>
+<p>The purpose of plotting the feature importance is to evaluate which features have the most influence on the model’s predictions.</p>
+<div id="cell-62" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature importance using permutation importance (for SVM, if not linear)</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> permutation_importance(best_model, X_test, y_test, n_repeats<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> result.importances_mean</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> X.columns</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the feature importance</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Feature Importances'</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>plt.barh(<span class="bu">range</span>(<span class="bu">len</span>(features)), importances, align<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="bu">len</span>(features)), features)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Mean Importance'</span>)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>The feature importance plot shows that the “Total” feature, likely representing the company’s overall gender equality score, has the highest importance in predicting whether the company procures from women-owned businesses. Other important features include “RevenueFromContractWithCustomerExcludingAssessedTax (k)” and “ComprehensiveIncomeNetOfTax (k)”, which suggest that financial performance is a significant factor. On the other hand, “OperatingIncomeLoss (k)” and “Assets (k)” have relatively lower importance, indicating that they contribute less to the prediction in this model.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>To be more specific, RevenueFromContractWithCustomerExcludingAssessedTax (k) being an important feature makes sense because it reflects the company’s business activity and economic power. Companies with higher revenues are more likely to have the financial flexibility and resources to engage in initiatives related to gender equality and procurement from women-owned businesses.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-regression">Logistic Regression</h3>
+<section id="feature-selection-for-logistic-regression" class="level4">
+<h4 class="anchored" data-anchor-id="feature-selection-for-logistic-regression">Feature Selection For Logistic Regression</h4>
+<p><strong>Features</strong>:</p>
+<p>In the logistic regression model, we selected the following dependent variable:</p>
+<p>‘CEO Gender’: It represents the gender of the company’s CEO and is a binary classification target (male or female).</p>
+<p>We selected the following independent vairables:</p>
+<p>‘Assets (k)’: Represents the total assets of the company, typically reflecting the size and financial health of the company, which may influence corporate governance structures.</p>
+<p>‘EntityPublicFloat (k)’: The publicly traded share capital of the company, indicating the company’s market performance and the level of public investor interest, which might affect gender balance.</p>
+<p>‘AccountsReceivableNetCurrent (k)’: Represents the company’s net current accounts receivable, showing the company’s financial health.</p>
+<p>‘GL-B01.EA-Assessment’: A binary variable about whether the company maintains a gender balance (between 40-60%) at the highest governance body.</p>
+<p>‘EE-B06.EB-Assessment’: A binary variable about whether the company describes how it supports the practices of its business relationships in relation to freedom of association and collective bargaining.</p>
+<p><strong>Objective</strong>:</p>
+<p>By using logistic regression, we aim to identify the factors that statistically affect the gender of the CEO, treating it as a binary classification task (male vs.&nbsp;female). The goal is to understand how the combination of these financial and policy-related features influences the likelihood of a female CEO being appointed.</p>
+</section>
+<section id="model-selection-1" class="level4">
+<h4 class="anchored" data-anchor-id="model-selection-1">Model Selection</h4>
+<section id="model-rationale-1" class="level5">
+<h5 class="anchored" data-anchor-id="model-rationale-1">Model Rationale:</h5>
+<p>We selected logistic regression for analyzing the dependent variable ‘CEO Gender’, which represents whether the CEO of the company is female or male. Logistic regression is commonly used for binary classification problems, it allows us to evaluate how independent variables impact the likelihood of a specific outcome, such as the gender of the CEO.</p>
+</section>
+<section id="overview-of-algorithms-1" class="level5">
+<h5 class="anchored" data-anchor-id="overview-of-algorithms-1">Overview of Algorithms:</h5>
+<p>Logistic Regression is a supervised learning model used for binary problems or multiclass problems. It estimates the relationship between input features and the target variable by mapping the linear combination of features to a probability value using a logistic function. Logistic regression offers benefits such as simplicity, ease of interpretation, and efficiency, making it an excellent option for binary outcome problems.</p>
+<p>The Logistic Regression formula is:</p>
+<p><span class="math display">\[ P(Y = 1 | X) = \frac{1}{1 + e^{-(b_0 + b_1X_1 + b_2X_2 + \cdots + b_nX_n)}} \]</span></p>
+<p>Where: <span class="math inline">\(P(Y = 1 | X)\)</span> is the probability that the outcome (target variable <span class="math inline">\(Y\)</span>) is 1 (e.g., CEO gender is “female”).</p>
+<p><span class="math inline">\(b_0\)</span> is the intercept (bias term).</p>
+<p><span class="math inline">\(b_1, b_2, \dots, b_n\)</span> are the coefficients of the input features <span class="math inline">\(X_1, X_2, \dots, X_n\)</span>.</p>
+<p><span class="math inline">\(e\)</span> is the base of the natural logarithm.</p>
+</section>
+</section>
+<section id="training-and-testing-strategy-for-logistic-regression" class="level4">
+<h4 class="anchored" data-anchor-id="training-and-testing-strategy-for-logistic-regression">Training and Testing Strategy For Logistic Regression</h4>
+<p>We will train the model.</p>
+<div id="cell-77" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define features and target variable</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_lr.drop(columns<span class="op">=</span>[<span class="st">'CEO Gender'</span>])</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_lr[<span class="st">'CEO Gender'</span>]</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into 80% training and 20% testing</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-78" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the logistic regression model</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LogisticRegression()</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform 10-Fold Cross-Validation</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(model, X, y, cv<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the cross-validation results</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cross-Validation Scores: </span><span class="sc">{</span>cv_scores<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean CV Score: </span><span class="sc">{</span>cv_scores<span class="sc">.</span>mean()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cross-Validation Scores: [0.9047619 0.9047619 0.95      0.95      0.95      0.95      0.95
+ 0.9       0.9       0.9      ]
+Mean CV Score: 0.925952380952381</code></pre>
+</div>
+</div>
+<div id="cell-79" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-evaluation-metrics-for-logistic-regression" class="level4">
+<h4 class="anchored" data-anchor-id="model-evaluation-metrics-for-logistic-regression">Model Evaluation Metrics For Logistic Regression</h4>
+<p>And then, we will evaluate the model.</p>
+<div id="cell-82" class="cell" data-execution_count="433">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy: </span><span class="sc">{</span>accuracy<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_test, y_pred)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Precision: </span><span class="sc">{</span>precision<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Recall</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_test, y_pred)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Recall: </span><span class="sc">{</span>recall<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># F1 Score</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y_test, y_pred)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F1 Score: </span><span class="sc">{</span>f1<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ROC-AUC</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>y_prob <span class="op">=</span> model.predict_proba(X_test)[:, <span class="dv">1</span>]</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>roc_auc <span class="op">=</span> roc_auc_score(y_test, y_prob)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ROC-AUC: </span><span class="sc">{</span>roc_auc<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.8292682926829268
+Precision: 0.8292682926829268
+Recall: 1.0
+F1 Score: 0.9066666666666667
+ROC-AUC: 0.7605042016806723</code></pre>
+</div>
+</div>
+</section>
+<section id="results-for-logistic-regression" class="level4">
+<h4 class="anchored" data-anchor-id="results-for-logistic-regression">Results For Logistic Regression</h4>
+<section id="model-performance-summary-1" class="level5">
+<h5 class="anchored" data-anchor-id="model-performance-summary-1">Model Performance Summary:</h5>
+<p>Through model evaluation, we can find that the model has a good performance, with the accuracy of 0.829 and the precision of 0.829. The recall rate is 1.0, which means that the model successfully identified all true positives. The F1 score of 0.907 reflects a good trade-off. The ROC-AUC is 0.761, which means that the model has a moderate ability to distinguish two categories: female and male.</p>
+</section>
+<section id="visualizations" class="level5">
+<h5 class="anchored" data-anchor-id="visualizations">Visualizations:</h5>
+<section id="roc-curve-1" class="level6">
+<h6 class="anchored" data-anchor-id="roc-curve-1">ROC Curve</h6>
+<p>The ROC curve (Receiver Operating Characteristic curve) is used to evaluate the performance of a binary classification model. In this case, it helps assess how well the logistic regression model is able to distinguish between the two classes of the target variable, CEO Gender (male or female), based on the selected features.</p>
+<div id="cell-89" class="cell" data-execution_count="345">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ROC Curve</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>fpr, tpr, thresholds <span class="op">=</span> roc_curve(y_test, y_prob)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>plt.plot(fpr, tpr, color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'ROC Curve (AUC = </span><span class="sc">{:.4f}</span><span class="st">)'</span>.<span class="bu">format</span>(roc_auc))</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)  <span class="co"># Random classifier line</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'ROC Curve'</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'False Positive Rate'</span>)</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'True Positive Rate'</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'lower right'</span>)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>The curve is above the diagonal line (random classifier), indicating that the model’s predictions are better than random guessing.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>The model performs relatively well, with an AUC of 0.7605, suggesting that the model has a good ability to distinguish between the two classes.</p>
+</section>
+<section id="feature-importance-heatmap" class="level6">
+<h6 class="anchored" data-anchor-id="feature-importance-heatmap">Feature Importance Heatmap</h6>
+<p>The purpose of the plot is to visually represent the contribution of each feature in predicting the likelihood of a company having a female CEO, as indicated by the logistic regression model’s coefficients.</p>
+<div id="cell-93" class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the coefficients from the Logistic Regression model (related to predicting class 1)</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>coefficients <span class="op">=</span> model.coef_[<span class="dv">0</span>]  <span class="co"># model.coef_ has the shape (1, n_features)</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame with the coefficients and corresponding feature names</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>coef_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Feature'</span>: X.columns,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Coefficient'</span>: coefficients  <span class="co"># Retain the signs of coefficients (not using abs)</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the figure and adjust the size</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a heatmap showing the negative coefficients related to female (class 0) or positive coefficients for male (class 1)</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>sns.heatmap(coef_df.set_index(<span class="st">'Feature'</span>).T, annot<span class="op">=</span><span class="va">False</span>, cmap<span class="op">=</span><span class="st">"coolwarm"</span>, cbar<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Add title and description</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Feature Contribution to Predicting Female (0: Female, 1: Male)'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Add colorbar label</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>cbar <span class="op">=</span> plt.gca().collections[<span class="dv">0</span>].colorbar</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>From the heatmap, we observe that several features, particularly “EntityPublicFloat (k)” and “GL-B01.EA-Assessment,” have relatively higher positive coefficients, indicating they are associated with an increased likelihood of having a male CEO. On the other hand, features such as “EE-B06.EB-Assessment” and “Assets (k)” have negative coefficients, suggesting they are more favorable for a female CEO.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>Features like “Assets (k)” and “EE-B06.EB-Assessment” show negative coefficients, implying that larger company assets and positive gender-related assessments could be factors promoting a female CEO.</p>
+<p>Features like “EntityPublicFloat (k)” and “GL-B01.EA-Assessment” have higher positive values, which might indicate that companies with higher public shareholding and better gender balance at the highest governance body tend to have male CEOs.</p>
+<p>The results could reflect the increasing recognition of the importance of gender equality in leadership. Companies with more assets and progressive labor practices are likely to be at the forefront of social responsibility and diversity initiatives. Larger companies, with their broader resources and visibility, are more likely to appoint women to executive roles, including the position of CEO. Additionally, their commitment to fair labor practices and gender equality could also translate into selecting female leaders who align with their values of equity and inclusivity.</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="regression-1" class="level2">
+<h2 class="anchored" data-anchor-id="regression-1">Regression</h2>
+<section id="gradient-boosting-regression" class="level3">
+<h3 class="anchored" data-anchor-id="gradient-boosting-regression">Gradient Boosting Regression</h3>
+<section id="feature-selection-for-gradient-boosting-regression" class="level4">
+<h4 class="anchored" data-anchor-id="feature-selection-for-gradient-boosting-regression">Feature Selection For Gradient Boosting Regression</h4>
+<p>Dependent Variable:</p>
+<p>Total: Represents the overall gender equality score or assessment for a company.</p>
+<p>Independent Variables (Features):</p>
+<p>ComprehensiveIncomeNetOfTax (k): The comprehensive income of the company after tax, which can be used to assess its financial performance and profitability.</p>
+<p>EntityPublicFloat (k): The public float of the company’s shares post-IPO. It reflects the company’s governance transparency and its ability to attract public investment.</p>
+<p>GPG-C01.EA-Evidence_Sentiment: This feature captures whether the company collects sex-disaggregated pay data. The sentiment score derived from text analysis reflects the company’s stance on gender pay gap data collection. A positive sentiment would suggest the company actively supports gender equality in pay, while a negative sentiment would suggest the opposite.</p>
+<p>GR-B07.EA-Assessment: This feature indicates whether the company procures from women-owned businesses. Gender-responsive procurement is a critical area of corporate responsibility related to gender equality.</p>
+<p>GL-B01.EA-Assessment: This feature assesses whether the company maintains gender balance (between 40-60%) at the highest governance body, which reflects the company’s commitment to gender equality in leadership positions.</p>
+</section>
+<section id="model-selection-2" class="level4">
+<h4 class="anchored" data-anchor-id="model-selection-2">Model Selection</h4>
+<section id="model-rationale-2" class="level5">
+<h5 class="anchored" data-anchor-id="model-rationale-2">Model Rationale:</h5>
+<p>The Gradient Boosting Regressor (GBR) was chosen because it is very effective at capturing nonlinear relationships and interactions between features and is therefore well suited for prediction of the target variable (Total). GBR combines multiple weak pressures, usually decision trees, to create a strong prediction model. This integrated approach minimizes iteration errors by focusing on the weaknesses of previous iterations, thereby improving overall accuracy. In addition, it works well with combinations of numbers and categorical variables, such as financial metrics and sentiment scores in this dataset.</p>
+</section>
+<section id="overview-of-algorithms-2" class="level5">
+<h5 class="anchored" data-anchor-id="overview-of-algorithms-2">Overview of Algorithms:</h5>
+<p>Gradient Boosting Regressor works by optimizing a loss function through the iterative addition of decision trees as weak learners. The core algorithm minimizes the loss function L(y,f(x)), where yy is the true target and f(x) is the predicted value. The model uses gradient descent to adjust tree predictions, effectively minimizing errors over iterations.</p>
+<p>The update rule for Gradient Boosting is as follows:</p>
+<p>1 Initialize the model with a constant prediction:</p>
+<p><span class="math display">\[ F_0(x) = \arg\min_{\theta} \sum_{i=1}^{N} L(y_i, \theta) \]</span></p>
+<p>where $ ( F_0(x) ) $ is the initial prediction and $ ( L(y_i, ) ) $ is the loss function.</p>
+<p>2 For $ ( m = 1, 2, , M ) $ iterations:</p>
+<ol type="1">
+<li>Compute the gradient (pseudo-residuals):</li>
+</ol>
+<p><span class="math display">\[  r_{im} = - \left[ \frac{\partial L(y_i, F(x_i))}{\partial F(x_i)} \right]_{F(x) = F_{m-1}(x)} \]</span></p>
+<p>where $ ( r_{im} ) $ is the residual at the $ ( m ) $-th iteration, and $ ( F_{m-1}(x) ) $ is the model from the previous iteration.</p>
+<ol start="2" type="1">
+<li><p>Fit a weak learner $ ( h_m(x) ) $ to the residuals $ ( r_{im} )$.</p></li>
+<li><p>Update the model:</p>
+<p><span class="math display">\[ F_m(x) = F_{m-1}(x) + \eta \cdot h_m(x) \]</span></p>
+<p>where $ ( ) $ is the learning rate, and $ ( h_m(x) ) $ is the weak learner fitted to the residuals.</p></li>
+</ol>
+</section>
+</section>
+<section id="training-and-testing-strategy-for-gradient-boosting-regression" class="level4">
+<h4 class="anchored" data-anchor-id="training-and-testing-strategy-for-gradient-boosting-regression">Training and Testing Strategy For Gradient Boosting Regression</h4>
+<p>The dataset is divided into training (80%) and testing (20%) sets using train_test_split.</p>
+<div id="cell-107" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define features and target variable</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_br.drop(columns<span class="op">=</span>[<span class="st">'Total'</span>])</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_br[<span class="st">'Total'</span>]</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into 80% training and 20% testing</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-108" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the GradientBoostingRegressor model with default parameters</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> GradientBoostingRegressor(random_state<span class="op">=</span><span class="dv">5000</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model with default parameters</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions with the default model</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-evaluation-metrics-for-gradient-boosting-regression" class="level4">
+<h4 class="anchored" data-anchor-id="model-evaluation-metrics-for-gradient-boosting-regression">Model Evaluation Metrics For Gradient Boosting Regression</h4>
+<p>We use Mean Squared Error (MSE), Root Mean Squared Error (RMSE) and R-squared (R²) to evaluate the model.</p>
+<div id="cell-111" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate evaluation metrics</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>rmse <span class="op">=</span> mse <span class="op">**</span> <span class="fl">0.5</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the evaluation metrics</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Root Mean Squared Error: </span><span class="sc">{</span>rmse<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span>r2<span class="sc">:.4f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean Squared Error: 0.0135
+Root Mean Squared Error: 0.1160
+R-squared: 0.4435</code></pre>
+</div>
+</div>
+<p>Low MSE and RMSE values indicate good model performance, meaning the model’s predictions are close to the actual values. A higher R² value would be better, but 0.44 indicates the model is explaining about 44.35% of the variance in the data, which can be considered reasonable, though improvements may be possible.</p>
+</section>
+<section id="results-for-gradient-boosting-regression" class="level4">
+<h4 class="anchored" data-anchor-id="results-for-gradient-boosting-regression">Results For Gradient Boosting Regression</h4>
+<section id="model-performance-summary-2" class="level5">
+<h5 class="anchored" data-anchor-id="model-performance-summary-2">Model Performance Summary:</h5>
+<p>GBR was trained on how to predict the target variable Total, which represents a company’s gender equality score. We evaluated the model’s performance using three key metrics: the mean square error (MSE) of 0.0135, indicating a relatively low mean square error between the predicted and actual values; The root mean square error (RMSE) is 0.1160, which provides a moderate error measure for the prediction. R²= 0.4435, indicating that the model explains about 44.35% of the variance of the target variable. Although there is still a lot of room for improvement, we can see from the above results that the model captures a large part of the variability in the data, which proves that our model has some validity.</p>
+</section>
+<section id="visualizations-1" class="level5">
+<h5 class="anchored" data-anchor-id="visualizations-1">Visualizations:</h5>
+<section id="q-q-plot" class="level6">
+<h6 class="anchored" data-anchor-id="q-q-plot">Q-Q plot</h6>
+<p>The Q-Q plot (Quantile-Quantile plot) is used to assess whether the residuals from a regression model follow a normal distribution. In the plot, the blue dots represent the ordered residual values, and the red line is the theoretical quantile line for a normal distribution.</p>
+<div id="cell-119" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>stats.probplot(residuals, dist<span class="op">=</span><span class="st">"norm"</span>, plot<span class="op">=</span>plt)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Q-Q Plot'</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-32-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>From the Q-Q plot, it can be observed that the residuals are very close to the red line, especially in the middle of the line. This good fit indicates that the residual is approximately normal distribution, which means that our model conforms to the hypothesis of the normal of the residual, which proves the basic validity of our model.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>We can assume that our model has the validity required for the most basic regression models because the residuals are approximately normally distributed.</p>
+</section>
+<section id="feature-importance-plot-1" class="level6">
+<h6 class="anchored" data-anchor-id="feature-importance-plot-1">Feature Importance Plot</h6>
+<p>The purpose of plotting the feature importance is to evaluate which features have the most influence on the model’s predictions. This helps us understand the relative importance of each feature and guides further analysis, such as selecting the most important features for future modeling or improving model performance.</p>
+<div id="cell-123" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>feature_importances <span class="op">=</span> model.feature_importances_</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> X.columns</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>indices <span class="op">=</span> np.argsort(feature_importances)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>plt.barh(<span class="bu">range</span>(<span class="bu">len</span>(indices)), feature_importances[indices], align<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="bu">len</span>(indices)), [features[i] <span class="cf">for</span> i <span class="kw">in</span> indices])</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Feature Importance'</span>)</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Feature Importance Plot'</span>)</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-33-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>From the feature importance plot, we can see that “GR-B07.EA-Assessment” has the highest importance, followed by “ComprehensiveIncomeNetOfTax (k)” and “EntityPublicFloat (k)”. Other features, such as “GPG-C01.EA-Evidence_Sentiment” and “GL-B01.EA-Assessment”, show lower importance.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>The most important feature is “GR-B07.EA-Assessment,” indicating that the company’s procurement from women-owned businesses is a strong predictor of the target variable, “Total”. Financial features like “ComprehensiveIncomeNetOfTax (k)” and “EntityPublicFloat (k)” also play significant roles. However, features like “GPG-C01.EA-Evidence_Sentiment” and “GL-B01.EA-Assessment” have relatively lower importance, suggesting that their contribution to the model’s prediction is smaller.</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="multi-class-classification-1" class="level2">
+<h2 class="anchored" data-anchor-id="multi-class-classification-1">Multi-class classification</h2>
+<section id="random-forest-classifier" class="level3">
+<h3 class="anchored" data-anchor-id="random-forest-classifier">Random Forest Classifier</h3>
+<section id="features-selection-for-random-forest-classifier" class="level4">
+<h4 class="anchored" data-anchor-id="features-selection-for-random-forest-classifier">Features Selection For Random Forest Classifier</h4>
+<p><strong>Features</strong>:</p>
+<p>Dependent Variable:</p>
+<p>HSW-D01.EC-Assessment: Represents the assessment of whether the company provides coverage for specific health-related services.</p>
+<p>The three labels of the variable are:</p>
+<p>Met: The company provides coverage and fully met the criteria.</p>
+<p>Partially Met: The company partially met the criteria.</p>
+<p>Unmet: The company does not provide coverage for any of these services.</p>
+<p>Indeependent Variable:</p>
+<p>HSW-D01.EC-Evidence: The actual text evidence related to the services the company provides.</p>
+<p><strong>Objective</strong>:</p>
+<p>The goal of the model is based on the company’s health coverage in various health services, Including health coverage for maternal health, sexual and reproductive health, and mental health services, The ability to categorize automated companies into satisfied, partially satisfied, or unsatisfied categories allows you to explore automated processes to measure whether a company meets the criteria. We know that this assessment is done manually by reviewing textual evidence, which is very time consuming. By applying supervised learning using random forest classifiers and extracting features from TF-IDF representations of evidence texts, we aim to create an automated, efficient, and objective classification system. This will help streamline the process and expand the evaluation of large data sets, enabling data-driven decisions to be made in combination with gender equality and text data from company reports.</p>
+</section>
+<section id="model-selection-3" class="level4">
+<h4 class="anchored" data-anchor-id="model-selection-3">Model Selection</h4>
+<section id="model-rationale-3" class="level5">
+<h5 class="anchored" data-anchor-id="model-rationale-3">Model Rationale:</h5>
+<p>The random forest classifier was chosen for this task because of its robustness in classifying multiple labels. The model reconstructs multiple decision trees during the training process and can finally output a category. This has advantages over simple decision trees because it can help reduce the risk of overfitting and improve generalization. In addition, the model also provides a score of feature importance, which can help us explore which features are most relevant for our label recognition, which is very suitable for working with text data, so we choose a random forest classifier.</p>
+</section>
+<section id="overview-of-algorithms-3" class="level5">
+<h5 class="anchored" data-anchor-id="overview-of-algorithms-3">Overview of Algorithms:</h5>
+<p>The Random Forest Classifier is an ensemble learning method that builds a multitude of decision trees and merges their outputs to produce a more accurate and stable prediction. Each tree is trained on a random subset of the data, and only a random subset of features is considered when splitting nodes in each tree, which introduces diversity and improves the model’s performance.</p>
+</section>
+</section>
+<section id="training-and-testing-strategy-for-random-forest-classifier" class="level4">
+<h4 class="anchored" data-anchor-id="training-and-testing-strategy-for-random-forest-classifier">Training and Testing Strategy For Random Forest Classifier</h4>
+<p>We split the data, 80% of the data is used for training, and the remaining 20% is reserved for testing.</p>
+<div id="cell-137" class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_rf[<span class="st">'HSW-D01.EC-Assessment'</span>]</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_rf[<span class="st">'HSW-D01.EC-Assessment'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-138" class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split data into train and test sets</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">5000</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize TF-IDF vectorizer</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>tfidf <span class="op">=</span> TfidfVectorizer(stop_words<span class="op">=</span><span class="st">'english'</span>)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit and transform the training data</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>X_train_tfidf <span class="op">=</span> tfidf.fit_transform(X_train)</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the test data</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>X_test_tfidf <span class="op">=</span> tfidf.transform(X_test)</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the Random Forest classifier</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RandomForestClassifier(random_state<span class="op">=</span><span class="dv">5000</span>, class_weight<span class="op">=</span><span class="st">'balanced'</span>)</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>model.fit(X_train_tfidf, y_train)</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on the test set</span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test_tfidf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-evaluation-metrics-for-random-forest-classifier" class="level4">
+<h4 class="anchored" data-anchor-id="model-evaluation-metrics-for-random-forest-classifier">Model Evaluation Metrics For Random Forest Classifier</h4>
+<p>We will generate a confusion matrix and classification report to assess the model’s performance across different classes.</p>
+<div id="cell-141" class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>precision <span class="op">=</span> precision_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>)  <span class="co"># Macro average for multiclass</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>recall <span class="op">=</span> recall_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>)  <span class="co"># Macro average for multiclass</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>f1_macro <span class="op">=</span> f1_score(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>)  <span class="co"># Macro average F1 score</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>f1_micro <span class="op">=</span> f1_score(y_test, y_pred, average<span class="op">=</span><span class="st">'micro'</span>)  <span class="co"># Micro average F1 score</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Confusion matrix for multiclass classification</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">=</span> confusion_matrix(y_test, y_pred)</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Classification report for detailed metrics per class</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>class_report <span class="op">=</span> classification_report(y_test, y_pred)</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the evaluation results</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Accuracy: </span><span class="sc">{</span>accuracy<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Precision (Macro Average): </span><span class="sc">{</span>precision<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Recall (Macro Average): </span><span class="sc">{</span>recall<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Macro F1 Score: </span><span class="sc">{</span>f1_macro<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Micro F1 Score: </span><span class="sc">{</span>f1_micro<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the classification report</span></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Classification Report:'</span>)</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(class_report)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.6829
+Precision (Macro Average): 0.3974
+Recall (Macro Average): 0.4604
+Macro F1 Score: 0.3985
+Micro F1 Score: 0.6829
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      0.78      0.86        32
+           1       0.00      0.00      0.00         4
+           2       0.23      0.60      0.33         5
+
+    accuracy                           0.68        41
+   macro avg       0.40      0.46      0.40        41
+weighted avg       0.78      0.68      0.71        41
+</code></pre>
+</div>
+</div>
+</section>
+<section id="results-for-random-forest-classifier" class="level4">
+<h4 class="anchored" data-anchor-id="results-for-random-forest-classifier">Results For Random Forest Classifier</h4>
+<section id="model-performance-summary-3" class="level5">
+<h5 class="anchored" data-anchor-id="model-performance-summary-3">Model Performance Summary:</h5>
+<p>The perfomance is as follows:</p>
+<p>Accuracy: The model achieved 68.29% accuracy, which indicates that it correctly ranked around 68% of instances in all tests.</p>
+<p>Precision (Macro Average): The macro precision is 39.74%, which means that the model has medium precision when all categories are considered.</p>
+<p>Recall (Macro Average): The macro average recall is 46.04%, indicating that the ability of the model to identify all relevant instances in all classes is moderate.</p>
+<p>F1 score: the gross average of F1 is 39.85%, indicating a balance between accuracy and withdrawal, but overall performance should improve.</p>
+<p>Micro F1 Score: : The average of micro F1 is 68.29%, taking into account the total number of true positives, false positives and false negatives in all classes, which is consistent with accuracy.</p>
+</section>
+<section id="visualizations-2" class="level5">
+<h5 class="anchored" data-anchor-id="visualizations-2">Visualizations:</h5>
+<p>The purpose of generating this two plots is to visualize the importance of various features in predicting the target variable, which in this case is related to the company’s coverage of health services. This helps to identify which factors are most influential in determining the classification of the company’s health coverage status.</p>
+<div id="cell-147" class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get feature importances</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>feature_importances <span class="op">=</span> model.feature_importances_</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get feature names (for Tfidf, feature names are obtained through get_feature_names_out)</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>feature_names <span class="op">=</span> tfidf.get_feature_names_out()</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine feature names and importance into a DataFrame</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>feature_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Feature'</span>: feature_names,</span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Importance'</span>: feature_importances</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by importance</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>feature_df <span class="op">=</span> feature_df.sort_values(by<span class="op">=</span><span class="st">'Importance'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the bar chart</span></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">'Importance'</span>, y<span class="op">=</span><span class="st">'Feature'</span>, data<span class="op">=</span>feature_df.head(<span class="dv">20</span>))  <span class="co"># Display the top 20 most important features</span></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top 20 Feature Importance'</span>)</span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-37-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-148" class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine feature names and importance into a dictionary</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>feature_dict <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(feature_names, feature_importances))</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the word cloud</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>wordcloud <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">800</span>, height<span class="op">=</span><span class="dv">400</span>, background_color<span class="op">=</span><span class="st">'white'</span>).generate_from_frequencies(feature_dict)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the word cloud</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>plt.imshow(wordcloud, interpolation<span class="op">=</span><span class="st">'bilinear'</span>)</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)  <span class="co"># No axes for the word cloud</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Feature Importance Word Cloud'</span>)</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-38-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>We can find that when evaluating whether these text data meet the criteria for health coverage, “health” is the most important feature, followed by “information”, “coverage” and “employees”. This suggests that these words are important for classification, as they are several important features that affect the model’s predictions.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>Using bar plot and word cloud, we can see that “health” and “information” are the dominant features, suggesting that health coverage and related data are strong predictors.</p>
+<p>Features such as “evidence”, “support” and “reproductive” also showed significant importance, indicating that the company’s actions and support in healthcare services, including reproductive health, contributed significantly to the classification.</p>
+<p>Low-level features, such as “assistance” and “associated,” still have some impact, but they are less significant than higher-level features.</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<section id="result-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="result-interpretation">Result Interpretation:</h2>
+<p>As for SVM, the main research question is to understand how factors like a company’s financial health and revenue affect its decision to buy from women-owned businesses, with the goal of seeing if financial strength influences their support for gender equality in business. From the feature importance plot, we see that the most important factor influencing a company’s decision to buy from women-owned businesses is its gender equality score (Total).</p>
+<p>The results show that companies committed to gender equality are more likely to support women-owned businesses. Other key factors include the company’s financial health, such as comprehensive income, operating income, and revenue, which also play a significant role in this decision.</p>
+<p>In addition, the results suggest that companies with better financial health are more likely to support diversity initiatives like procurement from women-owned businesses. Therefore, improving financial stability could be a strategy for companies wanting to boost their gender equity practices. Policymakers may also use these insights to identify companies that align with gender equality goals and direct support or incentives towards them.</p>
+<p>As for Logistic Regression, we want to understand financial and governance-related factors, company assets, public holdings and so on. We want to know if these factors are related to CEO gender, and we can understand which factors are more important to CEO gender, such as which factors are more positively associated with female CEOs.</p>
+<p>Through the results of model training, we can find that financial and governance factors do play a very important role in shaping and judging the gender of ceos. Specifically, companies with larger total assets and a stronger commitment to gender equality tend to have female CEOs. On the other hand, companies with higher levels of public ownership and more balanced gender governance are more likely to hire male CEOs. Therefore, female CEOs may be more focused on financial stability, such as holding more assets, male CEOs may be more risky in their financial strategies, and female CEOs may be more focused on gender equality principles.</p>
+<p>As for Gradient Boosting Regression, we wanted to train the model to identify the key factors that affect the overall gender equality score in the company. More specifically, we selected a number of financial health indicators (e.g.&nbsp;revenue and public shareholding) and gender-related practices (e.g.&nbsp;purchasing from women-owned businesses, gender balance in governance) for which companies were able to obtain higher gender equality scores.</p>
+<p>The results reveals that several key factors influence a company’s gender equality score. First, companies that procure from women-owned businesses tend to score higher in gender equality, indicating the importance of gender-responsive procurement practices. A company’s financial health, particularly its comprehensive income, also plays a significant role, as companies with better financial performance are more likely to invest in gender equality initiatives. Additionally, companies with a larger public float may face more external pressure on gender equality, contributing to higher scores. Finally, companies that demonstrate a positive sentiment towards addressing the gender pay gap are also more likely to score higher in gender equality, showing that attitudes toward pay equity matter.</p>
+<p>As for Random Forest Classifier, we focused on understanding how the text evidence provided by a company regarding health coverage affects whether a company meets the criteria for health coverage, particularly for maternal health, sexual and reproductive health. Our original labels have three categories, meet, partially met, and unmet, so the goal is to use the available evidence to predict whether a company meets, partially meets, or does not meet the health insurance criteria, trying to automate this assessment process.</p>
+<p>These findings have important implications for companies aiming to improve their health coverage offerings. By understanding which factors—such as “Health” and “Coverage”—are most influential, companies can better tailor their services to meet gender-equity and healthcare access standards. Policymakers and advocacy groups can use this information to assess and promote companies that are making significant strides in providing comprehensive health coverage services, ensuring that more businesses align with broader health and gender equality goals.</p>
+</section>
+<section id="model-performance-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="model-performance-comparison">Model Performance Comparison:</h2>
+<p>We compared the performance of four different models—SVM, Logistic Regression, Gradient Boosting Regression, and Random Forest, although the research questions we want to explore is quite different, but we use the same dataset.</p>
+<p>SVM showed good results with an accuracy of 73%, precision of 79%, and a relatively balanced recall of 68%, meaning it was able to predict “positive” cases (i.e., correctly identify companies meeting the criteria) but slightly missed some “true positives.”</p>
+<p>Logistic Regression performed the best overall, with the highest accuracy of 83%, perfect recall (1.0), and a strong F1 score of 0.91, meaning it was very effective at identifying both positive and negative cases. The ROC-AUC score (0.76) indicates that the model was able to differentiate between categories reasonably well.</p>
+<p>Gradient Boosting Regression is a regression model, so it measures errors in predicting continuous variables. The R-squared value of 0.44 indicates that the model explained about 44% of the variance in the target variable, with a low error (RMSE of 0.12), but it’s not directly comparable to classification models like the others.</p>
+<p>Random Forest showed decent accuracy (68%) but struggled with precision and recall for some categories, especially for the “1” category, where it performed poorly. The macro-average metrics suggest that it struggles with some of the less frequent classes, but the micro-average F1 score (0.68) indicates it’s reasonably good at overall classification.</p>
+<p>In conclusion, Logistic Regression performed the best for this classification task, followed by SVM. The Random Forest model had some issues with class imbalance, and the Gradient Boosting Regression wasn’t directly comparable since it’s a regression model, not a classification one.</p>
+</section>
+<section id="insights-gained" class="level2">
+<h2 class="anchored" data-anchor-id="insights-gained">Insights Gained:</h2>
+<p><strong>Financial Health Drives Gender Equality Support:</strong> Companies with stronger financial health (such as higher comprehensive income and revenue) are more likely to engage in gender-equal practices like procurement from women-owned businesses or promoting women to leadership positions.</p>
+<p><strong>Gender Equality Influences Leadership Diversity:</strong> Governance factors, including support for gender-equitable policies and the balance of genders at the highest levels, are strongly linked to the likelihood of having a female CEO.</p>
+<p><strong>Importance of Gender-Responsive Procurement:</strong> Procurement from women-owned businesses is a major factor in improving a company’s gender equality score, indicating that companies that actively support women-owned businesses tend to have more robust gender equity practices.</p>
+<p><strong>Financial Performance and Gender Equity Go Hand in Hand:</strong> Better financial performance enables companies to invest more in gender equity initiatives, including pay equity and gender balance at leadership levels.</p>
+<p><strong>Model Training Insights:</strong> From the model training, we learned that while financial and governance data is critical in determining gender equity outcomes, certain features (e.g., gender equality score, procurement from women-owned businesses) play a particularly pivotal role. We also saw that ensemble methods like Random Forest are well-suited for handling complex, multi-dimensional data but may struggle with class imbalances.</p>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-jakkula2006tutorial" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Jakkula, V. Tutorial on support vector machine (svm). <em>School of EECS, Washington State University</em> <strong>37</strong>, 3 (2006).</div>
+</div>
+<div id="ref-hosmer2013applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Hosmer Jr, D. W., Lemeshow, S. &amp; Sturdivant, R. X. <em>Applied logistic regression</em>. (John Wiley &amp; Sons, 2013).</div>
+</div>
+<div id="ref-friedman2001greedy" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Friedman, J. H. Greedy function approximation: A gradient boosting machine. <em>Annals of statistics</em> 1189–1232 (2001).</div>
+</div>
+<div id="ref-belgiu2016random" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Belgiu, M. &amp; Drăguţ, L. Random forest in remote sensing: A review of applications and future directions. <em>ISPRS journal of photogrammetry and remote sensing</em> <strong>114</strong>, 24–31 (2016).</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -302,18 +1323,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -345,7 +1355,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -353,7 +1385,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

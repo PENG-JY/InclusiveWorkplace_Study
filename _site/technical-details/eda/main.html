@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Exploratory Data Analysis</title>
+<title>Exploratory Data Analysis – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -93,15 +127,15 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
+    <a class="nav-link" href="../../Collaborators.html"> 
+<span class="menu-text">About Us</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
@@ -137,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -151,12 +185,40 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#overview-of-methods" id="toc-overview-of-methods" class="nav-link" data-scroll-target="#overview-of-methods">Overview of Methods</a>
   <ul class="collapse">
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
-  <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
+  <li><a href="#overview-of-methods-for-univariate-analysis" id="toc-overview-of-methods-for-univariate-analysis" class="nav-link" data-scroll-target="#overview-of-methods-for-univariate-analysis">Overview of Methods for Univariate Analysis</a></li>
+  <li><a href="#overview-of-methods-for-bivariate-and-multivariate-analysis" id="toc-overview-of-methods-for-bivariate-and-multivariate-analysis" class="nav-link" data-scroll-target="#overview-of-methods-for-bivariate-and-multivariate-analysis">Overview of Methods for Bivariate and Multivariate Analysis</a></li>
+  <li><a href="#overview-of-methods-for-text-analysis-and-feature-engineering" id="toc-overview-of-methods-for-text-analysis-and-feature-engineering" class="nav-link" data-scroll-target="#overview-of-methods-for-text-analysis-and-feature-engineering">Overview of Methods for Text Analysis and Feature Engineering</a></li>
   </ul></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
+  <ul class="collapse">
+  <li><a href="#univariate-analysis-for-gender-related-data" id="toc-univariate-analysis-for-gender-related-data" class="nav-link" data-scroll-target="#univariate-analysis-for-gender-related-data">Univariate Analysis for Gender-Related Data</a>
+  <ul class="collapse">
+  <li><a href="#univariate-analysis-for-total-score" id="toc-univariate-analysis-for-total-score" class="nav-link" data-scroll-target="#univariate-analysis-for-total-score">Univariate Analysis for Total Score</a></li>
+  <li><a href="#univariate-analysis-for-ceo-gender" id="toc-univariate-analysis-for-ceo-gender" class="nav-link" data-scroll-target="#univariate-analysis-for-ceo-gender">Univariate Analysis for CEO Gender</a></li>
+  </ul></li>
+  <li><a href="#bivariate-and-multivariate-analysis" id="toc-bivariate-and-multivariate-analysis" class="nav-link" data-scroll-target="#bivariate-and-multivariate-analysis">Bivariate and Multivariate Analysis</a>
+  <ul class="collapse">
+  <li><a href="#differences-in-financial-indicator-means-by-ceo-gender" id="toc-differences-in-financial-indicator-means-by-ceo-gender" class="nav-link" data-scroll-target="#differences-in-financial-indicator-means-by-ceo-gender">Differences in Financial Indicator Means by CEO Gender</a></li>
+  <li><a href="#relationships-between-financial-indicators-and-total-score" id="toc-relationships-between-financial-indicators-and-total-score" class="nav-link" data-scroll-target="#relationships-between-financial-indicators-and-total-score">Relationships Between Financial Indicators and Total Score</a></li>
+  </ul></li>
+  <li><a href="#text-analysis-and-feature-engineering" id="toc-text-analysis-and-feature-engineering" class="nav-link" data-scroll-target="#text-analysis-and-feature-engineering">Text Analysis and Feature Engineering</a>
+  <ul class="collapse">
+  <li><a href="#keyword-analysis-comparing-gender-policies-and-actions-across-workplace-and-supply-chain-contexts" id="toc-keyword-analysis-comparing-gender-policies-and-actions-across-workplace-and-supply-chain-contexts" class="nav-link" data-scroll-target="#keyword-analysis-comparing-gender-policies-and-actions-across-workplace-and-supply-chain-contexts">Keyword Analysis: Comparing Gender Policies and Actions Across Workplace and Supply Chain Contexts</a></li>
+  <li><a href="#sentiment-analysis-focus-on-violence-and-harassment-prevention" id="toc-sentiment-analysis-focus-on-violence-and-harassment-prevention" class="nav-link" data-scroll-target="#sentiment-analysis-focus-on-violence-and-harassment-prevention">Sentiment Analysis: Focus on Violence and Harassment Prevention</a></li>
+  <li><a href="#topic-distribution-across-industries-gender-responsive-human-rights-due-diligence-process" id="toc-topic-distribution-across-industries-gender-responsive-human-rights-due-diligence-process" class="nav-link" data-scroll-target="#topic-distribution-across-industries-gender-responsive-human-rights-due-diligence-process">Topic Distribution Across Industries: Gender-responsive human rights due diligence process</a></li>
+  <li><a href="#keyword-network-analysis-unveiling-the-structure-of-grievance-mechanisms" id="toc-keyword-network-analysis-unveiling-the-structure-of-grievance-mechanisms" class="nav-link" data-scroll-target="#keyword-network-analysis-unveiling-the-structure-of-grievance-mechanisms">Keyword Network Analysis: Unveiling the Structure of Grievance Mechanisms</a></li>
+  <li><a href="#ceo-gender-based-word-frequency-analysis-in-gender-strategic-action" id="toc-ceo-gender-based-word-frequency-analysis-in-gender-strategic-action" class="nav-link" data-scroll-target="#ceo-gender-based-word-frequency-analysis-in-gender-strategic-action">CEO Gender-based Word Frequency Analysis in Gender Strategic Action</a></li>
+  <li><a href="#analysis-of-pay-gap-data-collection-based-on-ceo-gender" id="toc-analysis-of-pay-gap-data-collection-based-on-ceo-gender" class="nav-link" data-scroll-target="#analysis-of-pay-gap-data-collection-based-on-ceo-gender">Analysis of Pay Gap Data Collection Based on CEO Gender</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusions-and-next-steps" id="toc-conclusions-and-next-steps" class="nav-link" data-scroll-target="#conclusions-and-next-steps">Conclusions and Next Steps</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-eda-findings" id="toc-summary-of-eda-findings" class="nav-link" data-scroll-target="#summary-of-eda-findings">Summary of EDA Findings</a></li>
+  <li><a href="#implications-for-modeling" id="toc-implications-for-modeling" class="nav-link" data-scroll-target="#implications-for-modeling">Implications for Modeling</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -183,100 +245,1153 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- After digesting the instructions, you can delete this cell, these are assignment instructions and do not need to be included in your final submission.  -->
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<p><code>Note</code>: You should remove these instructions once you have read and understood them. They should not be included in your final submission.</p>
-<p><code>Remember:</code> Exactly what do you put on this page will be specific you your project and data. Some things might “make more sense” on one page rather than another, depending on your workflow. Organize your project in a logical way that makes the most sense to you.</p>
-<section id="suggested-page-structure" class="level2">
-<h2 class="anchored" data-anchor-id="suggested-page-structure">Suggested page structure</h2>
-<p>Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:</p>
-<p><code>Audience</code>:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts.</p>
+<section id="introduction-and-motivation" class="level1">
+<h1>Introduction and Motivation</h1>
+<p>Exploratory Data Analysis (EDA) aims to initially explore the factors that influence gender equality practices within a company, with a particular focus on the data structures themselves that influence key areas such as gender equality scores and CEO gender, and how they relate to financial metrics and governance metrics.</p>
+<p>The motivation for this analysis is that gender equality in the workplace is a trend in today’s society. We want to do a preliminary exploration for the next part of machine learning to determine the direction of our future exploration.</p>
+</section>
+<section id="overview-of-methods" class="level1">
+<h1>Overview of Methods</h1>
+<section id="overview-of-methods-for-univariate-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-methods-for-univariate-analysis">Overview of Methods for Univariate Analysis</h2>
+<p>Univariate analysis is a foundational technique for understanding the distribution and characteristics of individual variables in a dataset. In this project, univariate analysis was conducted on gender-related variables, gender equality scores and CEO gender, to provide insights into the data’s characteristics.</p>
 <ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
-<li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
+<li><p><strong>Descriptive Statistics</strong>: Descriptive statistics were used to summarize key aspects of variables. Measures such as the mean, median, standard deviation, and interquartile range were calculated to assess the central tendency and dispersion of variables. In our study, we examined the distribution of gender equality scores to determine whether they were skewed towards higher or lower values.</p></li>
+<li><p><strong>Frequency Distribution</strong>: Frequency analysis was performed on categorical variables such as CEO gender to understand the proportion of companies with male versus female CEOs. This helped establish a baseline for understanding gender representation in leadership roles across companies in the dataset.</p></li>
+<li><p><strong>Histogram and Density Plot</strong>: Used to visualize the distribution of continuous variables such as gender equality scores. This helped identify any skewness or outliers in the data.</p></li>
 </ul>
 </section>
-<section id="what-to-address" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
-<p>The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.</p>
-<p>The <strong>EDA (Exploratory Data Analysis)</strong> tab in your portfolio serves as a crucial foundation for your project. It provides a thorough overview of the dataset, highlights patterns, identifies potential issues, and prepares the data for further analysis. Follow these instructions to document your EDA effectively:</p>
-<p>The goal of EDA is to gain a deeper understanding of the dataset and its relevance to your project’s objectives. It involves summarizing key data characteristics, identifying patterns, anomalies, and preparing for future analysis phases.</p>
-<p>Here are suggestions for things to include on this page</p>
-<p><strong>Univariate Analysis</strong>:</p>
+<section id="overview-of-methods-for-bivariate-and-multivariate-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-methods-for-bivariate-and-multivariate-analysis">Overview of Methods for Bivariate and Multivariate Analysis</h2>
+<p>Bivariate and multivariate analyses were employed to investigate the relationships between two or more variables. This allowed for a deeper understanding of the interdependencies between gender diversity metrics, CEO gender, and company financial performance. These analyses were key to identifying patterns, correlations, and potential causality.</p>
 <ul>
-<li><strong>Numerical Variables</strong>:
-<ul>
-<li>Provide summary statistics (mean, median, standard deviation).</li>
-<li>Visualize distributions using histograms or density plots.</li>
-</ul></li>
-<li><strong>Categorical Variables</strong>:
-<ul>
-<li>Present frequency counts and visualize distributions using bar charts or pie charts.</li>
-</ul></li>
-<li><strong>Key Insights</strong>:
-<ul>
-<li>Highlight any notable trends or patterns observed.</li>
-</ul></li>
+<li><p><strong>Z-Score Normalization and Min-Max Scaling</strong>: Z-Score Normalization and Min-Max Scaling were applied to the financial data to address the differences in scale between variables.</p></li>
+<li><p><strong>Histograms and Box Plots</strong>: Used to compare the distribution of each financial indicator between companies led by male and female CEOs.</p></li>
+<li><p><strong>Hypothesis Testing</strong>: For each financial indicator, hypothesis testing was conducted to determine whether there is a significant difference in the mean values between male-led and female-led companies.</p></li>
+<li><p><strong>Correlation Analysis</strong>: Spearman correlation analysis was used to explore the relationship between financial indicators and gender equality scores.</p></li>
 </ul>
-<p><strong>Bivariate and Multivariate Analysis</strong>:</p>
+</section>
+<section id="overview-of-methods-for-text-analysis-and-feature-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-methods-for-text-analysis-and-feature-engineering">Overview of Methods for Text Analysis and Feature Engineering</h2>
+<p>In this project, text analysis plays a critical role in understanding the gender equality practices within companies, particularly through the lens of the evidence provided in relation to gender equality policies. To effectively analyze textual data, several techniques were employed to transform raw text into meaningful features that can be used for classification tasks.</p>
 <ul>
-<li><strong>Correlation Analysis</strong>:
-<ul>
-<li>Analyze relationships between numerical variables using a correlation matrix.</li>
-<li>Visualize with heatmaps or pair plots and discuss any strong correlations.</li>
-</ul></li>
-<li><strong>Crosstabulations</strong>:
-<ul>
-<li>For categorical variables, use crosstabs to explore relationships and visualize them with grouped bar plots.</li>
-</ul></li>
-<li><strong>Feature Pairings</strong>:
-<ul>
-<li>Analyze relationships between key variables, particularly those related to your target.</li>
-<li>Visualize with scatter plots, box plots, or violin plots.</li>
-</ul></li>
-</ul>
-<p><strong>Data Distribution and Normalization</strong>:</p>
-<ul>
-<li><strong>Skewness and Kurtosis</strong>:</li>
-<li>Analyze and discuss the distribution of variables.</li>
-<li>Apply transformations (e.g., log transformation) if needed for skewed data.</li>
-<li><strong>Normalization</strong>:</li>
-<li>Apply normalization or scaling techniques (e.g., min-max scaling, z-score).</li>
-<li>Document and visualize the impact of normalization.</li>
-</ul>
-<p><strong>Statistical Insights</strong>:</p>
-<ul>
-<li>Conduct basic statistical tests (e.g., T-tests, ANOVA, chi-square) to explore relationships between variables.</li>
-<li>Summarize the statistical results and their implications for your analysis.</li>
-</ul>
-<p><strong>Data Visualization and Storytelling</strong>:</p>
-<ul>
-<li><strong>Visual Summary</strong>:</li>
-<li>Present key insights using charts and visualizations (e.g., Matplotlib, Seaborn, Plotly).</li>
-<li>Ensure all visualizations are well-labeled and easy to interpret.</li>
-<li><strong>Interactive Visualizations (Optional)</strong>:</li>
-<li>Include interactive elements (e.g., Plotly, Bokeh) to allow users to explore the data further.</li>
-</ul>
-<p><strong>Conclusions and Next Steps</strong>:</p>
-<ul>
-<li><strong>Summary of EDA Findings</strong>:</li>
-<li>Highlight the main takeaways from the EDA process (key trends, patterns, data quality issues).</li>
-<li><strong>Implications for Modeling</strong>:</li>
-<li>Discuss how your EDA informs the next steps in your project (e.g., feature selection, data transformations).</li>
-<li>Outline any further data cleaning or preparation required before moving into modeling.</li>
+<li><p><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong>: TF-IDF transforms text into numerical features by evaluating the importance of terms in a document relative to the whole dataset. It helps identify key terms such as “gender balance”, “pay equity”, and “women-owned businesses”, which highlight a company’s commitment to gender equality.</p></li>
+<li><p><strong>Sentiment Analysis</strong>: Sentiment analysis classifies text into positive, neutral, or negative categories to assess a company’s stance on gender equality issues like pay equity or harassment prevention.</p></li>
+<li><p><strong>Topic Modeling</strong>: Topic modeling uncovers hidden themes in company policies, helping to identify how companies address aspects like pay gap data collection, violence prevention, and gender balance in leadership.</p></li>
+<li><p><strong>Keyword and Network Analysis</strong>: Keyword analysis identifies frequently discussed topics related to gender equality, while network analysis visualizes relationships between key terms (e.g., “gender equality” and “pay equity”) to understand company policies.</p></li>
+<li><p><strong>Feature Engineering</strong>: Features derived from sentiment scores, topic distributions, and keyword frequencies are integrated with numerical data to create a comprehensive dataset for machine learning, offering deeper insights into a company’s gender equality practices.</p></li>
 </ul>
 </section>
 </section>
 <section id="code" class="level1">
 <h1>Code</h1>
-<p>Provide the source code used for this section of the project here.</p>
-<p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
-<p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
-<p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<div id="cell-3" class="cell" data-execution_count="196">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> word_tokenize</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vaderSentiment.vaderSentiment <span class="im">import</span> SentimentIntensityAnalyzer</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> LatentDirichletAllocation</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nltk</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk <span class="im">import</span> download</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind, mannwhitneyu</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> MinMaxScaler</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> spearmanr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-4" class="cell" data-execution_count="198">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the CSV file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'../../data/processed-data/merged_data.csv'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="univariate-analysis-for-gender-related-data" class="level2">
+<h2 class="anchored" data-anchor-id="univariate-analysis-for-gender-related-data">Univariate Analysis for Gender-Related Data</h2>
+<section id="univariate-analysis-for-total-score" class="level3">
+<h3 class="anchored" data-anchor-id="univariate-analysis-for-total-score">Univariate Analysis for Total Score</h3>
+<div id="cell-7" class="cell" data-execution_count="199">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for the "Total" column and ensure it is numeric</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Total'</span>] <span class="op">=</span> pd.to_numeric(data[<span class="st">'Total'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate summary statistics for "Total"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="op">=</span> data[<span class="st">'Total'</span>].describe()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize distribution using histograms and density plots</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.hist(data[<span class="st">'Total'</span>].dropna(), bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'blue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of Total'</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Total'</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Density Plot</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Total'</span>].dropna().plot(kind<span class="op">=</span><span class="st">'density'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Density Plot of Total'</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Total'</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>summary_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="199">
+<pre><code>count    202.000000
+mean      11.930198
+std        4.258177
+min        0.000000
+25%        9.400000
+50%       11.550000
+75%       14.700000
+max       26.700000
+Name: Total, dtype: float64</code></pre>
+</div>
+</div>
+<p>The maximum possible Total Score is 100, representing the highest performance in terms of gender equality and respect. This includes aspects such as working environment, compensation and benefits, and the prevention of violence and harassment.</p>
+<p><strong>Statistical Summary</strong>: 1. Count: 202 companies are included in the dataset. 2. Mean: The average Total Score is 11.93, which is far below from the maximum possible score of 100. 3. Standard Deviation: The scores have a spread of 4.26, indicating moderate variability in performance. 4. Minimum: The lowest score is 0, suggesting that some companies performed extremely poorly in gender equality measures. 5. Maximum: The highest score in the dataset is 26.70, far below the theoretical maximum of 100, which highlights the overall poor performance.</p>
+<p><strong>Visual Observations</strong>: 1. Histogram: The majority of the scores are clustered around the 10-15 range, with the frequency peaking near the mean (11.93). Very few companies scored above 20, indicating that achieving high scores is uncommon in this dataset. 2. Density Plot: The density curve is slightly skewed to the right, with a long tail extending towards higher scores, highlighting a few outliers with better performance. The peak of the density aligns closely with the mean and median, reinforcing the clustering of scores in the mid-range.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>The low mean, median, and maximum values underscore that most companies in the dataset are performing poorly on gender equality and respect indicators. There is a significant opportunity for improvement, as no company has achieved scores close to the theoretical maximum.</p>
+<div id="cell-9" class="cell" data-execution_count="200">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram with the scale set to 0-100</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram with fixed range 0-100</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.hist(data[<span class="st">'Total'</span>].dropna(), bins<span class="op">=</span><span class="dv">20</span>, <span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>, <span class="dv">100</span>), alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'blue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of Total Scores (0-100 Scale)'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Total Score (0-100)'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>When we put the data into a scale of 0-100 (the theoritical scale), we can see the overall performance of the companies in a more clear way:</p>
+<p><strong>Visual Observations</strong>: 1. Data Concentration: The majority of the Total Scores fall well below the midpoint of the 0-100 scale, with most scores concentrated between 0 and 30. 2. Lack of High Scores: No data points exceed a score of 30 out of 100, indicating that companies in the dataset perform significantly below the potential benchmark.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>The visualization starkly highlights the underperformance of these companies in meeting gender equality standards. This may point to systemic issues or a lack of substantial initiatives toward achieving higher scores.</p>
+</section>
+<section id="univariate-analysis-for-ceo-gender" class="level3">
+<h3 class="anchored" data-anchor-id="univariate-analysis-for-ceo-gender">Univariate Analysis for CEO Gender</h3>
+<div id="cell-12" class="cell" data-execution_count="201">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency counts for "CEO Gender"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ceo_gender_counts <span class="op">=</span> data[<span class="st">'CEO Gender'</span>].value_counts()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing the distribution using bar chart and pie chart</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Chart</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>ceo_gender_counts.plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Bar Chart of CEO Gender'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'CEO Gender'</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie Chart</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>ceo_gender_counts.plot(kind<span class="op">=</span><span class="st">'pie'</span>, autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>, startangle<span class="op">=</span><span class="dv">140</span>, colors<span class="op">=</span>[<span class="st">'lightcoral'</span>, <span class="st">'lightblue'</span>, <span class="st">'lightgreen'</span>])</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Pie Chart of CEO Gender'</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">''</span>)  <span class="co"># Removing the y-label for a cleaner pie chart</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>ceo_gender_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="201">
+<pre><code>CEO Gender
+Male      187
+Female     15
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<p>The data reveals a significant imbalance in CEO gender representation:</p>
+<p><strong>Visual Observations</strong>:</p>
+<p>The majority of CEOs in the dataset are male (92.6%), while only a small percentage (7.4%) are female. The bar and pie charts both illustrate this stark gender gap, emphasizing the dominance of male CEOs across companies.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>This disparity showed in the charts highlights a clear underrepresentation of women in top leadership positions. Coupled with the low Total Scores observed for gender equality indicators, it is evident that most companies are underperforming in fostering a more equitable and inclusive environment. This imbalance underscores the need for stronger initiatives and actionable commitments to promote gender diversity at the leadership level.</p>
+</section>
+</section>
+<section id="bivariate-and-multivariate-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="bivariate-and-multivariate-analysis">Bivariate and Multivariate Analysis</h2>
+<section id="differences-in-financial-indicator-means-by-ceo-gender" class="level3">
+<h3 class="anchored" data-anchor-id="differences-in-financial-indicator-means-by-ceo-gender">Differences in Financial Indicator Means by CEO Gender</h3>
+<div id="cell-16" class="cell" data-execution_count="202">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>financial_columns <span class="op">=</span> [</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NetIncomeLoss (k)"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"OperatingIncomeLoss (k)"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GrossProfit (k)"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ComprehensiveIncomeNetOfTax (k)"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EarningsPerShareBasic"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"RevenueFromContractWithCustomerExcludingAssessedTax (k)"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EntityPublicFloat (k)"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AllocatedShareBasedCompensationExpense (k)"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CashAndCashEquivalentsAtCarryingValue (k)"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AccountsReceivableNetCurrent (k)"</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>First, we apply <strong>Z-Score Normalization</strong> to the financial data to handle differences in scale. Financial indicators like Net Income, Revenue, and Cash and Cash Equivalents can vary greatly in magnitude. For example: A large company might have billions in revenue, while a smaller company might only have millions. In this case, indicators with larger values may dominate models or visualizations if left unnormalized. By applying Z-Score normalization, all indicators are transformed to a consistent scale where the magnitude of their values is relative to their distribution. This ensures that all features contribute equally to analyses and models, preventing bias from large-scale differences.</p>
+<div id="cell-18" class="cell" data-execution_count="203">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Z-Score Normalization</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data[financial_columns] <span class="op">=</span> data[financial_columns].<span class="bu">apply</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> x: (x <span class="op">-</span> np.mean(x)) <span class="op">/</span> np.std(x), axis<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Min-Max Normalization</strong> is often applied after Z-Score standardization to scale the data into a specific range. This process is particularly useful when the goal is to standardize the data while preserving its relative differences and ensuring all values are positive. In this case, Min-Max Normalization can also help enhancing the interpretability of the data.</p>
+<div id="cell-20" class="cell" data-execution_count="204">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Min-Max Scaling</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> MinMaxScaler()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data[financial_columns] <span class="op">=</span> scaler.fit_transform(data[financial_columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-21" class="cell" data-execution_count="205">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>num_plots <span class="op">=</span> <span class="bu">len</span>(financial_columns)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> math.ceil(num_plots <span class="op">/</span> cols)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Histograms for Normalized Financial Indicators - Separate Male/Female</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> gender <span class="kw">in</span> data[<span class="st">'CEO Gender'</span>].unique():</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">5</span> <span class="op">*</span> rows))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, col <span class="kw">in</span> <span class="bu">enumerate</span>(financial_columns, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        plt.subplot(rows, cols, i)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        sns.histplot(</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>data[data[<span class="st">'CEO Gender'</span>] <span class="op">==</span> gender],</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>col,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>            kde<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>            alpha<span class="op">=</span><span class="fl">0.6</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>            bins<span class="op">=</span><span class="dv">20</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'blue'</span> <span class="cf">if</span> gender <span class="op">==</span> <span class="st">'Male'</span> <span class="cf">else</span> <span class="st">'orange'</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        plt.title(<span class="ss">f"</span><span class="sc">{</span>gender<span class="sc">}</span><span class="ss">: Histogram of </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        plt.xlabel(col)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        plt.ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-10-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<ol type="1">
+<li>Overall Data Range:</li>
+</ol>
+<ul>
+<li>For companies with <strong>Male CEOs</strong>, the financial indicators span a much wider range, with a significant concentration near the lower values, but some extreme high outliers are visible. This suggests a diverse performance range, where a few companies dominate with high financial metrics.</li>
+<li>In contrast, companies with <strong>Female CEOs</strong> have a much narrower range for most financial indicators, with data clustered tightly around lower to mid-range values. This indicates less variability and generally lower financial performance metrics.</li>
+</ul>
+<ol start="2" type="1">
+<li>Specific Indicators:</li>
+</ol>
+<ul>
+<li>Net Income and Operating Income: <strong>Male-led companies</strong> show higher peaks near lower values but also have long tails extending toward higher financial performance. <strong>Female-led companies’</strong> distributions are narrower and concentrated, with no significant high outliers.</li>
+<li>Revenue and Gross Profit: Similar patterns emerge, with <strong>male-led companies</strong> exhibiting broader ranges and higher maximum values compared to <strong>female-led companies</strong>.</li>
+<li>Allocated Share-Based Compensation: <strong>Male-led companies</strong> show long-tailed distributions, while <strong>female-led companies’</strong> distributions are tightly packed, with values concentrated at lower levels.</li>
+</ul>
+<ol start="3" type="1">
+<li>KDE Trends:</li>
+</ol>
+<ul>
+<li>The kernel density estimates (KDE) for <strong>Male CEOs</strong> show smoother, more continuous distributions, reflecting a broad variation.</li>
+<li>The KDE for <strong>Female CEOs</strong> is more irregular, indicating fewer data points and clustering around mid-range values.</li>
+</ul>
+<p><strong>Key Insights</strong>:</p>
+<ol type="1">
+<li>Variability in Financial Indicators:</li>
+</ol>
+<ul>
+<li><strong>Male-led companies</strong> show greater variability across all financial indicators, likely reflecting a larger sample size and broader representation of performance levels.</li>
+<li><strong>Female-led companies</strong> exhibit more homogeneity, with fewer extreme values and narrower performance ranges.</li>
+</ul>
+<ol start="2" type="1">
+<li>Potential Underrepresentation:</li>
+</ol>
+<ul>
+<li>The tighter distributions for <strong>Female CEOs</strong> might reflect both underrepresentation in the dataset and structural barriers limiting their opportunities to lead larger or high-performing companies.</li>
+</ul>
+<ol start="3" type="1">
+<li>Outliers in Male-led Companies:</li>
+</ol>
+<ul>
+<li>The presence of significant outliers for <strong>Male CEOs</strong> skews the distribution, suggesting that high-performing companies disproportionately drive the observed patterns.</li>
+</ul>
+<div id="cell-23" class="cell" data-execution_count="206">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box Plots for Normalized Financial Indicators - Separate Male/Female</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> gender <span class="kw">in</span> data[<span class="st">'CEO Gender'</span>].unique():</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">30</span>, <span class="dv">5</span> <span class="op">*</span> rows))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, col <span class="kw">in</span> <span class="bu">enumerate</span>(financial_columns, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        plt.subplot(rows, cols, i)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        sns.boxplot(</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>data[data[<span class="st">'CEO Gender'</span>] <span class="op">==</span> gender],</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span><span class="st">'CEO Gender'</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>col,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'blue'</span> <span class="cf">if</span> gender <span class="op">==</span> <span class="st">'Male'</span> <span class="cf">else</span> <span class="st">'orange'</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        plt.title(<span class="ss">f"</span><span class="sc">{</span>gender<span class="sc">}</span><span class="ss">: Box Plot of </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        plt.xlabel(<span class="st">"CEO Gender"</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        plt.ylabel(<span class="st">"Normalized Value"</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-11-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<ol type="1">
+<li>Overall Data Spread and Outliers:</li>
+</ol>
+<ul>
+<li>For companies with <strong>Male CEOs</strong>, the financial indicators exhibit a wider spread and numerous outliers, indicating greater variability and the presence of high-performing companies.</li>
+<li>In contrast, for companies with <strong>Female CEOs</strong>, the financial indicators show a much tighter interquartile range (IQR) with fewer or no extreme outliers, suggesting more consistent and narrower performance levels.</li>
+</ul>
+<ol start="2" type="1">
+<li>Specific Indicators:</li>
+</ol>
+<ul>
+<li>Net Income and Operating Income: <strong>Male-led companies</strong> have significantly more outliers extending to higher values, reflecting a small subset of companies with extraordinary financial performance. <strong>Female-led companies’</strong> distributions are compact, with median values centered closer to lower ranges.</li>
+<li>Revenue and Gross Profit: Similar to income metrics, <strong>male-led companies</strong> demonstrate greater dispersion, with outliers pulling the upper bounds of the box plots far higher. <strong>Female-led companies</strong> maintain a more uniform range of values, with medians skewed toward the lower end.</li>
+<li>Allocated Share-Based Compensation: <strong>Male-led companies</strong> have extreme values influencing the distribution significantly, whereas <strong>female-led companies</strong> remain tightly grouped.</li>
+</ul>
+<ol start="3" type="1">
+<li>Median Comparison:</li>
+</ol>
+<ul>
+<li>Across most financial indicators, the medians for <strong>male-led companies</strong> are higher than those for <strong>female-led companies</strong>, reflecting potentially higher overall performance metrics for <strong>male-led companies</strong> in this dataset.</li>
+<li>However, the consistent range and central tendency for <strong>female-led companies</strong> suggest stability and less variability.</li>
+</ul>
+<ol start="4" type="1">
+<li>Presence of Outliers:</li>
+</ol>
+<ul>
+<li><strong>Male-led companies</strong> display more frequent and extreme outliers in nearly every financial indicator, highlighting the presence of a small subset of exceptionally high-performing companies.</li>
+<li><strong>Female-led companies</strong> show fewer or no significant outliers, indicating more clustered performance around the median.</li>
+</ul>
+<p><strong>Key Insights</strong>:</p>
+<ul>
+<li>The broader ranges and higher outliers for <strong>male-led companies</strong> suggest greater access to opportunities or larger-scale operations.</li>
+<li><strong>Female-led companies</strong> may operate under constraints, as reflected in their tighter distributions and lower upper bounds.</li>
+</ul>
+<div id="cell-25" class="cell" data-execution_count="207">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical Testing</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>stat_results <span class="op">=</span> []</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> financial_columns:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    male_values <span class="op">=</span> data[data[<span class="st">'CEO Gender'</span>] <span class="op">==</span> <span class="st">'Male'</span>][col].dropna()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    female_values <span class="op">=</span> data[data[<span class="st">'CEO Gender'</span>] <span class="op">==</span> <span class="st">'Female'</span>][col].dropna()</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    t_stat, t_pvalue <span class="op">=</span> ttest_ind(male_values, female_values, equal_var<span class="op">=</span><span class="va">False</span>, nan_policy<span class="op">=</span><span class="st">'omit'</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    stat_results.append({</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Indicator'</span>: col,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'T-Test p-value'</span>: t_pvalue</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame to summarize test results</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>results_df <span class="op">=</span> pd.DataFrame(stat_results)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                           Indicator  T-Test p-value
+0                                  NetIncomeLoss (k)        0.092989
+1                            OperatingIncomeLoss (k)        0.244203
+2                                    GrossProfit (k)        0.016878
+3                    ComprehensiveIncomeNetOfTax (k)        0.097709
+4                              EarningsPerShareBasic        0.327595
+5  RevenueFromContractWithCustomerExcludingAssess...        0.006722
+6                              EntityPublicFloat (k)        0.091844
+7         AllocatedShareBasedCompensationExpense (k)        0.003232
+8          CashAndCashEquivalentsAtCarryingValue (k)        0.883309
+9                   AccountsReceivableNetCurrent (k)        0.038959</code></pre>
+</div>
+</div>
+<p><strong>Hypotheses</strong>:</p>
+<p>For each financial indicator:</p>
+<ul>
+<li>Null Hypothesis (H0): There is no difference in the mean of this financial indicator between male- and female-led companies.</li>
+<li>Alternative Hypothesis (H1): There is a significant difference in the mean of this financial indicator between male- and female-led companies.</li>
+</ul>
+<p><strong>Significance Level</strong>: The significance level (α) is set to 0.05. P-values below 0.05 indicate a rejection of the null hypothesis, meaning there is a significant difference in the means.</p>
+<p><strong>Analysis</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 10%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Indicator</strong></th>
+<th><strong>T-Test p-value</strong></th>
+<th><strong>Conclusion</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>NetIncomeLoss (k)</strong></td>
+<td>0.092989</td>
+<td>p-value &gt; 0.05: Fail to reject (H_0). No significant difference in Net Income means between male- and female-led companies.</td>
+</tr>
+<tr class="even">
+<td><strong>OperatingIncomeLoss (k)</strong></td>
+<td>0.244203</td>
+<td>p-value &gt; 0.05: Fail to reject (H_0). No significant difference in Operating Income means between the two groups.</td>
+</tr>
+<tr class="odd">
+<td><strong>GrossProfit (k)</strong></td>
+<td>0.016878</td>
+<td>p-value &lt; 0.05: Reject (H_0). Significant difference in Gross Profit means between male- and female-led companies.</td>
+</tr>
+<tr class="even">
+<td><strong>ComprehensiveIncomeNetOfTax (k)</strong></td>
+<td>0.097709</td>
+<td>p-value &gt; 0.05: Fail to reject (H_0). No significant difference in Comprehensive Income means between the two groups.</td>
+</tr>
+<tr class="odd">
+<td><strong>EarningsPerShareBasic</strong></td>
+<td>0.327595</td>
+<td>p-value &gt; 0.05: Fail to reject (H_0). No significant difference in Earnings Per Share means between male- and female-led companies.</td>
+</tr>
+<tr class="even">
+<td><strong>RevenueFromContractWithCustomerExcludingAssessedTax (k)</strong></td>
+<td>0.006722</td>
+<td>p-value &lt; 0.05: Reject (H_0). Significant difference in Revenue means between male- and female-led companies.</td>
+</tr>
+<tr class="odd">
+<td><strong>EntityPublicFloat (k)</strong></td>
+<td>0.091844</td>
+<td>p-value &gt; 0.05: Fail to reject (H_0). No significant difference in Entity Public Float means between the two groups.</td>
+</tr>
+<tr class="even">
+<td><strong>AllocatedShareBasedCompensationExpense (k)</strong></td>
+<td>0.003232</td>
+<td>p-value &lt; 0.05: Reject (H_0). Significant difference in Share-Based Compensation Expense means between male- and female-led companies.</td>
+</tr>
+<tr class="odd">
+<td><strong>CashAndCashEquivalentsAtCarryingValue (k)</strong></td>
+<td>0.883309</td>
+<td>p-value &gt; 0.05: Fail to reject (H_0). No significant difference in Cash and Cash Equivalents means between the two groups.</td>
+</tr>
+<tr class="even">
+<td><strong>AccountsReceivableNetCurrent (k)</strong></td>
+<td>0.038959</td>
+<td>p-value &lt; 0.05: Reject (H_0). Significant difference in Accounts Receivable means between male- and female-led companies.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Findings</strong>:</p>
+<ol type="1">
+<li>Significant Differences (p-value &lt; 0.05):</li>
+</ol>
+<ul>
+<li>Gross Profit (k): <strong>Male-led companies</strong> likely achieve higher gross profit.</li>
+<li>Revenue from Contract with Customer Excluding Assessed Tax (k): <strong>Male-led companies</strong> generate significantly higher revenue.</li>
+<li>Allocated Share Based Compensation Expense (k): <strong>Male-led companies</strong> allocate more in share-based compensation.</li>
+<li>Accounts Receivable Net Current (k): <strong>Male-led companies</strong> show significantly higher accounts receivable values.</li>
+</ul>
+<ol start="2" type="1">
+<li>No Significant Differences (p-value &gt; 0.05):</li>
+</ol>
+<ul>
+<li>Indicators like Net Income, Operating Income, and Cash and Cash Equivalents do not show a statistically significant difference between male- and female-led companies.</li>
+</ul>
+</section>
+<section id="relationships-between-financial-indicators-and-total-score" class="level3">
+<h3 class="anchored" data-anchor-id="relationships-between-financial-indicators-and-total-score">Relationships Between Financial Indicators and Total Score</h3>
+<div id="cell-28" class="cell" data-execution_count="208">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>spearman_results <span class="op">=</span> []</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>spearman_p_values <span class="op">=</span> []</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> financial_columns:</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    temp_data <span class="op">=</span> data[[col, <span class="st">'Total'</span>]].dropna() </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(temp_data) <span class="op">&gt;</span> <span class="dv">1</span>: </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        corr, p_value <span class="op">=</span> spearmanr(temp_data[col], temp_data[<span class="st">'Total'</span>])</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        spearman_results.append((col, corr))</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        spearman_p_values.append((col, p_value))</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>spearman_corr_df <span class="op">=</span> pd.DataFrame(spearman_results, columns<span class="op">=</span>[<span class="st">'Financial Indicator'</span>, <span class="st">'Spearman_Correlation'</span>])</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>spearman_p_value_df <span class="op">=</span> pd.DataFrame(spearman_p_values, columns<span class="op">=</span>[<span class="st">'Financial Indicator'</span>, <span class="st">'P_Value'</span>])</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Spearman correlation between financial indicators and Total:"</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(spearman_corr_df)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Spearman p-values between financial indicators and Total:"</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(spearman_p_value_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Spearman correlation between financial indicators and Total:
+                                 Financial Indicator  Spearman_Correlation
+0                                  NetIncomeLoss (k)              0.301555
+1                            OperatingIncomeLoss (k)              0.215105
+2                                    GrossProfit (k)              0.406968
+3                    ComprehensiveIncomeNetOfTax (k)              0.290847
+4                              EarningsPerShareBasic              0.009864
+5  RevenueFromContractWithCustomerExcludingAssess...              0.211388
+6                              EntityPublicFloat (k)              0.250925
+7         AllocatedShareBasedCompensationExpense (k)              0.379946
+8          CashAndCashEquivalentsAtCarryingValue (k)              0.203521
+9                   AccountsReceivableNetCurrent (k)              0.347991
+
+Spearman p-values between financial indicators and Total:
+                                 Financial Indicator   P_Value
+0                                  NetIncomeLoss (k)  0.000041
+1                            OperatingIncomeLoss (k)  0.005674
+2                                    GrossProfit (k)  0.000057
+3                    ComprehensiveIncomeNetOfTax (k)  0.000075
+4                              EarningsPerShareBasic  0.894856
+5  RevenueFromContractWithCustomerExcludingAssess...  0.021570
+6                              EntityPublicFloat (k)  0.000496
+7         AllocatedShareBasedCompensationExpense (k)  0.000004
+8          CashAndCashEquivalentsAtCarryingValue (k)  0.006285
+9                   AccountsReceivableNetCurrent (k)  0.000013</code></pre>
+</div>
+</div>
+<p><strong>Key Metrics</strong>: 1. Spearman Correlation: Measures the monotonic relationship between each financial indicator and the Total Score. Values closer to 1 or -1 indicate stronger relationships. 2. p-Values: Evaluate the statistical significance of these correlations. A p-value below 0.05 suggests the relationship is statistically significant.</p>
+<p><strong>Key Findings</strong>: | <strong>Financial Indicator</strong> | <strong>Spearman Correlation</strong> | <strong>p-Value</strong> | <strong>Conclusion</strong> | |———————————————————–|—————————|————-|—————————————————————————————————————–| | <strong>NetIncomeLoss (k)</strong> | 0.301555 | 0.000041 | Total Score positively influences Net Income, suggesting companies with higher Total Scores tend to be more profitable. | | <strong>OperatingIncomeLoss (k)</strong> | 0.215105 | 0.005674 | Total Score has a moderate positive relationship with Operating Income, though the effect is less pronounced. | | <strong>GrossProfit (k)</strong> | 0.406968 | 0.000057 | Total Score strongly influences Gross Profit, indicating that companies excelling in gender equality likely operate more efficiently. | | <strong>ComprehensiveIncomeNetOfTax (k)</strong> | 0.290847 | 0.000075 | Higher Total Scores are associated with greater Comprehensive Income, reflecting broader financial benefits. | | <strong>EarningsPerShareBasic</strong> | 0.009864 | 0.894856 | No meaningful relationship exists between Total Score and Earnings Per Share. | | <strong>RevenueFromContractWithCustomerExcludingAssessedTax (k)</strong>| 0.211388 | 0.021570 | Higher Total Scores weakly influence Revenue, suggesting some alignment with revenue generation. | | <strong>EntityPublicFloat (k)</strong> | 0.250925 | 0.000496 | Total Score moderately influences Public Float, showing stronger market confidence in equitable companies. | | <strong>AllocatedShareBasedCompensationExpense (k)</strong> | 0.379946 | 0.000004 | Total Score strongly influences Share-Based Compensation, reflecting better employee-focused financial practices. | | <strong>CashAndCashEquivalentsAtCarryingValue (k)</strong> | 0.203521 | 0.006285 | Total Score weakly influences Cash Holdings, indicating minimal impact on liquidity. | | <strong>AccountsReceivableNetCurrent (k)</strong> | 0.347991 | 0.000013 | Total Score positively impacts Accounts Receivable, suggesting better operational reach or customer relationships. |</p>
+<p><strong>Summary of Relationships</strong>: 1. Strongest Positive Correlations: - Gross Profit (k) (r=0.41, p&lt;0.001): Companies with higher Total Scores tend to have significantly higher gross profits. - Allocated Share-Based Compensation Expense (k) (r=0.38, p&lt;0.001): Companies with better Total Scores tend to invest more in share-based compensation. - Accounts Receivable (k) (r=0.35, p&lt;0.001): Companies perform better in Total Score generally have higher receivables.</p>
+<ol start="2" type="1">
+<li>Moderate Positive Correlations:</li>
+</ol>
+<ul>
+<li>Total Score shows significant but slightly weaker correlations with indicators like Net Income, Comprehensive Income, and Entity Public Float, suggesting it’s positive impact on them is consistent but less pronounced.</li>
+</ul>
+<ol start="3" type="1">
+<li>Weak or No Correlation:</li>
+</ol>
+<ul>
+<li>Earnings Per Share Basic (r=0.01,p=0.89): No meaningful relationship, indicating that Total Score does not significantly contribute to EPS.</li>
+</ul>
+<p><strong>Key Insights</strong>: 1. Total Score as a Predictor: - Total Score, as a measure of gender equality and respect, is positively correlated with key financial indicators, suggesting that equitable practices can drive financial success. - The strongest relationships exist with Gross Profit, Share-Based Compensation Expense, and Accounts Receivable, indicating that companies with better Total Scores tend to excel in profitability, employee-focused expenditures, and operational reach.</p>
+<ol start="2" type="1">
+<li>Weak or Insignificant Effects:</li>
+</ol>
+<ul>
+<li>Earnings Per Share (EPS) shows no meaningful relationship with Total Score, indicating that equality practices may not directly affect shareholder returns.</li>
+<li>The weak relationship with Revenue suggests that higher Total Scores might influence operational efficiency (e.g., Gross Profit) more than top-line growth.</li>
+</ul>
+<ol start="3" type="1">
+<li>Employee-Centric Practices:</li>
+</ol>
+<ul>
+<li>The strong correlation with Allocated Share-Based Compensation Expense highlights that companies prioritizing gender equality often invest more in employee-focused financial policies, potentially boosting workplace satisfaction and productivity.</li>
+</ul>
+</section>
+</section>
+<section id="text-analysis-and-feature-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="text-analysis-and-feature-engineering">Text Analysis and Feature Engineering</h2>
+<section id="keyword-analysis-comparing-gender-policies-and-actions-across-workplace-and-supply-chain-contexts" class="level3">
+<h3 class="anchored" data-anchor-id="keyword-analysis-comparing-gender-policies-and-actions-across-workplace-and-supply-chain-contexts">Keyword Analysis: Comparing Gender Policies and Actions Across Workplace and Supply Chain Contexts</h3>
+<p>To better analyze different key features in workplace and supply chain, we select following variables:</p>
+<p><strong>Work Place</strong>:</p>
+<p>GPG-C01.EA-Evidence: Evidence of whether the company collects sex-disaggregated pay data in the workplace.</p>
+<p>HSW-D01.EA-Evidence: The company has a publicly available policy statement committing it to respect the health and safety of its employees.</p>
+<p><strong>Supply Chain</strong>:</p>
+<p>CAP-A07.EA-Evidence: The company screens for gender-related issues among its suppliers as part of its audit process.</p>
+<p>SHS-D02.EA-Evidence: Evidence of health and safety measures for workers in the supply chain.</p>
+<p>First, we choose to retain only relevant columns for analysis.</p>
+<div id="cell-34" class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows where 'has_evidence' is 1 for both workplace and supply chain variables</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>workplace_columns <span class="op">=</span> [<span class="st">'GPG-C01.EA-Evidence'</span>, <span class="st">'GPG-C01.EA-Evidence-has_evidence'</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'HSW-D01.EA-Evidence'</span>, <span class="st">'HSW-D01.EA-Evidence-has_evidence'</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>supply_chain_columns <span class="op">=</span> [<span class="st">'CAP-A07.EA-Evidence'</span>, <span class="st">'CAP-A07.EA-Evidence-has_evidence'</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'SHS-D02.EA-Evidence'</span>, <span class="st">'SHS-D02.EA-Evidence-has_evidence'</span>]</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>workplace_df <span class="op">=</span> data[data[<span class="st">'GPG-C01.EA-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>][workplace_columns]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>workplace_df <span class="op">=</span> workplace_df[workplace_df[<span class="st">'HSW-D01.EA-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>][workplace_columns]</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>supply_chain_df <span class="op">=</span> data[data[<span class="st">'CAP-A07.EA-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>][supply_chain_columns]</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>supply_chain_df <span class="op">=</span> supply_chain_df[supply_chain_df[<span class="st">'SHS-D02.EA-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>][supply_chain_columns]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we use term frequency analysis on the filtered text to identify commonly used keywords. And we use wordcload plots and bar plots to visualize the results.</p>
+<div id="cell-36" class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keyword extraction</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_keywords(text_series):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    vectorizer <span class="op">=</span> CountVectorizer(max_features<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> vectorizer.fit_transform(text_series)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    keywords <span class="op">=</span> vectorizer.get_feature_names_out()</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    frequencies <span class="op">=</span> X.toarray().<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">dict</span>(<span class="bu">zip</span>(keywords, frequencies))</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract keywords from explanations</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>workplace_keywords <span class="op">=</span> extract_keywords(workplace_df[<span class="st">'GPG-C01.EA-Evidence'</span>].dropna())</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>supply_chain_keywords <span class="op">=</span> extract_keywords(supply_chain_df[<span class="st">'CAP-A07.EA-Evidence'</span>].dropna())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-37" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_wordcloud(keyword_dict, title):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    wordcloud <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">800</span>, height<span class="op">=</span><span class="dv">400</span>, background_color<span class="op">=</span><span class="st">'white'</span>).generate_from_frequencies(keyword_dict)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    plt.imshow(wordcloud, interpolation<span class="op">=</span><span class="st">'bilinear'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    plt.title(title, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-38" class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wordcloud for supply chain</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plot_wordcloud(supply_chain_keywords, <span class="st">"Supply Chain Keywords"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Wordcloud for workplace</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>plot_wordcloud(workplace_keywords, <span class="st">"Workplace Keywords"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-17-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-39" class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Bar plot visualization</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_bar_chart(keyword_dict, title):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sort the keywords by frequency in descending order</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    sorted_keywords <span class="op">=</span> <span class="bu">sorted</span>(keyword_dict.items(), key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>], reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    keywords <span class="op">=</span> [item[<span class="dv">0</span>] <span class="cf">for</span> item <span class="kw">in</span> sorted_keywords]</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    frequencies <span class="op">=</span> [item[<span class="dv">1</span>] <span class="cf">for</span> item <span class="kw">in</span> sorted_keywords]</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    plt.barh(keywords, frequencies, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    plt.title(title, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"Keywords"</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    plt.gca().invert_yaxis()</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-40" class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart for workplace</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plot_bar_chart(workplace_keywords, <span class="st">"Top Keywords in Workplace Explanations"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart for supply chain</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plot_bar_chart(supply_chain_keywords, <span class="st">"Top Keywords in Supply Chain Explanations"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-19-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>The keywords in workplace explanations includes “pay”, “compensation”, “global” and “equity”. In contrast, supply chain explanations highlight terms like “suppliers”, “workers”, “status” and “compliance”.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>We can find that workplace text evidence mainly focuses on policies for accountability and equity. In contrast, supply chain text evidence focuses on action, compliance, addressing operational challenges, and resolving gender-related issues. This distinction shows that workplace efforts are primarily policy-driven, while supply chain efforts prioritize actionable measures.</p>
+</section>
+<section id="sentiment-analysis-focus-on-violence-and-harassment-prevention" class="level3">
+<h3 class="anchored" data-anchor-id="sentiment-analysis-focus-on-violence-and-harassment-prevention">Sentiment Analysis: Focus on Violence and Harassment Prevention</h3>
+<p>To better apply sentiment analysis, we select following variables:</p>
+<p>VHP-E01.EA-Evidence: Evidence of the company has publicly available policies in place regarding violence and harassment in the workplace (e.g., zero tolerance policy, safe transport policy, etc.).</p>
+<p>We filtered the words ‘violence’ and ‘harassment’ to avoid their inherently negative sentiment.</p>
+<div id="cell-45" class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize sentiment analyzer</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>analyzer <span class="op">=</span> SentimentIntensityAnalyzer()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-46" class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> data[data[<span class="st">'VHP-E01.EA-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract explanation text</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>combined_text <span class="op">=</span> filtered_df[<span class="st">'VHP-E01.EA-Evidence'</span>].fillna(<span class="st">''</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">' '</span>.join(x) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">list</span>) <span class="cf">else</span> x)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove "harassment" and "violence" from combined_text</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>combined_text <span class="op">=</span> filtered_df[<span class="st">'VHP-E01.EA-Evidence'</span>].fillna(<span class="st">''</span>).<span class="bu">apply</span>(</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> x: re.sub(<span class="vs">r'\b(harassment|violence)\b'</span>, <span class="st">''</span>, x, flags<span class="op">=</span>re.IGNORECASE) <span class="cf">if</span> <span class="bu">isinstance</span>(x, <span class="bu">str</span>) <span class="cf">else</span> x</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-47" class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform sentiment analysis</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_sentiment(text_data):</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    sentiments <span class="op">=</span> []</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> text <span class="kw">in</span> text_data:</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> pd.notna(text):</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>            score <span class="op">=</span> analyzer.polarity_scores(text)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>            sentiments.append(score[<span class="st">'compound'</span>])  <span class="co"># Compound sentiment score</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>            sentiments.append(<span class="dv">0</span>)  <span class="co"># Neutral for missing text</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sentiments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we analyze sentiment for text and categorize them, After that, we visualize the results.</p>
+<div id="cell-49" class="cell" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze sentiment</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sentiment_scores <span class="op">=</span> analyze_sentiment(combined_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-50" class="cell" data-execution_count="147">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorize sentiment</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> categorize_sentiments(sentiment_scores):</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    categories <span class="op">=</span> []</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> score <span class="kw">in</span> sentiment_scores:</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>            categories.append(<span class="st">'Positive'</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> score <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>            categories.append(<span class="st">'Negative'</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>            categories.append(<span class="st">'Neutral'</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> categories</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-51" class="cell" data-execution_count="148">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorize sentiment</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sentiment_categories <span class="op">=</span> categorize_sentiments(sentiment_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-52" class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_sentiment_distribution(sentiment_categories, title):</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    sentiment_counts <span class="op">=</span> pd.Series(sentiment_categories).value_counts()</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    sentiment_counts.plot(kind<span class="op">=</span><span class="st">'bar'</span>, color<span class="op">=</span>[<span class="st">'green'</span>, <span class="st">'gray'</span>, <span class="st">'red'</span>], figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Sentiment Category'</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-53" class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize results</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>plot_sentiment_distribution(sentiment_categories, <span class="st">'Sentiment Distribution in Supply Chain Explanations'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>The sentiment distribution predominantly shows positive entries, with fewer negative and very few neutral sentiments.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>We can find most texts are positive. This suggests an emphasis on proactive measures and commitment to addressing sensitive issues constructively. Negative sentiments of a few companies may reflect acknowledgment of challenges or areas requiring improvement. After analysis, we can find that for a heavy topic, such as Violence and Harassment, most companies need to emphasis on responsibility and accountability in the text, and show their positive attitude.</p>
+</section>
+<section id="topic-distribution-across-industries-gender-responsive-human-rights-due-diligence-process" class="level3">
+<h3 class="anchored" data-anchor-id="topic-distribution-across-industries-gender-responsive-human-rights-due-diligence-process">Topic Distribution Across Industries: Gender-responsive human rights due diligence process</h3>
+<p>To better prepare for topic modeling, we select following variables:</p>
+<p>GDD-A04.EA-Evidence: Evidence of the company discloses what gender-related human rights impacts it has assessed and prioritised as being salient (i.e.&nbsp;most severe and potentially irremediable if not addressed).</p>
+<p>We choose this variable to analyze because we want to learn more about how different industries prioritize and address specific aspects of human rights and supply chain challenges.</p>
+<p>We tokenize and filter the data first.</p>
+<div id="cell-59" class="cell" data-execution_count="186">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> preprocess_text(text_data):</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tokenize the text (splitting into words)</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    tokenized_text <span class="op">=</span> word_tokenize(text_data.lower())  <span class="co"># Convert to lowercase to standardize</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove punctuation (if necessary)</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    tokenized_text <span class="op">=</span> [word <span class="cf">for</span> word <span class="kw">in</span> tokenized_text <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> string.punctuation]</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the cleaned tokenized text</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tokenized_text</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter data based on evidence</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>rights_df <span class="op">=</span> data[data[<span class="st">'GDD-A04.EA-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by 'Industry'</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>industry_grouped_df <span class="op">=</span> rights_df.groupby(<span class="st">'Industry'</span>)[<span class="st">'GDD-A04.EA-Evidence'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">' '</span>.join(x)).reset_index()</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocess text data for each industry</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>industry_grouped_df[<span class="st">'ProcessedText'</span>] <span class="op">=</span> industry_grouped_df[<span class="st">'GDD-A04.EA-Evidence'</span>].<span class="bu">apply</span>(preprocess_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-60" class="cell" data-execution_count="187">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join tokenized text into a single string for each row</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>industry_grouped_df[<span class="st">'ProcessedTextStr'</span>] <span class="op">=</span> industry_grouped_df[<span class="st">'ProcessedText'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">' '</span>.join(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we choose the optimal number of topics and run the modeling.</p>
+<div id="cell-62" class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorizer</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer(stop_words<span class="op">=</span><span class="st">'english'</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> vectorizer.fit_transform(industry_grouped_df[<span class="st">'ProcessedTextStr'</span>])</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to compute perplexity</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_perplexity(lda_model, X):</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> lda_model.perplexity(X)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># List to store perplexity scores</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>perplexities <span class="op">=</span> []</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>topic_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">11</span>)  <span class="co"># Try 2 to 10 topics</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Train LDA and compute perplexity for different topic numbers</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n_topics <span class="kw">in</span> topic_range:</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    lda <span class="op">=</span> LatentDirichletAllocation(n_components<span class="op">=</span>n_topics, random_state<span class="op">=</span><span class="dv">5000</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    lda.fit(X)</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute perplexity (lower is better)</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    perplexity <span class="op">=</span> compute_perplexity(lda, X)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    perplexities.append(perplexity)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>optimal_num_topics <span class="op">=</span> topic_range[np.argmin(perplexities)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-63" class="cell" data-execution_count="193">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the LDA model with the optimal number of topics</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>lda <span class="op">=</span> LatentDirichletAllocation(n_components<span class="op">=</span>optimal_num_topics, random_state<span class="op">=</span><span class="dv">5000</span>) </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>lda.fit(X)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the topics</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, topic <span class="kw">in</span> <span class="bu">enumerate</span>(lda.components_):</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Topic #</span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>([vectorizer.get_feature_names_out()[i] <span class="cf">for</span> i <span class="kw">in</span> topic.argsort()[:<span class="op">-</span><span class="dv">11</span>:<span class="op">-</span><span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Topic #0:
+['human', 'factory', 'factories', 'conduct', 'trafficking', 'chain', 'supply', 'act', 'webpage', 'forced']
+Topic #1:
+['rights', 'human', 'risks', 'risk', 'suppliers', 'business', 'report', '2021', 'assessment', 'including']</code></pre>
+</div>
+</div>
+<p>We using stacked bar chart to analyze the distribution of topics accross industries.</p>
+<div id="cell-65" class="cell" data-execution_count="199">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the topic distribution for each document</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>topic_distribution <span class="op">=</span> lda.transform(X)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the topic distribution to the dataframe (one column per topic)</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>topic_columns <span class="op">=</span> [<span class="ss">f"Topic_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(optimal_num_topics)]</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>topic_distribution_df <span class="op">=</span> pd.DataFrame(topic_distribution, columns<span class="op">=</span>topic_columns)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure industry_grouped_df and topic_distribution_df have the same number of rows</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset the index for both DataFrames to ensure they align</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>industry_grouped_df <span class="op">=</span> industry_grouped_df.reset_index(drop<span class="op">=</span><span class="va">True</span>)  <span class="co"># Reset index to align</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>topic_distribution_df <span class="op">=</span> pd.DataFrame(topic_distribution, columns<span class="op">=</span>topic_columns)</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Double-check the number of rows before concatenating</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(industry_grouped_df) <span class="op">==</span> <span class="bu">len</span>(topic_distribution_df), <span class="st">"Row numbers don't match!"</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the dataframes</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>df_with_topics <span class="op">=</span> pd.concat([industry_grouped_df, topic_distribution_df], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate topic distributions by industry</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>industry_topic_dist <span class="op">=</span> df_with_topics.groupby(<span class="st">'Industry'</span>)[topic_columns].mean()</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the topic distributions across industries (stacked bar chart)</span></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>industry_topic_dist.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">7</span>), colormap<span class="op">=</span><span class="st">'Set3'</span>)</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Topic Distribution Across Industries'</span>)</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Industry'</span>)</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Topic Proportion'</span>)</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Topics'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 1000x600 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-32-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>Topic #0, related to supply chain issues and human trafficking, is most relevant to manufacturing, retail, and wholesale industries. Topic #1, focusing on human rights assessments and risk reporting, shows a more balanced distribution across industries, highlighting its relevance in broader corporate governance.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>Topic #0, which addresses supply chain issues like forced labor and trafficking, is more significant in industries such as manufacturing and retail, where these issues are more likely to arise. Topic #1, focused on human rights reporting and risk assessment, is more evenly distributed across industries, reflecting the growing importance of human rights evaluation in corporate governance across sectors.</p>
+</section>
+<section id="keyword-network-analysis-unveiling-the-structure-of-grievance-mechanisms" class="level3">
+<h3 class="anchored" data-anchor-id="keyword-network-analysis-unveiling-the-structure-of-grievance-mechanisms">Keyword Network Analysis: Unveiling the Structure of Grievance Mechanisms</h3>
+<p>To better prepare for network analysis, we select following variables about grievance mechanisms:</p>
+<p>GM-A05.EA-Evidence: Evidence of the company has a gender-responsive mechanism through which employees can report grievances.</p>
+<p>GM-A05.EA-Evidence: Evidence of the company has one or more channel(s)/mechanism(s), or participates in a shared mechanism, accessible to all external individuals and communities who may be adversely impacted by the company (or individuals or organisations acting on their behalf or who are otherwise in a position to be aware of adverse impacts), to raise complaints or concerns.</p>
+<p>GM-A05.EC-Evidence: Evidence of the company collects, analyses and monitors sex-disaggregated grievance data (e.g.&nbsp;number of grievances reported, number of grievances remediated).</p>
+<p>First, combined evidence columns into a single text column.</p>
+<div id="cell-70" class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter data for rows with evidence for all three variables</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> data[</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    (data[<span class="st">'GM-A05.EA-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>) <span class="op">|</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    (data[<span class="st">'GM-A05.EB-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>) <span class="op">|</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    (data[<span class="st">'GM-A05.EC-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>][[<span class="st">'GM-A05.EA-Evidence'</span>, <span class="st">'GM-A05.EA-Evidence'</span>, <span class="st">'GM-A05.EC-Evidence'</span>]]</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where all three evidence fields are NaN (no data available for any variable)</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> filtered_df.dropna(how<span class="op">=</span><span class="st">'all'</span>, subset<span class="op">=</span>[<span class="st">'GM-A05.EA-Evidence'</span>, <span class="st">'GM-A05.EB-Evidence'</span>, <span class="st">'GM-A05.EC-Evidence'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, computed a co-occurrence matrix by multiplying the term-document matrix with its transpose, and then visualize them.</p>
+<div id="cell-72" class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine evidence columns into a single text column</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>filtered_df[<span class="st">'CombinedText'</span>] <span class="op">=</span> filtered_df[<span class="st">'GM-A05.EA-Evidence'</span>].fillna(<span class="st">''</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                              filtered_df[<span class="st">'GM-A05.EB-Evidence'</span>].fillna(<span class="st">''</span>) <span class="op">+</span> <span class="st">' '</span> <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>                              filtered_df[<span class="st">'GM-A05.EC-Evidence'</span>].fillna(<span class="st">''</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize and extract keywords using CountVectorizer</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer(stop_words<span class="op">=</span><span class="st">'english'</span>, max_features<span class="op">=</span><span class="dv">50</span>)  <span class="co"># Adjust max_features as needed</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> vectorizer.fit_transform(filtered_df[<span class="st">'CombinedText'</span>])</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get feature names (keywords)</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>keywords <span class="op">=</span> vectorizer.get_feature_names_out()</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a co-occurrence matrix</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>cooccurrence_matrix <span class="op">=</span> (X.T <span class="op">@</span> X).toarray()  <span class="co"># Multiply term-document matrix by its transpose</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>cooccurrence_df <span class="op">=</span> pd.DataFrame(cooccurrence_matrix, index<span class="op">=</span>keywords, columns<span class="op">=</span>keywords)</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a NetworkX graph</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Add nodes and edges from the co-occurrence matrix</span></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, word <span class="kw">in</span> <span class="bu">enumerate</span>(keywords):</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j, cooc <span class="kw">in</span> <span class="bu">enumerate</span>(cooccurrence_matrix[i]):</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">!=</span> j <span class="kw">and</span> cooc <span class="op">&gt;</span> <span class="dv">0</span>:  <span class="co"># Exclude self-loops</span></span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>            G.add_edge(keywords[i], keywords[j], weight<span class="op">=</span>cooc)</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization of the network</span></span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">20</span>))</span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Use spring layout with adjusted spacing</span></span>
+<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spring_layout(G, seed<span class="op">=</span><span class="dv">5000</span>, k<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw nodes with adjusted size and color</span></span>
+<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_nodes(G, pos, node_size<span class="op">=</span><span class="dv">1000</span>, node_color<span class="op">=</span><span class="st">'skyblue'</span>, alpha<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw edges with transparency based on weight</span></span>
+<span id="cb39-37"><a href="#cb39-37" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> nx.draw_networkx_edges(</span>
+<span id="cb39-38"><a href="#cb39-38" aria-hidden="true" tabindex="-1"></a>    G, pos, </span>
+<span id="cb39-39"><a href="#cb39-39" aria-hidden="true" tabindex="-1"></a>    edge_color<span class="op">=</span><span class="st">'gray'</span>,</span>
+<span id="cb39-40"><a href="#cb39-40" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.5</span>, </span>
+<span id="cb39-41"><a href="#cb39-41" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span>[d[<span class="st">'weight'</span>] <span class="op">/</span> <span class="dv">20</span> <span class="cf">for</span> (u, v, d) <span class="kw">in</span> G.edges(data<span class="op">=</span><span class="va">True</span>)]</span>
+<span id="cb39-42"><a href="#cb39-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-43"><a href="#cb39-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-44"><a href="#cb39-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Add labels with adjusted font size</span></span>
+<span id="cb39-45"><a href="#cb39-45" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx_labels(G, pos, font_size<span class="op">=</span><span class="dv">10</span>, font_color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb39-46"><a href="#cb39-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-47"><a href="#cb39-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Add title and adjust layout</span></span>
+<span id="cb39-48"><a href="#cb39-48" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Keyword Co-occurrence Network (Improved Visualization)"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb39-49"><a href="#cb39-49" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)  <span class="co"># Turn off axis</span></span>
+<span id="cb39-50"><a href="#cb39-50" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-34-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>The network highlights strong connections between keywords like “complaint,” “grievance,” “report,” and “rights,” showing their central role in grievance mechanisms. Terms such as “procedure” and “access” suggest a focus on process and accessibility, while some isolated keywords point to less frequent but relevant topics.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>Grievance mechanisms are closely tied to reporting rights violations and ensuring accessible procedures. The emphasis on “procedure” and “access” reflects a priority on usability, fairness and formation, while less frequent terms hint at more specialized concerns or contexts.</p>
+</section>
+<section id="ceo-gender-based-word-frequency-analysis-in-gender-strategic-action" class="level3">
+<h3 class="anchored" data-anchor-id="ceo-gender-based-word-frequency-analysis-in-gender-strategic-action">CEO Gender-based Word Frequency Analysis in Gender Strategic Action</h3>
+<p>We select variable about gender strategic action as follow:</p>
+<p>SA-A01.EA-Evidence: Evidence of the company made a public commitment to gender equality and women’s empowerment (e.g.&nbsp;signatory to the UN Women’s Empowerment Principles, or having made another public commitment at CEO level).</p>
+<p>CEO Gender: Gender of CEO.</p>
+<p>We xompute the frequency of each term for both male and female CEOs, and then normalize the word frequencies to account for different document lengths and biases (e.g., more male CEOs).</p>
+<div id="cell-77" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>strategic_df <span class="op">=</span> data[data[<span class="st">'SA-A01.EA-Evidence-has_evidence'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df_male_ceo <span class="op">=</span> strategic_df[strategic_df[<span class="st">'CEO Gender'</span>] <span class="op">==</span> <span class="st">'Male'</span>]</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>df_female_ceo <span class="op">=</span> strategic_df[strategic_df[<span class="st">'CEO Gender'</span>] <span class="op">==</span> <span class="st">'Female'</span>]</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>df_male_ceo <span class="op">=</span> df_male_ceo.dropna(subset<span class="op">=</span>[<span class="st">'SA-A01.EA-Evidence'</span>])</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>df_female_ceo <span class="op">=</span> df_female_ceo.dropna(subset<span class="op">=</span>[<span class="st">'SA-A01.EA-Evidence'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-78" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List of words to remove</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>words_to_remove <span class="op">=</span> [<span class="st">'2021'</span>, <span class="st">'2022'</span>, <span class="st">'women'</span>, <span class="st">'gender'</span>,<span class="st">'2023'</span>]</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Use CountVectorizer to extract word frequencies</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer(stop_words<span class="op">=</span><span class="st">'english'</span>)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract word frequencies for male CEO data</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>X_male <span class="op">=</span> vectorizer.fit_transform(df_male_ceo[<span class="st">'SA-A01.EA-Evidence'</span>])</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract word frequencies for female CEO data (using the same vocabulary as male CEO data)</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>X_female <span class="op">=</span> vectorizer.transform(df_female_ceo[<span class="st">'SA-A01.EA-Evidence'</span>])</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the list of all words in the vocabulary</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> vectorizer.get_feature_names_out()</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the specified words from the vocabulary</span></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> [word <span class="cf">for</span> word <span class="kw">in</span> words <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> words_to_remove]</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-apply the vectorizer on male and female CEO data using the filtered vocabulary</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>X_male_filtered <span class="op">=</span> X_male[:, [vectorizer.get_feature_names_out().tolist().index(word) <span class="cf">for</span> word <span class="kw">in</span> words]]</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>X_female_filtered <span class="op">=</span> X_female[:, [vectorizer.get_feature_names_out().tolist().index(word) <span class="cf">for</span> word <span class="kw">in</span> words]]</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the total count of each word in the male CEO documents (filtered vocabulary)</span></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>male_word_count <span class="op">=</span> X_male_filtered.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>).A1  <span class="co"># Convert the word count matrix to a 1D array</span></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the total count of each word in the female CEO documents (filtered vocabulary)</span></span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>female_word_count <span class="op">=</span> X_female_filtered.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>).A1</span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the total word count for each male CEO document</span></span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a>male_doc_lengths <span class="op">=</span> X_male.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>).A1  <span class="co"># Total word count for each male CEO document</span></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the total word count for each female CEO document</span></span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a>female_doc_lengths <span class="op">=</span> X_female.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>).A1  <span class="co"># Total word count for each female CEO document</span></span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the normalized word frequency ratio for male CEOs</span></span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a>male_word_freq_ratio <span class="op">=</span> male_word_count <span class="op">/</span> male_doc_lengths.<span class="bu">sum</span>()</span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the normalized word frequency ratio for female CEOs</span></span>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>female_word_freq_ratio <span class="op">=</span> female_word_count <span class="op">/</span> female_doc_lengths.<span class="bu">sum</span>()</span>
+<span id="cb41-40"><a href="#cb41-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-41"><a href="#cb41-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame to store the word frequencies and ratios for both male and female CEOs</span></span>
+<span id="cb41-42"><a href="#cb41-42" aria-hidden="true" tabindex="-1"></a>word_frequencies_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb41-43"><a href="#cb41-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Word'</span>: words,</span>
+<span id="cb41-44"><a href="#cb41-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Male_Frequency_Ratio'</span>: male_word_freq_ratio,</span>
+<span id="cb41-45"><a href="#cb41-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Female_Frequency_Ratio'</span>: female_word_freq_ratio</span>
+<span id="cb41-46"><a href="#cb41-46" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb41-47"><a href="#cb41-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-48"><a href="#cb41-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort the DataFrame by Male_Frequency_Ratio in descending order to see the most frequent words</span></span>
+<span id="cb41-49"><a href="#cb41-49" aria-hidden="true" tabindex="-1"></a>word_frequencies_df <span class="op">=</span> word_frequencies_df.sort_values(by<span class="op">=</span><span class="st">'Male_Frequency_Ratio'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we visualize them by wordcloud.</p>
+<div id="cell-80" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate word clouds by combining word frequencies for male and female CEOs</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>wordcloud_male <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">800</span>, height<span class="op">=</span><span class="dv">400</span>, background_color<span class="op">=</span><span class="st">'white'</span>).generate_from_frequencies(<span class="bu">dict</span>(<span class="bu">zip</span>(words, male_word_count)))</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>wordcloud_female <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">800</span>, height<span class="op">=</span><span class="dv">400</span>, background_color<span class="op">=</span><span class="st">'white'</span>).generate_from_frequencies(<span class="bu">dict</span>(<span class="bu">zip</span>(words, female_word_count)))</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the word clouds</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Word cloud for Male CEOs</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>plt.imshow(wordcloud_male, interpolation<span class="op">=</span><span class="st">'bilinear'</span>)</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Word Cloud for Male CEO'</span>)</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Word cloud for Female CEOs</span></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>plt.imshow(wordcloud_female, interpolation<span class="op">=</span><span class="st">'bilinear'</span>)</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Word Cloud for Female CEO'</span>)</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-37-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>The word clouds display the most frequent terms associated with strategic actions from male-led and female-led companies. In the male CEO group, terms like “leadership”, “business”, “diversity”, and “program” appear larger, indicating higher frequencies. In contrast, the female CEO group highlights terms such as “gender”, “leadership”, “sustainability”, and “diversity”, suggesting a more gender-focused discourse in their strategic actions.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>Male CEOs tend to focus on business-related terms like “leadership”, “program”, and “business”.</p>
+<p>Female CEOs, on the other hand, emphasize gender and sustainability-related terms like “gender”, “leadership”, and “sustainability”, showing a more gender-conscious approach.</p>
+<p>Both groups highlight “leadership”, but male CEOs seem to focus more on business leadership, while female CEOs connect it to diversity and sustainability.</p>
+</section>
+<section id="analysis-of-pay-gap-data-collection-based-on-ceo-gender" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-pay-gap-data-collection-based-on-ceo-gender">Analysis of Pay Gap Data Collection Based on CEO Gender</h3>
+<p>We found that the word “pay” mentioned more in the evidence of strategy in companies which CEO is female, so we want to check that if female company have a better standard of pay gap. So we select variable as follow:</p>
+<p>GPG-C01.EB-Assessment: Whether the company collects sex-disaggregated pay data by different pay bands, occupational functions, or other financial benefits or not.</p>
+<p>CEO Gender: Gender of CEO.</p>
+<p>We first try to clean and transform the GPG-C01.EB-Assessment values into binary categories, and then calculate the percentage of “Met” and “Unmet” for each CEO gender using div(). After that, we analyze the results and draw conclusions about the relationship between CEO gender and the company’s ability to meet pay gap data collection standards.</p>
+<div id="cell-85" class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data[[<span class="st">'CEO Gender'</span>, <span class="st">'GPG-C01.EB-Assessment'</span>]].copy()  <span class="co"># Create a copy to avoid modifying the original DataFrame</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use .loc to avoid SettingWithCopyWarning</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>df.loc[:, <span class="st">'C01.EB_BINARY'</span>] <span class="op">=</span> df[<span class="st">'GPG-C01.EB-Assessment'</span>].<span class="bu">map</span>({<span class="st">'Met'</span>: <span class="dv">1</span>, <span class="st">'Unmet'</span>: <span class="dv">0</span>})</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a contingency table (cross-tabulation)</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>cross_tab <span class="op">=</span> pd.crosstab(df[<span class="st">'CEO Gender'</span>], df[<span class="st">'C01.EB_BINARY'</span>])</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the percentage of 'Met' and 'Unmet' for each CEO Gender</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>cross_tab_percentage <span class="op">=</span> cross_tab.div(cross_tab.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>), axis<span class="op">=</span><span class="dv">0</span>) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a stacked bar chart</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>cross_tab_percentage.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>), color<span class="op">=</span>[<span class="st">'lightblue'</span>, <span class="st">'orange'</span>])</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add title and labels</span></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Pay Gap Data Collection by CEO Gender'</span>)</span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'CEO Gender'</span>)</span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Percentage (%)'</span>)</span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'Unmet'</span>, <span class="st">'Met'</span>], title<span class="op">=</span><span class="st">'Assessment'</span>)</span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust layout to ensure the chart is displayed properly</span></span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-38-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Visual Observations</strong>:</p>
+<p>Male CEOs: No companies led by male CEOs do not meet the standards for collecting pay gap data.</p>
+<p>Female CEOs: More companies led by female CEOs have met the standards.</p>
+<p><strong>Key Insights</strong>:</p>
+<p>Female-led companies are more likely to meet pay gap data collection standards.Male-led companies show a higher proportion of “Unmet,” indicating there may be more work needed in these organizations to meet gender equity standards.</p>
+</section>
+</section>
+</section>
+<section id="conclusions-and-next-steps" class="level1">
+<h1>Conclusions and Next Steps</h1>
+<section id="summary-of-eda-findings" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-eda-findings">Summary of EDA Findings</h2>
+<p><strong>Univariate Analysis</strong></p>
+<p>The univariate analysis for gender-related data suggests that most companies performed extremely poorly in gender equality measures. The underrepresentation of women in leadership roles, combined with the low gender equality scores, points to systemic issues within these organizations.</p>
+<p>The findings reveal a pressing need for companies to make substantial improvements in gender equality, particularly at the leadership level. The data underscores the lack of significant gender diversity in CEO positions and highlights that achieving high gender equality standards is rare among the companies studied.</p>
+<p><strong>Bivariate and Multivariate Analysis</strong></p>
+<p>The tighter distributions for female-led companies may reflect both their underrepresentation in the dataset and potential structural barriers limiting their opportunities to lead high-performing companies.</p>
+<p>Gross profit, allocated share-based compensation, and accounts receivable show strong relationships with Total Score, indicating that gender-equal companies tend to be more profitable, invest in employees, and have better operational reach. Total Score also shows moderate relationships with net income and comprehensive income, but weak or no relationships with revenue and EPS.</p>
+<p>The analysis highlights that promoting gender equality in companies is not only a social imperative but may also contribute to improved financial performance, particularly in operational metrics. However, its impact on revenue and shareholder returns is less clear, suggesting that other factors may play a more direct role in driving these outcomes.</p>
+<p><strong>Text Analysis and Feature Engineering</strong></p>
+<p>As for the text data, the EDA reveals trends in reporting gender equality measures in companies. We can see from keyword analysis that workplace-related texts focus primarily on policies for equity and accountability, while supply chain texts emphasize actionable measures such as compliance and operational challenges. Sentiment analysis, however, shows that positive emotions dominate some of the heavier topics, such as violence and harassment, underscoring positive efforts towards gender equality.</p>
+<p>Thematic modelling suggests that the topic of human rights assessment is more evenly distributed across sectors. Keyword network analysis reveals that in the grievance mechanism, terms such as “complaint” and “right” are central. In addition, analysis of CEO gender and strategic actions shows that male-led companies are more focused on business leadership, while female-led companies emphasize gender equality and sustainability in their strategic approach. At the same time, few companies with male CEOs mentioned promoting the gender pay gap in their reports.</p>
+</section>
+<section id="implications-for-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="implications-for-modeling">Implications for Modeling</h2>
+<p><strong>Feature Selection:</strong> The insights from EDA, such as the importance of terms related to gender equality and business leadership, will help guide feature selection for future modeling. For instance, terms like “gender”, “equity”, and “leadership” might be selected as features in a classification model to predict gender-related outcomes.</p>
+<p><strong>Data Transformation:</strong> Based on the patterns discovered, further data preparation might include transforming textual features into numerical values using techniques like TF-IDF or sentiment scores. Normalization of numerical features will also be important for consistency in the modeling step.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -315,18 +1430,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -358,7 +1462,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -366,7 +1492,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

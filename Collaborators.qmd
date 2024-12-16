@@ -3,6 +3,7 @@ title: "About Us"
 ---
 
 # Team members
+
 :::: {.columns}
 
 ::: {.column width="45%"}
@@ -12,11 +13,12 @@ title: "About Us"
 **Jiayi Peng**
 
 Georgetown University '26
+
 Master's in Data Science & Analytics
 
 Jiayi Peng is currently pursing a masters degree in Data Science and Analytics at Georgetown University. With a strong background in the intersection of finance and data, she is eager to explore how data science can be applied to solve real-world challenges in the financial industry and beyond. She has explored the decision-making impacts of supply chain structures and conducted NLP analysis of financial markets. She is dedicated to gaining deeper insights into data science methods and leveraging these skills to contribute to diverse industries.
 
-Her weekly project contribution log: [Click here to learn about: ](./technical-details/progress-log.qmd)
+Her weekly project contribution log: [Click here to learn about](./technical-details/progress-log.qmd)
 
 :::
 
@@ -26,17 +28,19 @@ Her weekly project contribution log: [Click here to learn about: ](./technical-d
 
 ::: {.column width="45%"}
 
+
 ![](assets/Kexin_Lyu_headshot.jpg){width=100% height=100%}
 
 **Kexin Lyu**
 
 Georgetown University '26
+
 Master's in Data Science & Analytics
 
 Kexin Lyu is a first-year student in the Data Science and Analytics program at Georgetown University. She earned her Bachelor of Business Administration in Professional Accountancy from The Chinese University of Hong Kong (CUHK) in 2024. Her interests include deep learning and optimization, and she also enjoys exploring analytical tools essential for solving complex business challenges, drawing on her business background. Outside the classroom, she is eager to seize experiential learning opportunities, such as collaborating with real-world organizations and applying data science in practical settings.
 
-Her weekly project contribution log: [Click here to learn about: ](./technical-details/progress-log.qmd)
+Her weekly project contribution log: [Click here to learn about](./technical-details/progress-log.qmd)
 
-::: {.column width="45%"}
+:::
 
-:::: {.columns}
+:::

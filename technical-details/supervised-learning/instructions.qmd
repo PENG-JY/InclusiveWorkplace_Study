@@ -1,23 +1,21 @@
 # Introduction and Motivation 
 
-In recent years, the importance of gender equality in the corporate world has received much attention. As society continues to evolve, we need to be aware of how financial health, governance structures and business practices impact gender equality, which is critical to fostering an inclusive environment. Gender equality and diversity need to be reflected in all aspects of business, not only in leadership roles, such as the gender ratio of executives, but also in business practices. With this study, we aim to hopefully explore how to create a fairer society and enhance corporate responsibility aspects.
-
-This section aims to explore the intersection of corporate performance and gender equality based on supervised learning, focusing on how a company's financial position, its commitment to gender equality, and its governance practices influence key decisions, such as sourcing from female-owned businesses and appointing female leaders. The study also explores how these factors influence a company's overall gender equality score, affecting its reputation, market position, and the well-being of its employees and community. In addition, this study has explored the possibilities of how to automate the process of assessing a company's gender score from the text data of the company's REPORT.
-
-In today's world, inclusiveness is increasingly recognized as an important component of business success. By leveraging modern data science techniques, we aim to provide data-driven solutions that help organizations align their operations with broader societal goals, thereby contributing to a more just and sustainable future.
+In recent years, much attention has been paid to the importance of gender equality in the corporate world, which is critical to promoting an inclusive environment. Through this study, we hope to explore how to create a more equitable society and strengthen aspects of corporate responsibility. Therefore, in this section, we will explore the intersection of business practices, performance and gender equality in enterprises based on supervised learning. In addition, this study explores the possibility of automatically assessing a company's gender score from text data reported by companies.
 
 # Overview of Methods
 
-In this study, four different supervised learning models were employed to analyze various aspects of gender equality and business practices. The specific choice of these models and their underlying algorithms will be explained in more detail in the following sections.
+In this study, four different supervised learning models were employed to analyze various aspects of gender equality and business practices. 
 
 ## Binary Classification
-- **Support Vector Machine (SVM)** SVM is a powerful classifier used for both binary and multiclass classification tasks. It works by finding a hyperplane that best separates different classes in the feature space. SVM is particularly effective for high-dimensional spaces and is known for its robustness in handling non-linear relationships when using appropriate kernel functions. It was used to explore whether a company supports procurement from women-owned businesses based on its financial and operational factors.
 
-- **Logistic Regression** Logistic regression is a widely used statistical model for binary and multiclass classification problems. It estimates the probability of a binary outcome (such as male or female CEO) using a logistic function. In this project, it was used to explore the likelihood of a company having a female CEO, based on financial and governance factors like assets, public float, and gender-related governance practices.
+- **Support Vector Machine (SVM)** SVM are supervised learning models that analyze data for classification and regression analysis. It is suitable for binary classification.[@jakkula2006tutorial]
+
+- **Logistic Regression** Logistic regression is a supervised learning model that applies primarily to two or more categories using a logical function.[@hosmer2013applied]
 
 ## Regression
-- **Gradient Boosting Regression** Gradient boosting is an ensemble learning method that builds a series of decision trees, where each tree corrects the errors of the previous one. The model is trained in a sequential manner, combining the predictions of multiple weak models to create a strong model. This technique was used to explore a company's gender equality score, based on features such as procurement practices and financial health.
+
+- **Gradient Boosting Regression** It is a supervised learning method based on boosting in a functional space, is pseudo-residuals rather than residuals, as in conventional boosting.[@friedman2001greedy]
 
 ## Multi-Class Classification
-- **Random Forest Classifier** Random forest is another ensemble method that constructs a multitude of decision trees and aggregates their results. Each tree is built using a random subset of the data and features, making the model less prone to overfitting. It was used to classify whether a company meets, partially meets, or does not meet the health coverage criteria based on evidence related to health services provided by the company.
 
+- **Random Forest Classifier** Random Forest Classifier is an ensemble learning technique for classification or regression, the Random Forest Classifier will generate a large number of decision trees during training.[@belgiu2016random]

@@ -1,16 +1,14 @@
 ---
-title: "Landing page"
+title: "<span style='color: #6C63FF;'>Exploring the Intersection of Gender Equality and Financial Performance: Analyzing Leadership and Organizational Practices</span>"
 ---
-
-# Exploring the Intersection of Gender Equality and Financial Performance: Analyzing Leadership and Organizational Practices
 
 <img src="./assets/undraw_working.svg" />
 
-## Introduction
+# Introduction
 
-This project delves into the intersection of gender equality and financial performance, exploring how organizational practices and leadership impact business outcomes. Through data-driven analysis, we examine how factors like CEO gender, company policies on diversity and inclusion, and financial performance correlate with organizational success. The website provides a comprehensive introduction to these topics, offering actionable insights into the relationship between gender equality and financial performance through data analysis and visualization. We hope that this website can provide some valuable findings that can guide organizations in making more inclusive and financially successful strategic decisions.
+**This website will show in-depth research on gender equality and financial performance, exploring how organizational practices and leadership impact business outcomes.** Using data science techniques, we examined how factors such as CEO gender, company policies on diversity and inclusion, and financial performance relate to organizational success. The website provides a comprehensive look at these topics and provides meaningful insights into the relationship between gender equality and financial performance at the company level through data analysis and visualization. We hope these data-driven discoveries can guide organizations in making strategic decisions that are more inclusive and financially successful.
 
-### Questions We Are Addressing
+## Questions We Are Addressing
 
 1. Is there a gender inequality problem in North American companies?
 
@@ -18,62 +16,26 @@ This project delves into the intersection of gender equality and financial perfo
 
 3. Does the gender of a company's CEO have an impact on the company's financial performance?
 
-4. How do financial indicators and operational factors influence a company's decision to procure from women-owned businesses?
+4. How do financial and operational factors influence a company's decision to procure from women-owned businesses?
 
 5. How can textual evidence in reports be used to automate the assessment of a company’s performance in gender equality and healthcare standards?
 
 
-## Literature review
+# Literature review
 
 Enterprises are an important economic organization that is widespread in society. How to create an inclusive environment at the firm level, especially for gender equality, is a very important proposition that we would like to study in conjunction with the financial health, governance structure and business practices of firms.
 
-Reviewing previous research on the association of gender inequality with other factors at the firm level, Hoogendoorn et al. (2013) found that gender-balanced teams in business teams were more likely to have better sales and profit performance, although no direct factors were found to support this difference. Eagly and Heilman (2016) mentioned that the business case of “female participation enhances corporate financial performance” and argue that more in-depth analysis is needed if this idea is to be validated. Simionescu et al. (2021) argue that female board members have a positive impact on corporate performance, particularly in terms of price-earnings ratios. All of the above were studied using traditional qualitative analysis methods or econometric methods.
+Reviewing previous research on the association of gender inequality with other factors at the firm level, Hoogendoorn et al. (2013)[@1dcc2f31-751f-32db-875e-66a27c4aad57] found that gender-balanced teams in business teams were more likely to have better sales and profit performance, although no direct factors were found to support this difference. Eagly and Heilman (2016)[@EAGLY2016349] mentioned that the business case of “female participation enhances corporate financial performance” and argue that more in-depth analysis is needed if this idea is to be validated. Simionescu et al. (2021)[@article] argue that female board members have a positive impact on corporate performance, particularly in terms of price-earnings ratios. All of the above were studied using traditional qualitative analysis methods or econometric methods.
 
-When it comes to CEO gender and its relationship with finance, Khan and Vieito (2013) find that female CEOs lead firms with lower risk but face less tailored compensation packages. Jalbert, Jalbert, and Furumo (2013) show that CEO gender influences management practices and financial performance. Specifically, when studying women-led companies, Bell (2005) highlights that they offer higher pay and opportunities for female executives, narrowing the gender pay gap.
+When it comes to CEO gender and its relationship with finance, Khan and Vieito (2013)[@khan2013ceo] find that female CEOs lead firms with lower risk but face less tailored compensation packages. Jalbert, Jalbert, and Furumo (2013)[@jalbert2013relationship] show that CEO gender influences management practices and financial performance. Specifically, when studying women-led companies, Bell (2005)[@bell2005women] highlights that they offer higher pay and opportunities for female executives, narrowing the gender pay gap.
 
-## Motivation
+# Motivation
 
-The intersection of gender equality and financial performance is an important area of research, especially as today's society increasingly recognizes that with diverse leadership, high levels of inclusion in a company are an important indicator that a company has a human face and promotes growth. A wealth of data plays a key role in understanding these dynamics, including financial data and textual data from company reports, which provide insights that can drive meaningful change in the way companies operate. By examining the relationship between gender equality policies, leadership, and economic success, the project aims to highlight how we can make the environment more inclusive and the benefits of fostering an inclusive environment. The results of this research can empower organizations to make data-backed decisions that not only promote gender equality, but also improve the long-term sustainability of their companies. In an era where we need to pursue not only economic growth, but also social progress, understanding these connections is critical to creating an organization that positively develops and makes an inclusive contribution to society.
-
-## Key Topics
-
-- **Data Collection and Cleaning**:
-We combined the 2023 Gender Benchmark data set from World Benchmarking Alliance with data scraped from EDGAR API, ensuring comprehensive coverage of gender-related metrics and financial performance indicators. In addition, we also applied data cleaning to ensure the effectiveness of data analysis.
-
-- **Selecting Financial Performance Metrics**: 
-This section identifies the key financial indicators that best reflect a company’s financial health and how they relate to gender equality practices and outcomes.
-
-- **Data Visualization**: 
-Presenting data-driven insights through interactive charts, graphs, and infographics to communicate trends and patterns.
-
-- **Dimensionality Reduction**: 
-Using techniques like PCA and t-SNE to reduce high-dimensional data into more understandable patterns, helping us visualize the key factors that influence companies' gender equality scores.
-
-- **Clustering and Segmentation**: 
-Grouping companies based on similar characteristics (e.g., Total Scores) to identify patterns and trends across different financial and gender equality metrics.
-
-- **Classification and Regression**: 
-Applying machine learning algorithms (e.g., SVM, Random Forest, Gradient Boosting) to classify companies based on gender equality levels or to predict continuous variables like gender equality scores.
-
-- **Feature Engineering**: 
-Selecting, transforming, and creating features from raw data (e.g., financial metrics, text data from policies) that help improve model accuracy and provide insights into the relationship between gender equality and company performance.
-
-## Use Cases/Examples
 :::: {.columns}
 
 ::: {.column width="45%"}
 
-- **Clustering Companies by Gender Equality Performance**: 
-
-Through unsupervised learning techniques like PCA and t-SNE, we segmented companies into clusters based on their gender equality scores. This analysis uncovered that top-performing companies often cluster in specific financial metrics, while mid-range performers show overlap, indicating diverse strategies for achieving gender equality goals.
-
-- **Gender Equality in Supply Chains**: 
-
-We explored how companies’ procurement from women-owned businesses correlates with their overall gender equality scores. This case study used feature engineering and predictive modeling to assess how procurement practices affect companies' gender equity efforts and financial outcomes.
-
-- **Automated Evaluation of Compliance with Gender Equality Standards**: 
-
-Using supervised learning model and NLP techniques, we developed a model to automatically assess whether a company's actions and policies meet certain gender equality standards based on the text from their public reports. We can evaluate if companies are meeting gender equality benchmarks, such as gender balance in leadership, anti-harassment policies, and equal pay practices. This automated evaluation allows for scalable and efficient monitoring of company practices, providing a data-driven way to assess compliance with gender equity standards without manual review.
+In this era, more and more people notice that the high levels of inclusion in a company are an important indicator that can promote growth and also reflect whether a company has a humanized environment. Different types of data play a key role in understanding these dynamics, such as financial data and textual data from company reports, which provide insights that can drive meaningful change in the way companies operate. By exploring the relationship between gender equality policies, diversity leadership, and financial success, this project aims to highlight how a company can foster an inclusive environment. The results of our project can empower organizations to make data-driven decisions, which not only improve gender equality but also improve long-term sustainability. With the development of society, we need to pursue both financial success and social progress, so it is hoped that insights about creating an organization that positively develops will be given in this project.
 
 :::
 
@@ -83,16 +45,57 @@ Using supervised learning model and NLP techniques, we developed a model to auto
 
 ::: {.column width="45%"}
 
-<img src="./assets/undraw_server.svg"/>
+<img src="./assets/undraw_motivation.png" style="max-width: 100%; height: auto;" />
 
 :::
 
 ::::
 
 
-## Call to Action
+# Key Topics
 
-We encourage you to explore the insights and analyses presented in this project. Dive into the data-driven stories and uncover how gender equality practices are influencing business performance. Follow along as we continue to expand on these findings and share actionable insights. If you're interested in learning more or discussing how these findings can apply to your organization, feel free to reach out. Let's work together to drive positive change towards gender equality in the workplace and beyond!
+- **Data Collection and Cleaning**:
+
+We merged the World Benchmark Alliance's 2023 gender benchmark dataset[@Gender2023] with data scraped from the EDGAR API to ensure that all the data we needed was consolidated into one large dataset. In addition, we applied data cleaning to ensure the validity of the data analysis.
+
+- **Selecting Financial Performance Metrics**: 
+
+In fact, we were able to crawl through the EDGAR API to hundreds of different financial metrics for a company, and we picked a few key metrics that we thought gave a better picture of the company's financial health.
+
+- **Data Visualization**: 
+
+In order to make our results more readable and intuitive, we used a variety of chart types, such as bar chart, heat map and word cloud, to present data-driven insights.
+
+- **Dimensionality Reduction**: 
+
+Using techniques like PCA and t-SNE to reduce high-dimensional data into more understandable patterns, helping us visualize the key factors that influence companies' gender equality scores.
+
+- **Clustering and Segmentation**: 
+
+Grouping companies based on similar characteristics to identify patterns and trends across different financial and gender equality metrics.
+
+- **Machine Learning**: 
+
+Applying machine learning algorithms to explore the relationship between different variables. Through training models, we can provide insights into the relationship between gender equality and company performance.
+
+
+# Use Cases
+
+- **Clustering Companies by Gender Equality Performance**: 
+
+With unsupervised learning techniques such as PCA and t-SNE, we get different clusters and can identify systemic challenges embodied in the clusters. Male CEOs are more likely to enter firms with better overall performance in the industry compared to female CEOs, even though female CEOs can have some potential to balance gender equality and financial performance. Systemic change is still needed if this is to change.
+
+- **Gender Equality in Supply Chains**: 
+
+We explored the relationship between whether companies sourced from women-owned businesses and a range of financial metrics, as well as their overall gender equality scores. Gender equality in the supply chain is a little-explored topic, and we hope to show more possibilities from the supply chain.
+
+- **Automated Evaluation of Compliance with Gender Equality Standards**: 
+
+Using Random Forest Modeling and Natural Language Processing techniques, we hope to automate the process of assessing whether a company's actions and policies meet certain gender equality criteria, based on text from the company's public reports. While we are currently only exploring the process of automating health coverage assessments, there is potential to explore more outwardly to be able to assess whether companies are meeting other gender equality standards based on this. Such automated assessments could increase efficiency and provide a data-driven way to assess compliance with gender equality standards.
+
+# Call to Action
+
+We encourage you to explore the insights and results presented in this project. Diving into the data-driven stories and uncover how gender equality practices are influencing business performance. Follow along as we continue to expand on these findings and share actionable insights. If you're interested in learning more or discussing how these findings can apply to your organization, feel free to reach out. Let's work together to drive positive change towards gender equality in the workplace and beyond!
 
 
 <div style="display: flex; justify-content: space-between; width: 100%; gap: 10px;">

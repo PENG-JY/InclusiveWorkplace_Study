@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Unsupervised Learning</title>
+<title>Unsupervised Learning – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -83,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -93,15 +147,15 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
+    <a class="nav-link" href="../../Collaborators.html"> 
+<span class="menu-text">About Us</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
@@ -137,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -151,16 +205,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#overview-of-methods" id="toc-overview-of-methods" class="nav-link" data-scroll-target="#overview-of-methods">Overview of Methods</a>
   <ul class="collapse">
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
-  <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a>
+  <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link" data-scroll-target="#dimensionality-reduction">Dimensionality Reduction</a></li>
+  <li><a href="#k-means-clustering" id="toc-k-means-clustering" class="nav-link" data-scroll-target="#k-means-clustering">K-Means Clustering</a></li>
+  </ul></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
   <ul class="collapse">
-  <li><a href="#part-1-dimensionality-reduction" id="toc-part-1-dimensionality-reduction" class="nav-link" data-scroll-target="#part-1-dimensionality-reduction">Part 1: Dimensionality Reduction</a></li>
-  <li><a href="#part-2-clustering-methods" id="toc-part-2-clustering-methods" class="nav-link" data-scroll-target="#part-2-clustering-methods">Part 2: Clustering Methods</a></li>
+  <li><a href="#pca-and-t-sne-for-assessment-variables" id="toc-pca-and-t-sne-for-assessment-variables" class="nav-link" data-scroll-target="#pca-and-t-sne-for-assessment-variables">PCA and t-SNE for Assessment Variables</a></li>
+  <li><a href="#k-means-clustering-analysis-to-identify-patterns-in-gender-equality-assessments" id="toc-k-means-clustering-analysis-to-identify-patterns-in-gender-equality-assessments" class="nav-link" data-scroll-target="#k-means-clustering-analysis-to-identify-patterns-in-gender-equality-assessments">K-Means Clustering Analysis to Identify Patterns in Gender Equality Assessments</a>
+  <ul class="collapse">
+  <li><a href="#summary-of-clusters-based-on-k-means-analysis" id="toc-summary-of-clusters-based-on-k-means-analysis" class="nav-link" data-scroll-target="#summary-of-clusters-based-on-k-means-analysis">Summary of Clusters Based on K-Means Analysis</a></li>
   </ul></li>
+  <li><a href="#key-insights-from-unsupervised-learning-analysis" id="toc-key-insights-from-unsupervised-learning-analysis" class="nav-link" data-scroll-target="#key-insights-from-unsupervised-learning-analysis">Key Insights from Unsupervised Learning Analysis</a></li>
   </ul></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
   </ul>
 </nav>
     </div>
@@ -187,86 +246,775 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- After digesting the instructions, you can delete this cell, these are assignment instructions and do not need to be included in your final submission.  -->
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<p><code>Note</code>: You should remove these instructions once you have read and understood them. They should not be included in your final submission.</p>
-<p><code>Remember:</code> Exactly what do you put on this page will be specific you your project and data. Some things might “make more sense” on one page rather than another, depending on your workflow. Organize your project in a logical way that makes the most sense to you.</p>
-<section id="suggested-page-structure" class="level2">
-<h2 class="anchored" data-anchor-id="suggested-page-structure">Suggested page structure</h2>
-<p>Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:</p>
-<p><code>Audience</code>:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts.</p>
+<section id="introduction-and-motivation" class="level1">
+<h1>Introduction and Motivation</h1>
+<p>Unsupervised learning techniques are crucial for exploring hidden patterns and structures in data without predefined labels. In the context of gender equality and corporate performance, unsupervised learning allows us to identify natural groupings or relationships between companies based on financial performance, gender equality scores, and leadership diversity. These techniques are particularly useful when we aim to discover intrinsic patterns, such as how certain corporate characteristics correlate with higher gender equality scores or financial success.</p>
+<p>In this study, we aim to use unsupervised learning methods to uncover underlying patterns within the dataset of companies’ financial indicators and gender equality measures. By clustering companies based on these characteristics, we can identify different groups of companies that exhibit similar profiles in terms of gender equality, leadership diversity, and financial performance. The insights from these clusters can help uncover systemic barriers, trends, or areas for potential improvement in corporate governance and inclusivity practices.</p>
+<p>By leveraging unsupervised learning techniques, we aim to:</p>
+<ol type="1">
+<li>Reveal patterns in corporate behavior related to gender equality.</li>
+<li>Explore the association between financial performance and diversity metrics.</li>
+<li>Identify outliers or high-performing companies that demonstrate exceptional gender equality practices.</li>
+</ol>
+<p>This section will focus on how unsupervised learning models, such as clustering algorithms and dimensionality reduction techniques, were applied to analyze company performance and gender equality.</p>
+</section>
+<section id="overview-of-methods" class="level1">
+<h1>Overview of Methods</h1>
+<p>In this study, two unsupervised learning models were employed: Dimensionality Reduction (PCA and t-SNE) and K-Means Clustering.</p>
+<section id="dimensionality-reduction" class="level2">
+<h2 class="anchored" data-anchor-id="dimensionality-reduction">Dimensionality Reduction</h2>
 <ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
-<li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
+<li><p><strong>PCA</strong>: PCA is a dimensionality reduction technique that transforms high-dimensional data into a smaller set of uncorrelated variables known as principal components. These components explain the maximum variance in the data. PCA was used in this study to reduce the complexity of the dataset and identify the most important factors that explain variability in gender equality scores. By applying PCA, we could better visualize the data and identify which assessment dimensions (e.g., workplace environment, compensation and benefits, prevention of violence and harassment) had the greatest influence on the total score.<span class="citation" data-cites="mackiewicz1993principal"><sup><a href="#ref-mackiewicz1993principal" role="doc-biblioref">1</a></sup></span></p></li>
+<li><p><strong>t-SNE</strong>: t-SNE is another dimensionality reduction technique, particularly effective for visualizing high-dimensional data in a two- or three-dimensional space. It works by minimizing the divergence between probability distributions in high-dimensional space and their corresponding distributions in lower dimensions. In this study, t-SNE was also applied to explore how companies clustered together based on their gender equality scores.<span class="citation" data-cites="van2008visualizing"><sup><a href="#ref-van2008visualizing" role="doc-biblioref">2</a></sup></span></p></li>
 </ul>
 </section>
-<section id="what-to-address" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
-<p>The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.</p>
-<p>This page is designed to give you hands-on experience with key unsupervised learning techniques, including clustering methods and dimensionality reduction, applied to real-world datasets. Please apply algorithms such as K-Means, DBSCAN, Hierarchical clustering, PCA, and t-SNE to your data. Through this process, you’ll deepen your understanding of how unsupervised learning can reveal hidden patterns and structure in data.</p>
-<section id="part-1-dimensionality-reduction" class="level3">
-<h3 class="anchored" data-anchor-id="part-1-dimensionality-reduction">Part 1: Dimensionality Reduction</h3>
-<p>The objective of this section is to explore and demonstrate the effectiveness of PCA and t-SNE in reducing the dimensionality of complex data while preserving essential information and improving visualization.</p>
-<ol type="1">
-<li><strong>PCA (Principal Component Analysis):</strong>
-<ul>
-<li>Apply PCA to your dataset.</li>
-<li>Determine the optimal number of principal components.</li>
-<li>Visualize the reduced-dimensional data.</li>
-<li>Analyze and interpret the results.</li>
-</ul></li>
-<li><strong>t-SNE (t-distributed Stochastic Neighbor Embedding):</strong>
-<ul>
-<li>Implement t-SNE on the same dataset.</li>
-<li>Experiment with different perplexity values.</li>
-<li>Visualize the t-SNE output to reveal patterns and clusters.</li>
-<li>Compare the results of t-SNE with those from PCA.</li>
-</ul></li>
-<li><strong>Evaluation and Comparison:</strong>
-<ul>
-<li>Evaluate the effectiveness of PCA and t-SNE in preserving data structure.</li>
-<li>Compare the visualization capabilities of both techniques.</li>
-<li>Discuss the trade-offs and scenarios where one technique may perform better than the other.</li>
-</ul></li>
-</ol>
-</section>
-<section id="part-2-clustering-methods" class="level3">
-<h3 class="anchored" data-anchor-id="part-2-clustering-methods">Part 2: Clustering Methods</h3>
-<p>Apply clustering techniques (K-Means, DBSCAN, and Hierarchical clustering) to a selected dataset. The goal is to understand how each method works, compare their performance, and interpret the results.</p>
-<ol type="1">
-<li><strong>Clustering Methods:</strong>
-<ul>
-<li>Apply <strong>K-Means</strong>, <strong>DBSCAN</strong>, and <strong>Hierarchical clustering</strong> to your dataset.</li>
-<li>Write a technical summary for each method (2–4 paragraphs per method) explaining how it works, its purpose, and any model selection methods used (e.g., Elbow, Silhouette).</li>
-</ul></li>
-<li><strong>Results Section:</strong>
-<ul>
-<li>Discuss and visualize the results of each clustering analysis.</li>
-<li>Compare the performance of different clustering methods, noting any insights gained from the analysis.</li>
-<li>Visualize cluster patterns and how they relate (if at all) to existing labels in the dataset.</li>
-<li>Use professional, labeled, and clear visualizations that support your discussion.</li>
-</ul></li>
-<li><strong>Conclusion:</strong>
-<ul>
-<li>Summarize the key findings and their real-world implications in a non-technical way. Focus on the most important results and how they could apply to practical situations.</li>
-</ul></li>
-</ol>
-</section>
+<section id="k-means-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="k-means-clustering">K-Means Clustering</h2>
+<p>K-Means was used in this study to group companies based on their performance across gender equality assessment dimensions. The goal was to identify clusters of companies that exhibited similar behaviors in gender equality implementation, and how these clusters correlate with CEO Gender, the total score, and key financial indicators. K-Means is particularly suitable for this analysis because it can handle large datasets with high-dimensional features and works well for identifying natural groupings in the data.<span class="citation" data-cites="hamerly2003learning"><sup><a href="#ref-hamerly2003learning" role="doc-biblioref">3</a></sup></span></p>
 </section>
 </section>
 <section id="code" class="level1">
 <h1>Code</h1>
-<p>Provide the source code used for this section of the project here.</p>
-<p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
-<p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
-<p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<div id="cell-3" class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> MinMaxScaler</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.experimental <span class="im">import</span> enable_iterative_imputer</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.impute <span class="im">import</span> IterativeImputer</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> silhouette_score</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-4" class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the CSV file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">'../../data/processed-data/merged_data.csv'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="pca-and-t-sne-for-assessment-variables" class="level2">
+<h2 class="anchored" data-anchor-id="pca-and-t-sne-for-assessment-variables">PCA and t-SNE for Assessment Variables</h2>
+<p>In the dataset, there are 48 dimensions (e.g., workplace environment, compensation and benefits, prevention of violence and harassment) that evaluate a company’s practices in terms of gender equality and respect. The “Assessment” variables, recorded as binary values (Met or Unmet), provide detailed insights into how companies perform across various gender equality dimensions.</p>
+<p>By applying PCA and t-SNE, we aim to understand how these 48 dimensions collectively influence a company’s overall gender equality and respect score (Total Score).</p>
+<p>The explanation of these 48 dimensions are shown in the dataframe below:</p>
+<div id="cell-7" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract columns called "Explanation"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>explanation_columns <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> data.columns <span class="cf">if</span> <span class="st">"Explanation"</span> <span class="kw">in</span> col]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of "Explanation" olumns</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>num_explanation_columns <span class="op">=</span> <span class="bu">len</span>(explanation_columns)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of columns containing 'Explanation': </span><span class="sc">{</span>num_explanation_columns<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Store the unique values in these columns</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>unique_values_dict <span class="op">=</span> {col: data[col].dropna().unique().tolist() <span class="cf">for</span> col <span class="kw">in</span> explanation_columns}</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to DataFrame</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>unique_values_df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    [{<span class="st">"Column"</span>: col, <span class="st">"Unique Values"</span>: unique_values_dict[col]} <span class="cf">for</span> col <span class="kw">in</span> unique_values_dict]</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unique_values_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of columns containing 'Explanation': 48
+                    Column                                      Unique Values
+0    SA-A01.EA-Explanation  [company states committed equality opportunity...
+1    GT-A02.EA-Explanation  [company identified specific timebound targets...
+2    GT-A02.EC-Explanation  [company discloses one timebound targets gende...
+3   GDD-A04.EA-Explanation  [evidence found company assesses prioritises g...
+4   GDD-A04.EB-Explanation  [evidence found company engages women part ris...
+5    GM-A05.EA-Explanation  [company provides email id hotline number webs...
+6    GM-A05.EB-Explanation  [company provides email id hotline number webs...
+7    GM-A05.EC-Explanation  [evidence found whether company collects analy...
+8    SE-A06.EA-Explanation  [although company employee feedback mechanisms...
+9   CAP-A07.EA-Explanation  [evidence found whether company screens gender...
+10  CAP-A07.EB-Explanation  [evidence found company categorises noncomplia...
+11   GL-B01.EA-Explanation  [highest governance body composed less 40 wome...
+12   GL-B01.EB-Explanation  [less 40 senior executives women, assessment e...
+13   GL-B01.EC-Explanation  [company maintains gender balance 41 among sen...
+14   GL-B01.ED-Explanation  [company maintains gender balance 49 among mid...
+15   PD-B02.EA-Explanation  [company offers development programmes women e...
+16   PD-B02.EB-Explanation  [evidence found suggesting company tracks numb...
+17  SD-B03.EA- Explanation  [evidence company collects sexdisaggregated da...
+18   SD-B03.EB-Explanation  [evidence found suggesting company collects se...
+19   SD-B03.EC-Explanation  [evidence found suggesting company collects se...
+20   SD-B03.ED-Explanation  [evidence found suggesting company collects se...
+21  SC-B04.EA- Explanation  [evidence found suggesting company collects re...
+22   EE-B06.EB-Explanation  [company expects business partner recognize re...
+23  GR-B07.EA- Explanation  [company made commitment advancing supplier di...
+24   GR-B07.EB-Explanation  [evidence found procurement womenowned busines...
+25  GPG-C01.EA-Explanation  [evidence found company discloses ratio basic ...
+26  GPG-C01.EB-Explanation  [evidence found suggesting company collects se...
+27  GPG-C01.EC-Explanation  [evidence found whether company uses thirdpart...
+28  PCL-C02.EA-Explanation  [evidence companys policy least 14 weeks paid ...
+29  PCL-C02.EB-Explanation  [evidence found whether company monitors retur...
+30  PCL-C02.EC-Explanation  [evidence found global policy providing least ...
+31  PCL-C02.ED-Explanation  [evidence found whether company tracks number ...
+32  CFS-C03.EA-Explanation  [evidence found regarding whether company offe...
+33  CFS-C03.EB-Explanation  [evidence found regarding whether company offe...
+34   FW-C04.EA-Explanation  [evidence found whether company offers flexibl...
+35   FW-C04.EB-Explanation  [evidence found indicate company collects sexd...
+36   FW-C04.EC-Explanation  [evidence found suggest company offers flexibl...
+37   FW-C04.ED-Explanation  [evidence found indicate company collects sexd...
+38  LWS-C06.EA-Explanation  [evidence found company requires suppliers pay...
+39  LWS-C06.EB-Explanation  [evidence found company takes specific actions...
+40  HSW-D01.EA-Explanation  [company publicly available policy statement c...
+41  HSW-D01.EB-Explanation  [evidence found company discloses sexdisaggreg...
+42  HSW-D01.EC-Explanation  [evidence found regarding whether company prov...
+43  SHS-D02.EA-Explanation  [company publicly available statement policy e...
+44  SHS-D02.EC-Explanation  [company states communicates compliance standa...
+45  VHP-E01.EA-Explanation  [company policy regarding violence harassment ...
+46  VHR-E02.EA-Explanation  [evidence found regarding whether company reme...
+47  VHR-E02.EB-Explanation  [evidence found regarding whether company coll...</code></pre>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns containing "Assessment" and Total Score</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>assessment_columns <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> data.columns <span class="cf">if</span> <span class="st">"Assessment"</span> <span class="kw">in</span> col]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data_cleaned_assessment <span class="op">=</span> data.dropna(subset<span class="op">=</span>[<span class="st">'Total'</span>] <span class="op">+</span> assessment_columns)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode Met/Unmet as binary values</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>data_cleaned_assessment_encoded <span class="op">=</span> data_cleaned_assessment.copy()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>data_cleaned_assessment_encoded[assessment_columns] <span class="op">=</span> data_cleaned_assessment[assessment_columns].<span class="bu">apply</span>(<span class="kw">lambda</span> col: col.<span class="bu">map</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">'Met'</span> <span class="cf">else</span> <span class="dv">0</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Scale the encoded assessment variables</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> MinMaxScaler()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>assessment_data_scaled <span class="op">=</span> scaler.fit_transform(data_cleaned_assessment_encoded[assessment_columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-9" class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply PCA</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pca_assessment <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pca_assessment_result <span class="op">=</span> pca_assessment.fit_transform(assessment_data_scaled)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize PCA results</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(pca_assessment_result[:, <span class="dv">0</span>], pca_assessment_result[:, <span class="dv">1</span>], c<span class="op">=</span>data_cleaned_assessment[<span class="st">'Total'</span>], cmap<span class="op">=</span><span class="st">'coolwarm'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA: Assessment Variables and Total Score'</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Component 1'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Principal Component 2'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Total Score'</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This PCA visualization shows the distribution of companies based on the first two principal components (PC1 and PC2) derived from their Assessment Variables (e.g., workplace practices, compensation, prevention of harassment). The color gradient represents the Total Score, with blue indicating lower scores and red indicating higher scores.</p>
+<p><strong>Visual Observations</strong>: 1. Spread Along Principal Component 1 (PC1):</p>
+<ul>
+<li>The horizontal axis (PC1) accounts for the largest proportion of variance in the assessment data.</li>
+<li>Companies on the right (positive PC1 values) tend to have higher Total Scores (red points), while companies on the left (negative PC1 values) generally have lower Total Scores (blue points).</li>
+<li>This indicates that PC1 captures a primary dimension of performance across the assessments, with higher values representing better alignment with gender equality standards.</li>
+</ul>
+<ol start="2" type="1">
+<li>Spread Along Principal Component 2 (PC2):</li>
+</ol>
+<ul>
+<li>The vertical axis (PC2) captures the second-largest proportion of variance, showing additional dimensions of differentiation in company performance.</li>
+<li>There is no clear trend between PC2 values and Total Score, suggesting that PC2 may represent secondary characteristics or a more nuanced aspect of compliance with assessment standards.</li>
+</ul>
+<ol start="3" type="1">
+<li>Clusters and Patterns:</li>
+</ol>
+<ul>
+<li>Companies with similar Total Scores tend to cluster together along PC1. For example: High-scoring companies (Total Score &gt; 15) are more concentrated on the right side of the plot. Low-scoring companies (Total Score &lt; 5) are more prevalent on the left.</li>
+<li>However, there is some overlap between mid-range scoring companies (light blue to gray), suggesting that certain Assessment Variables may not fully differentiate these companies.</li>
+</ul>
+<p><strong>Key Insights</strong>: 1. PC1 as a Key Driver of Total Score:</p>
+<ul>
+<li>The strong alignment between PC1 and Total Score suggests that this component captures the primary dimension of compliance with gender equality standards.</li>
+<li>High PC1 values likely reflect better overall performance across most assessment dimensions.</li>
+</ul>
+<ol start="2" type="1">
+<li>PC2 Adds Secondary Differentiation:</li>
+</ol>
+<ul>
+<li>PC2 does not correlate strongly with Total Score but may represent nuanced differences in how companies approach specific dimensions of gender equality.</li>
+</ul>
+<ol start="3" type="1">
+<li>Clustering of High- and Low-Scoring Companies:</li>
+</ol>
+<ul>
+<li>Companies with high Total Scores are more clearly separated along PC1, indicating stronger compliance across multiple assessment dimensions.</li>
+<li>Low-scoring companies are concentrated in the negative PC1 region, reflecting widespread non-compliance or unmet standards.</li>
+</ul>
+<div id="cell-11" class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply t-SNE</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tsne_assessment <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tsne_assessment_result <span class="op">=</span> tsne_assessment.fit_transform(assessment_data_scaled)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize t-SNE results</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(tsne_assessment_result[:, <span class="dv">0</span>], tsne_assessment_result[:, <span class="dv">1</span>], c<span class="op">=</span>data_cleaned_assessment[<span class="st">'Total'</span>], cmap<span class="op">=</span><span class="st">'coolwarm'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'t-SNE: Assessment Variables and Total Score'</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Dimension 1'</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Dimension 2'</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Total Score'</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This t-SNE plot visualizes the distribution of companies based on their Assessment Variables, with Total Score represented by the color gradient. Blue points indicate companies with lower Total Scores, while red points represent companies with higher Total Scores.</p>
+<p>Unlike PCA, t-SNE focuses on preserving the local relationships in the data, capturing potential non-linear patterns that might not be visible with linear dimensionality reduction methods.</p>
+<p><strong>Visual Observations</strong>: 1. Clustering Patterns:</p>
+<ul>
+<li>Companies with similar Total Scores tend to cluster together, indicating that certain groups of companies share common assessment profiles.</li>
+<li>For example: Low-scoring companies (blue) tend to form clusters in the left-hand side of the plot (e.g., Dimension 1 &lt; -4). High-scoring companies (red) are more dispersed but tend to occupy distinct positions toward the right-hand side (Dimension 1 &gt; 0).</li>
+</ul>
+<ol start="2" type="1">
+<li>Separation by Total Score:</li>
+</ol>
+<ul>
+<li>There is a clear separation between low-scoring and high-scoring companies along Dimension 1.</li>
+<li>Companies with high Total Scores appear less clustered and more dispersed, potentially reflecting greater diversity in their compliance with different assessment dimensions.</li>
+</ul>
+<ol start="3" type="1">
+<li>Overlapping Mid-Range Scores:</li>
+</ol>
+<ul>
+<li>Companies with mid-range Total Scores (light blue to gray) show significant overlap across the plot.</li>
+<li>This indicates that mid-range performers may not exhibit distinctive patterns in their assessment profiles, or their scores might be influenced by a balanced mix of “Met” and “Unmet” assessments across dimensions.</li>
+</ul>
+<p><strong>Key Insights</strong>: 1. Assessment Variables as Drivers of Total Score:</p>
+<ul>
+<li>The clustering of companies by Total Score suggests that the Assessment Variables collectively determine performance.</li>
+<li>High-scoring companies are distinctly separated from low-scoring ones, indicating that compliance with certain key dimensions contributes significantly to Total Score.</li>
+</ul>
+<ol start="2" type="1">
+<li>Diversity Among High-Scoring Companies:</li>
+</ol>
+<ul>
+<li>The dispersed nature of high-scoring companies suggests variability in how these companies achieve high Total Scores. For instance, some companies might excel in workplace environment dimensions, while others might focus more on compensation and benefits.</li>
+</ul>
+<ol start="3" type="1">
+<li>Homogeneity of Low-Scoring Companies:</li>
+</ol>
+<ul>
+<li>Low-scoring companies cluster more tightly, implying that their poor performance is likely due to consistent non-compliance across multiple assessment dimensions.</li>
+</ul>
+</section>
+<section id="k-means-clustering-analysis-to-identify-patterns-in-gender-equality-assessments" class="level2">
+<h2 class="anchored" data-anchor-id="k-means-clustering-analysis-to-identify-patterns-in-gender-equality-assessments">K-Means Clustering Analysis to Identify Patterns in Gender Equality Assessments</h2>
+<p>This K-Means clustering analysis groups companies based on their performance across gender equality assessment dimensions. It highlights similarities in company practices and explores how these clusters correlate with <strong>CEO Gender, Total Score, and key financial indicators</strong> we have identified in the EDA stage which has significant differences between male- and female-led companies: <strong>Gross Profit, Revenue from Contract with Customer, Compensation Expense, and Accounts Receivable</strong>. The results aim to uncover meaningful patterns and provide insights into organizational behaviors and their impact on gender equality and financial outcomes.</p>
+<div id="cell-16" class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns containing "Assessment"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>assessment_columns <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> data.columns <span class="cf">if</span> <span class="st">"Assessment"</span> <span class="kw">in</span> col]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure no missing values and convert 'Met' to 1 and 'Unmet' to 0</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>data_cleaned <span class="op">=</span> data[assessment_columns <span class="op">+</span> [<span class="st">'CEO Gender'</span>, <span class="st">'Total'</span>, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'GrossProfit (k)'</span>, <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>, <span class="st">'AccountsReceivableNetCurrent (k)'</span>]].dropna()</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>data_cleaned[assessment_columns] <span class="op">=</span> data_cleaned[assessment_columns].<span class="bu">apply</span>(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> col: col.<span class="bu">map</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">'Met'</span> <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize the data</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> MinMaxScaler()</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>assessment_data_scaled <span class="op">=</span> scaler.fit_transform(data_cleaned[assessment_columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-17" class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine the optimal number of clusters using Elbow Method and Silhouette Score</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>inertia <span class="op">=</span> []</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>silhouette_scores <span class="op">=</span> []</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">10</span>)  <span class="co"># Number of clusters from 2 to 9</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> K:</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>k, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    kmeans.fit(assessment_data_scaled)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    inertia.append(kmeans.inertia_)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    silhouette_scores.append(silhouette_score(assessment_data_scaled, kmeans.labels_))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-18" class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize Elbow Method</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Elbow Method</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.plot(K, inertia, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Elbow Method: Optimal K'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Clusters (K)'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Inertia'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="138">
+<pre><code>Text(0, 0.5, 'Inertia')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-10-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize Silhouette Score</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.plot(K, silhouette_scores, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Silhouette Score: Optimal K'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Clusters (K)'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Silhouette Score'</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Determine the optimal number of clusters k: - As seen in the Elbow Method plot, the inertia decreases significantly as k increases but begins to level off after k=7, suggesting that adding more clusters beyond this point provides diminishing returns in terms of reducing the within-cluster variance. - Additionally, the highest Silhouette Score is achieved at k=7, indicating the strongest cluster separation at this value.</p>
+<p>Based on these results, k=7 is selected as the optimal number of clusters, as it balances the trade-off between within-cluster variance and cluster separation.</p>
+<div id="cell-21" class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply K-Means clustering</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>optimal_k <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span>optimal_k, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>data_cleaned[<span class="st">'Cluster'</span>] <span class="op">=</span> kmeans.fit_predict(assessment_data_scaled)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Map CEO Gender to numeric values (Male = 0, Female = 1)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>data_cleaned[<span class="st">'CEO Gender'</span>] <span class="op">=</span> data_cleaned[<span class="st">'CEO Gender'</span>].<span class="bu">map</span>({<span class="st">'Male'</span>: <span class="dv">0</span>, <span class="st">'Female'</span>: <span class="dv">1</span>})</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the mean for numeric columns (Total Score and financial indicators)</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>cluster_summary_numeric <span class="op">=</span> data_cleaned.groupby(<span class="st">'Cluster'</span>)[</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Total'</span>, </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>     <span class="st">'GrossProfit (k)'</span>, </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>     <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>     <span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>, </span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>     <span class="st">'AccountsReceivableNetCurrent (k)'</span>]</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>].mean()</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the proportion of CEO Gender for each cluster</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>cluster_gender_distribution <span class="op">=</span> data_cleaned.groupby(<span class="st">'Cluster'</span>)[<span class="st">'CEO Gender'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>).unstack()</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the results into a single summary table</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>cluster_summary <span class="op">=</span> pd.concat([cluster_summary_numeric, cluster_gender_distribution], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the combined summary</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cluster Summary:"</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cluster_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cluster Summary:
+             Total  GrossProfit (k)  \
+Cluster                               
+0        18.700000     1.528360e+08   
+1        10.266667     1.329348e+07   
+2        11.000000     3.659000e+06   
+3         8.666667     4.543287e+06   
+4         9.100000     5.092920e+05   
+5        15.400000     8.597000e+06   
+6        11.500000     7.736337e+06   
+
+         RevenueFromContractWithCustomerExcludingAssessedTax (k)  \
+Cluster                                                            
+0                                             3.658170e+08         
+1                                             2.243594e+07         
+2                                             4.125550e+07         
+3                                             9.786418e+06         
+4                                             6.564260e+05         
+5                                             5.619700e+07         
+6                                             1.360043e+07         
+
+         AllocatedShareBasedCompensationExpense (k)  \
+Cluster                                               
+0                                      7.906000e+06   
+1                                      7.146667e+05   
+2                                      9.200000e+04   
+3                                      3.108332e+05   
+4                                      9.013700e+04   
+5                                      6.920000e+05   
+6                                      3.555370e+05   
+
+         AccountsReceivableNetCurrent (k)         0         1  
+Cluster                                                        
+0                            2.818400e+07  1.000000       NaN  
+1                            3.602339e+06  0.666667  0.333333  
+2                            3.168500e+06  1.000000       NaN  
+3                            1.397113e+06  1.000000       NaN  
+4                            1.485440e+05  1.000000       NaN  
+5                            1.125400e+07  1.000000       NaN  
+6                            2.281154e+06  1.000000       NaN  </code></pre>
+</div>
+</div>
+<div id="cell-22" class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the distributions of Total Score and financial indicators by cluster</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Total Score vs Cluster</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'Cluster'</span>, y<span class="op">=</span><span class="st">'Total'</span>, data<span class="op">=</span>data_cleaned)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Total Score Distribution by Cluster'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Cluster'</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total Score'</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The boxplot illustrates the distribution of Total Score across the 7 clusters identified by the K-Means algorithm.</p>
+<p><strong>Visual Observations</strong>: 1. Cluster Differences: - Each cluster exhibits distinct Total Score distributions, indicating that companies grouped into different clusters vary significantly in their overall performance on gender equality and respect. - Cluster 0 and Cluster 5, both have a narrow range, include companies with higher Total Scores. - Cluster 3 and Cluster 4 display lower Total Scores, with Cluster 3 having the lowest median.</p>
+<ol start="2" type="1">
+<li>Variation Within Clusters:</li>
+</ol>
+<ul>
+<li>Cluster 1 and Cluster 6 show the widest range in Total Scores, suggesting that companies in these clusters exhibit more diversity in their compliance with gender equality standards.</li>
+<li>Cluster 0, Cluster 4, and Cluster 5 have very narrow distributions, implying more consistency among the companies within these groups.</li>
+</ul>
+<ol start="3" type="1">
+<li>Cluster 0 as an Outlier:</li>
+</ol>
+<ul>
+<li>Cluster 0 appears to have the highest Total Score distribution with minimal variance. This likely indicates that the companies in this cluster excel consistently across most assessment variables.</li>
+</ul>
+<ol start="4" type="1">
+<li>Middle Performers:</li>
+</ol>
+<ul>
+<li>Cluster 1 and Cluster 2 represent mid-range performers, with median Total Scores around 10-12. These clusters might include companies that meet some, but not all, gender equality standards.</li>
+</ul>
+<ol start="5" type="1">
+<li>Low Performers:</li>
+</ol>
+<ul>
+<li>Cluster 3 and Cluster 4 represent companies with the lowest Total Scores, indicating systemic weaknesses in meeting gender equality assessments. These clusters could be targeted for improvement strategies.</li>
+</ul>
+<p><strong>Interpretation for Clusters</strong>: 1. High-Performing Clusters (0 and 5): - These clusters likely consist of companies that excel in meeting gender equality assessments across multiple dimensions. They can serve as benchmarks or role models for lower-performing groups.</p>
+<ol start="2" type="1">
+<li>Low-Performing Clusters (3 and 4):</li>
+</ol>
+<ul>
+<li>These clusters should be analyzed to identify specific areas of weakness in assessment variables, providing actionable insights for improvement.</li>
+</ul>
+<ol start="3" type="1">
+<li>Diversity in Cluster 1 and 6:</li>
+</ol>
+<ul>
+<li>The wide variation in Cluster 1’s and Cluster 6’s Total Scores suggests a mix of companies that perform inconsistently across different assessment dimensions.</li>
+</ul>
+<ol start="4" type="1">
+<li>Potential Patterns:</li>
+</ol>
+<ul>
+<li>The clustering results highlight meaningful groupings in Total Scores, aligning with the K-Means model’s goal of separating companies based on assessment similarity.</li>
+</ul>
+<div id="cell-24" class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gross Profit vs Cluster</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'Cluster'</span>, y<span class="op">=</span><span class="st">'GrossProfit (k)'</span>, data<span class="op">=</span>data_cleaned)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Gross Profit Distribution by Cluster'</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Cluster'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Gross Profit (k)'</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The boxplot shows the distribution of Gross Profit (k) across the 7 clusters identified by K-Means.</p>
+<p><strong>Visual Observations</strong>: 1. Distinctive Patterns Across Clusters: - Cluster 0 stands out with significantly higher gross profit values compared to all other clusters. The gross profit for companies in this cluster is consistently above 1.5×10^8, indicating that these companies are financial outliers with exceptional performance. - Cluster 1 also shows notable gross profit values but exhibits more variation compared to Cluster 0. The median is around 2。0×10^7, with a wide range, suggesting that Cluster 1 contains both mid-range and high-performing companies.</p>
+<ol start="2" type="1">
+<li>Homogeneity in Lower-Performing Clusters:</li>
+</ol>
+<ul>
+<li>Clusters 2, 3, 4, 5, and 6 display significantly lower gross profit distributions.</li>
+<li>The median values across these clusters are close to zero, with minimal variation, suggesting that companies in these clusters operate on a much smaller financial scale or have limited profitability.</li>
+<li>Outliers exist in Cluster 3, where one company shows a slightly higher gross profit compared to the cluster average.</li>
+</ul>
+<ol start="3" type="1">
+<li>Gross Profit as a Key Differentiator:</li>
+</ol>
+<ul>
+<li>Clusters 0 and 1 are financially distinct from the rest of the clusters. These two clusters may represent companies that operate at a much larger scale or have optimized their financial operations for higher profitability.</li>
+<li>The lower-performing clusters (2-6) indicate companies that may struggle to achieve significant gross profit or operate in less profitable industries.</li>
+</ul>
+<p><strong>Interpretation for Clusters</strong>: 1. Cluster 0: - These companies are financial leaders and may also perform well in gender equality assessments due to available resources to invest in such initiatives.</p>
+<ol start="2" type="1">
+<li>Cluster 1:</li>
+</ol>
+<ul>
+<li>These companies are moderately profitable and may have varying levels of resources to implement gender equality practices.</li>
+</ul>
+<ol start="3" type="1">
+<li>Clusters 2-6:</li>
+</ol>
+<ul>
+<li>Companies in these clusters face financial constraints, which might limit their ability to invest in gender equality initiatives or workplace improvements.</li>
+</ul>
+<div id="cell-26" class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Revenue vs Cluster</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'Cluster'</span>, y<span class="op">=</span><span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>, data<span class="op">=</span>data_cleaned)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Revenue Distribution by Cluster'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Cluster'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Revenue (k)'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This boxplot illustrates the distribution of Revenue from Contract with Customers (k) across the 7 clusters.</p>
+<p><strong>Visual Observations</strong>: 1. Distinct Revenue Patterns Across Clusters: - Cluster 0 demonstrates significantly higher revenue values compared to other clusters. Companies in this cluster have revenues consistently above 3.5×10^8, marking them as financial outliers. - Clusters 2 and 5 show moderate revenue levels. Cluster 2 exhibits higher median revenue among the clusters, with a broad range extending up to 0.8×10^8. Cluster 5 has a even higher median revenue compared to Cluster 2, with a much narrower range of values.</p>
+<ol start="2" type="1">
+<li>Homogeneity Among Lower-Revenue Clusters:</li>
+</ol>
+<ul>
+<li>Clusters 1, 3, 4, and 6 display significantly lower revenue distributions. Median values for these clusters are close to zero, indicating that companies in these clusters operate at a smaller financial scale.</li>
+<li>Cluster 3 has a single outlier, with revenue slightly higher than the rest of the companies in the cluster.</li>
+</ul>
+<ol start="3" type="1">
+<li>Revenue as a Key Differentiator:</li>
+</ol>
+<ul>
+<li>Cluster 0 clearly separates itself as the top-performing group in terms of revenue, likely representing companies with a much larger operational scale or market dominance.</li>
+<li>Clusters 2 and 5 occupy the middle ground, representing moderately successful companies in terms of revenue generation.</li>
+<li>Clusters 1, 3, 4, and 6 highlight companies with minimal revenue, possibly indicating financial challenges or operation within less lucrative sectors.</li>
+</ul>
+<p><strong>Interpretation for Clusters</strong>: 1. High-Performing Cluster (Cluster 0): - These companies generate substantially more revenue and may have greater resources to invest in initiatives such as gender equality or workplace improvements.</p>
+<ol start="2" type="1">
+<li>Moderate-Performing Clusters (Clusters 2 and 5):</li>
+</ol>
+<ul>
+<li>These clusters consist of companies with respectable revenue but not at the scale of Cluster 0. They may represent a mix of stable but smaller companies with the potential for growth.</li>
+</ul>
+<ol start="3" type="1">
+<li>Low-Performing Clusters (Clusters 1, 3, 4, and 6):</li>
+</ol>
+<ul>
+<li>These clusters highlight companies that may struggle with financial performance, potentially limiting their ability to address broader organizational improvements, such as gender equality initiatives.</li>
+</ul>
+<div id="cell-28" class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compensation Expense vs Cluster</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'Cluster'</span>, y<span class="op">=</span><span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>, data<span class="op">=</span>data_cleaned)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Compensation Expense Distribution by Cluster'</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Cluster'</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Allocated Compensation Expense (k)'</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This boxplot illustrates the distribution of Allocated Share-Based Compensation Expense (k) across the 7 clusters identified in the K-Means analysis.</p>
+<p><strong>Visual Observations</strong>: 1. Distinct Expense Patterns Across Clusters: - Cluster 0 shows significantly higher compensation expenses compared to all other clusters, with a narrow range around 8×10^6. This suggests that companies in this cluster allocate substantial resources to share-based compensation, likely indicating larger or more established organizations with significant employee equity programs. - Cluster 1 and 5 also show relatively higher compensation expenses compared to other clusters. Cluster 1 has a wider range and a median around 0.4×10^6. Cluster 5 has a median around 0.9×10^6. Companies in these clusters represent moderately high spenders on share-based compensation.</p>
+<ol start="2" type="1">
+<li>Homogeneity in Lower-Spending Clusters:</li>
+</ol>
+<ul>
+<li>Clusters 2, 3, 4, and 6 display significantly lower compensation expense distributions:</li>
+<li>Median values across these clusters are close to zero, indicating minimal or no allocation to share-based compensation for companies in these groups.</li>
+<li>Cluster 3 has a single outlier with a slightly higher expense compared to the rest of the companies in the cluster.</li>
+</ul>
+<ol start="3" type="1">
+<li>Compensation Expense as a Differentiator:</li>
+</ol>
+<ul>
+<li>The stark differences in compensation expenses between Cluster 0 (outliers), Cluster 1 and 5 (moderate spenders), and the remaining clusters highlight compensation expense as a key differentiator among companies.</li>
+<li>Clusters with minimal expenses (2, 3, 4, and 6) likely represent smaller companies or those that do not prioritize share-based compensation as part of their employee benefits strategy.</li>
+</ul>
+<p><strong>Interpretation for Clusters</strong>: 1. High-Spending Clusters (0, 1 and 5): - Companies in these clusters may represent financially stronger organizations that invest heavily in retaining and incentivizing their employees through equity-based compensation. - These clusters might correlate with higher scores in gender equality or workplace initiatives, as such practices often reflect broader investment in organizational improvement.</p>
+<ol start="2" type="1">
+<li>Low-Spending Clusters (2, 3, 4, and 6):</li>
+</ol>
+<ul>
+<li>These clusters highlight companies that likely operate on a smaller scale or in industries where share-based compensation is less common.</li>
+<li>Their limited resource allocation to compensation might also correlate with challenges in other organizational metrics, including gender equality initiatives.</li>
+</ul>
+<div id="cell-30" class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Accounts Receivable vs Cluster</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'Cluster'</span>, y<span class="op">=</span><span class="st">'AccountsReceivableNetCurrent (k)'</span>, data<span class="op">=</span>data_cleaned)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Accounts Receivable Distribution by Cluster'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Cluster'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Accounts Receivable (k)'</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This boxplot visualizes the distribution of Accounts Receivable (k) across the 7 clusters identified by the K-Means algorithm.</p>
+<p><strong>Visual Observations</strong>: 1. High-Performing Cluster (Cluster 0): - Cluster 0 has significantly higher accounts receivable values compared to all other clusters. The median value for this cluster is above 2.5×10^7, indicating that these companies operate at a much larger financial scale and likely have more substantial receivables due to higher sales or extended credit terms to customers.</p>
+<ol start="2" type="1">
+<li>Moderate-Performing Cluster (Clusters 5):</li>
+</ol>
+<ul>
+<li>Cluster 5 exhibits relatively higher accounts receivable values among other clusters with a median accounts receivable of approximately 1.2×10^7.</li>
+</ul>
+<ol start="3" type="1">
+<li>Low-Performing Clusters (Clusters 1, 2, 3, 4, and 6):</li>
+</ol>
+<ul>
+<li>Clusters 1, 2, 3, 4, and 6 display significantly lower accounts receivable values. Their median values are close to zero, indicating that these companies operate on a smaller financial scale or have limited credit sales activity.</li>
+<li>Cluster 4 is particularly consistent with almost no variation, suggesting a group of very small companies.</li>
+</ul>
+<ol start="4" type="1">
+<li>Accounts Receivable as a Key Differentiator:</li>
+</ol>
+<ul>
+<li>Accounts receivable serves as a clear differentiator among the clusters, with Cluster 0 standing out as a financial leader. The financial scale of companies decreases progressively from Cluster 0 to Clusters 5, then to Clusters 1, 2, 3, 4, and 6.</li>
+</ul>
+<p><strong>Interpretation for Clusters</strong>: 1. Cluster 0: - Companies in Cluster 0 likely operate in industries or markets where extending credit is common. Their high accounts receivable values align with their presumed larger scale of operations and potential for significant revenue generation.</p>
+<ol start="2" type="1">
+<li>Cluster 5:</li>
+</ol>
+<ul>
+<li>This cluster represents companies with moderate accounts receivable, suggesting medium-scale operations or more restricted credit policies compared to Cluster 0.</li>
+</ul>
+<ol start="3" type="1">
+<li>Clusters 1, 2, 3, 4, and 6:</li>
+</ol>
+<ul>
+<li>Companies in these clusters likely operate at smaller financial scales, potentially limiting their capacity for growth or credit-based sales strategies.</li>
+</ul>
+<div id="cell-32" class="cell" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CEO Gender vs Cluster</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'Cluster'</span>, hue<span class="op">=</span><span class="st">'CEO Gender'</span>, data<span class="op">=</span>data_cleaned)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'CEO Gender Distribution by Cluster'</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Cluster'</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'CEO Gender'</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This count plot visualizes the distribution of CEO gender across the 7 clusters identified by the K-Means algorithm.</p>
+<p><strong>Visual Observations</strong>: 1. Male CEOs Dominate Across Most Clusters - The majority of clusters are dominated by male CEOs (0), reflecting the overall gender imbalance in the dataset.</p>
+<ol start="2" type="1">
+<li>Clusters with Female CEOs</li>
+</ol>
+<ul>
+<li>Cluster 1 is the only cluster with female CEOs (1).</li>
+</ul>
+<p><strong>Key Insights</strong>: 1. Low Representation of Female CEOs: - The lack of female CEOs in most clusters and the minimal representation in Cluster 1 reflects a broader gender imbalance in leadership roles within the dataset. This could indicate systemic barriers to female leadership.</p>
+<ol start="2" type="1">
+<li>Cluster-Specific Patterns:</li>
+</ol>
+<ul>
+<li>The presence of female CEOs in Cluster 1 suggests that this group may have distinct characteristics in terms of company operations, financial performance, or gender equality initiatives that correlate with female leadership.</li>
+</ul>
+<section id="summary-of-clusters-based-on-k-means-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-clusters-based-on-k-means-analysis">Summary of Clusters Based on K-Means Analysis</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 31%">
+<col style="width: 31%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Cluster</strong></th>
+<th><strong>Characteristics</strong></th>
+<th><strong>Gender Equality and Respect</strong></th>
+<th><strong>Financial Observations</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cluster 0</strong></td>
+<td>- High performers with outstanding Total Scores<br>- Consistently high Gross Profit, Revenue, Accounts Receivable, and Compensation Expenses</td>
+<td>- Male-dominated leadership<br>- Represents top-performing companies with significant investments in gender equality initiatives</td>
+<td>- Financial leaders operating on a large scale<br>- Significant resources enable investments in workplace improvements</td>
+</tr>
+<tr class="even">
+<td><strong>Cluster 1</strong></td>
+<td>- Moderate Total Scores with high variability<br>- Mixed financial performance<br>- Includes female-led companies</td>
+<td>- Includes the only representation of female CEOs<br>- Reflects potential for balancing gender equality and financial success</td>
+<td>- Moderate financial resources<br>- Variation suggests differing engagement levels with equality initiatives</td>
+</tr>
+<tr class="odd">
+<td><strong>Cluster 2</strong></td>
+<td>- Mid-range Total Scores<br>- Moderate Revenue and Gross Profit<br>- Low Accounts Receivable</td>
+<td>- Meets some gender equality standards but has room for improvement<br>- Limited consistency</td>
+<td>- Smaller companies with steady but constrained financial capacity</td>
+</tr>
+<tr class="even">
+<td><strong>Cluster 3</strong></td>
+<td>- Lowest Total Scores<br>- Minimal Gross Profit, Revenue, and Compensation Expenses<br>- Entirely male CEOs</td>
+<td>- Struggles significantly with gender equality initiatives<br>- Limited progress due to financial constraints</td>
+<td>- Financially weakest cluster<br>- Indicates systemic challenges in both financial performance and workplace initiatives</td>
+</tr>
+<tr class="odd">
+<td><strong>Cluster 4</strong></td>
+<td>- Low Total Scores with narrow variance<br>- Homogeneous with consistently low financial metrics</td>
+<td>- Fails to meet many gender equality standards<br>- Represents companies with limited resources for improvement</td>
+<td>- Small-scale operations with minimal financial activity<br>- Consistent underperformance across key metrics</td>
+</tr>
+<tr class="even">
+<td><strong>Cluster 5</strong></td>
+<td>- High Total Scores with narrow variability<br>- Moderate Gross Profit and Revenue</td>
+<td>- Strong performers in gender equality<br>- Focused and consistent engagement with equality initiatives</td>
+<td>- Financially mid-level companies with stable performance<br>- Strong internal policies likely drive success</td>
+</tr>
+<tr class="odd">
+<td><strong>Cluster 6</strong></td>
+<td>- Wide variability in Total Scores<br>- Low financial metrics</td>
+<td>- Inconsistent engagement with gender equality initiatives<br>- Reflects diversity in performance levels</td>
+<td>- Financially weaker cluster<br>- Mix of improving and underperforming companies</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="key-insights-from-unsupervised-learning-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="key-insights-from-unsupervised-learning-analysis">Key Insights from Unsupervised Learning Analysis</h2>
+<p><strong>Gender Representation and Systemic Challenges</strong></p>
+<ul>
+<li>Cluster 0 stands out as the dominant group with highly distinctive financial performance across all metrics, including the highest Total Scores, Gross Profit, Revenue, Accounts Receivable, and Compensation Expenses.</li>
+<li>This reflects the reality that top-performing companies in the industry are still predominantly led by male CEOs. The systemic dominance of male leadership in these organizations underscores historical and structural barriers that have positioned men at the forefront of business leadership. Overcoming these barriers to see more female leadership in such top-performing companies will likely take time and significant systemic shifts.</li>
+</ul>
+<p><strong>Moderate Financial Performance with Female Representation</strong></p>
+<ul>
+<li>Cluster 1 is the only one cluster which includes companies led by female CEOs and demonstrates moderate financial performance compared to other clusters.</li>
+<li>Female-led companies may show potential for balancing gender equality and financial performance. The presence of female leadership could contribute positively to organizational culture and workplace improvements, indirectly driving financial growth.</li>
+</ul>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-mackiewicz1993principal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Maćkiewicz, A. &amp; Ratajczak, W. Principal components analysis (PCA). <em>Computers &amp; Geosciences</em> <strong>19</strong>, 303–342 (1993).</div>
+</div>
+<div id="ref-van2008visualizing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Van der Maaten, L. &amp; Hinton, G. Visualizing data using t-SNE. <em>Journal of machine learning research</em> <strong>9</strong>, (2008).</div>
+</div>
+<div id="ref-hamerly2003learning" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Hamerly, G. &amp; Elkan, C. Learning the k in k-means. <em>Advances in neural information processing systems</em> <strong>16</strong>, (2003).</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -302,18 +1050,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -345,7 +1082,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -353,7 +1112,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

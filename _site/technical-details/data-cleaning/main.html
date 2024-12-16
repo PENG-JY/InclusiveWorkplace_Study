@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Data Cleaning</title>
+<title>Data Cleaning – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +20,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,6 +121,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -83,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -93,15 +150,15 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../instructions/overview.html"> 
-<span class="menu-text">Instructions</span></a>
+    <a class="nav-link" href="../../Collaborators.html"> 
+<span class="menu-text">About Us</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../report/report.html"> 
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
@@ -137,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -151,13 +208,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#overview-of-methods" id="toc-overview-of-methods" class="nav-link" data-scroll-target="#overview-of-methods">Overview of Methods</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
   <ul class="collapse">
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
-  <li><a href="#general-comments" id="toc-general-comments" class="nav-link" data-scroll-target="#general-comments">General comments:</a></li>
-  <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
+  <li><a href="#merge-gender-dataset-and-cik-codes-dataset" id="toc-merge-gender-dataset-and-cik-codes-dataset" class="nav-link" data-scroll-target="#merge-gender-dataset-and-cik-codes-dataset">Merge Gender Dataset and CIK Codes Dataset</a></li>
+  <li><a href="#clean-financial-dataset" id="toc-clean-financial-dataset" class="nav-link" data-scroll-target="#clean-financial-dataset">Clean Financial Dataset</a></li>
+  <li><a href="#merge-financial-dataset-and-company-dataset" id="toc-merge-financial-dataset-and-company-dataset" class="nav-link" data-scroll-target="#merge-financial-dataset-and-company-dataset">Merge Financial Dataset and Company Dataset</a></li>
+  <li><a href="#text-data-cleaning" id="toc-text-data-cleaning" class="nav-link" data-scroll-target="#text-data-cleaning">Text data Cleaning</a></li>
+  <li><a href="#financial-data-cleaning" id="toc-financial-data-cleaning" class="nav-link" data-scroll-target="#financial-data-cleaning">Financial Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#before-cleaning-visualization" id="toc-before-cleaning-visualization" class="nav-link" data-scroll-target="#before-cleaning-visualization">Before cleaning visualization</a></li>
+  <li><a href="#cleaning" id="toc-cleaning" class="nav-link" data-scroll-target="#cleaning">Cleaning</a></li>
+  <li><a href="#after-cleaning-visualization" id="toc-after-cleaning-visualization" class="nav-link" data-scroll-target="#after-cleaning-visualization">After cleaning visualization</a></li>
   </ul></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  </ul></li>
+  <li><a href="#summary-and-interpretation-of-results" id="toc-summary-and-interpretation-of-results" class="nav-link" data-scroll-target="#summary-and-interpretation-of-results">Summary and Interpretation of Results</a></li>
   </ul>
 </nav>
     </div>
@@ -184,89 +250,1429 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- After digesting the instructions, you can delete this cell, these are assignment instructions and do not need to be included in your final submission.  -->
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<p><code>Note</code>: You should remove these instructions once you have read and understood them. They should not be included in your final submission.</p>
-<p><code>Remember:</code> Exactly what do you on this page will be specific you your project and data. Some things might “make more sense” on other pages, depending on your workflow, for example, you might feel that normalization and scaling should be included in a later section, dealing with machine learning, rather than here, that is totally fine. Organize your project in the way that makes the most sense to you.</p>
-<section id="suggested-page-structure" class="level2">
-<h2 class="anchored" data-anchor-id="suggested-page-structure">Suggested page structure</h2>
-<p>Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:</p>
-<p><code>Audience</code>:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts.</p>
-<ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
-<li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
-</ul>
+<section id="introduction-and-motivation" class="level1">
+<h1>Introduction and Motivation</h1>
+<p>Data cleaning is a necessary step in data analysis, where our main goal is to merge different data sets and clean them to ensure consistency for next steps. We hope to ensure the stability of the model through data cleaning and explore meaningful insights into gender equality practices within the companies, especially for text data and financial data.</p>
 </section>
-<section id="general-comments" class="level2">
-<h2 class="anchored" data-anchor-id="general-comments">General comments:</h2>
-<ul>
-<li><strong>Iterative Process</strong>: Data cleaning is often not a one-time process. As your analysis progresses, you may need to revisit the cleaning phase, and re-run the code, to adjust to new insights or requirements.</li>
-<li><strong>Clarity and Reproducibility</strong>: Ensure your documentation is clear and thorough. Others should be able to follow your steps and achieve the same results.</li>
-<li><strong>Visualizations</strong>: Use before-and-after visualizations to illustrate the impact of your cleaning steps, making the process more intuitive and transparent.</li>
-</ul>
-<p>By the end of this phase, your cleaned data should be well-documented and ready for further stages, such as <strong>Exploratory Data Analysis (EDA)</strong> and <strong>Machine Learning</strong>.</p>
-</section>
-<section id="what-to-address" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
-<p>The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.</p>
-<p>The <strong>Data Cleaning</strong> page of your portfolio is where you document the process of transforming your raw data into a usable format. Data cleaning is essential for ensuring the quality of your analysis, and this page should serve as a clear and reproducible guide for anyone reviewing your work. It also provides transparency, allowing others to trace the steps you took to prepare your data.</p>
-<p>The following is a guide to help you get started with possible thing to address on this page .</p>
-<ul>
-<li><strong>Description of the Data Cleaning Process</strong>: Explain the steps you took to clean and preprocess the data.</li>
-<li><strong>Code Documentation</strong>: Provide the code used in the data cleaning process (link to GitHub or embed the code directly).</li>
-<li><strong>Provide examples of data before and after cleaning</strong>: e.g.&nbsp;with df.head() or df.describe()</li>
-<li><strong>Raw and Cleaned Data Links</strong>: Ensure your page links to both the original (raw) dataset and the cleaned dataset. (please keep organized and store the cleaned data in <code>data/processed-data</code>, or similar location which doesn’t get synced to GitHub)</li>
-</ul>
-<p>Possible things to include:</p>
-<p><strong>Introduction to Data Cleaning</strong>:</p>
-<ul>
-<li>Provide a brief explanation of the data cleaning phase, its importance in preparing the data for further analysis (EDA, modeling), and its iterative nature.</li>
-<li>Mention that data cleaning may need to be revisited as the project evolves and analysis goals change.</li>
-</ul>
-<p><strong>Managing Missing Data</strong>:</p>
-<ul>
-<li><strong>Identify Missing Values</strong>: Explain how you identified missing data and where it occurred.</li>
-<li><strong>Handling Missing Data</strong>: Describe how missing values were addressed (e.g., imputation, removal of rows/columns).</li>
-<li><strong>Visualize Missing Data</strong>: Include visualizations (e.g., heatmaps) showing missing values before and after handling them.</li>
-</ul>
-<p><strong>Outlier Detection and Treatment</strong>:</p>
-<ul>
-<li><strong>Identify Outliers</strong>: Describe the methods you used to detect outliers in the dataset.</li>
-<li><strong>Addressing Outliers</strong>: Explain how outliers were treated (e.g., removal, transformation, or retaining them for analysis).</li>
-<li><strong>Visualize Outliers</strong>: Use visualizations (e.g., box plots) to show how outliers were managed.</li>
-</ul>
-<p><strong>Data Type Correction and Formatting</strong>:</p>
-<ul>
-<li><strong>Review Data Types</strong>: Summarize the types of variables (numerical, categorical, date-time, etc.) and ensure they are correctly formatted.</li>
-<li><strong>Transformation</strong>: Document any transformations performed, such as converting date formats, handling categorical variables, or encoding labels.</li>
-<li><strong>Impact of Changes</strong>: Briefly explain why these changes were necessary for accurate analysis.</li>
-</ul>
-<p><strong>Normalization and Scaling</strong>:</p>
-<ul>
-<li><strong>Data Distribution Analysis</strong>: Check and discuss the distribution of numerical variables (e.g., skewness).</li>
-<li><strong>Normalization Techniques</strong>: Describe any normalization or scaling techniques used (e.g., min-max scaling, z-score normalization).</li>
-<li><strong>Before-and-After Visualizations</strong>: Provide visualizations comparing the data before and after scaling or normalization.</li>
-</ul>
-<p><strong>Subsetting the Data</strong>:</p>
-<ul>
-<li><strong>Data Filtering</strong>: Explain any subsetting or filtering of the data (e.g., selecting quantitative or qualitative columns).</li>
-<li><strong>Rationale</strong>: Justify why you chose to work with a particular subset of the data.</li>
-</ul>
-</section>
+<section id="overview-of-methods" class="level1">
+<h1>Overview of Methods</h1>
+<p>First, we will merge the company dataset with the financial data set using the CIK (Central Index Key) number as a unique identifier for each company with company gender assessment data set<span class="citation" data-cites="Gender2023"><sup><a href="#ref-Gender2023" role="doc-biblioref">1</a></sup></span>. As a result, we will generate a large dataset to explore more completely.</p>
+<p>For text data, we will remove unnecessary punctuation, convert cases, remove stop words, so that we can prepare for subsequent analysis, such as TFIDF.</p>
+<p>For data normalization, we first use Z-score normalization and then Min-Max scaling.</p>
+<p>To deal with missing values, we apply different strategies depending on the importance of the variable. For example, for the most critical variables, CIK identifiers, we will delete all missing rows. For relatively less important variables, we use multiple imputation to fill in the missing values because these variables are valuable to the analysis.</p>
+<p>In order to ensure consistency, some data preprocessing code of some content is displayed in the corresponding part, such as unsupervised learning, and we hope that the audience can understand the reason for our processing more coherently.</p>
 </section>
 <section id="code" class="level1">
 <h1>Code</h1>
-<p>Provide the source code used for this section of the project here.</p>
-<p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
-<p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
-<p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<section id="merge-gender-dataset-and-cik-codes-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="merge-gender-dataset-and-cik-codes-dataset">Merge Gender Dataset and CIK Codes Dataset</h2>
+<p>We merged the required company gender data with the CIK codes table to create a unified dataset. This integrated data serves as a reliable foundation for subsequent data collection.</p>
+<div id="cell-5" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.corpus <span class="im">import</span> stopwords</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, MinMaxScaler</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fancyimpute <span class="im">import</span> IterativeImputer</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read CSV</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_gender <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/company_gender_data.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_cik <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/company_cik_list.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-7" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_gender.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">WBA_ID</th>
+<th data-quarto-table-cell-role="th">Company-name</th>
+<th data-quarto-table-cell-role="th">ISIN</th>
+<th data-quarto-table-cell-role="th">SEDOL Code</th>
+<th data-quarto-table-cell-role="th">Region</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">Industry</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">Percentage of Total Possible Score \n (out of 52.3)</th>
+<th data-quarto-table-cell-role="th">CEO Gender</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Explanation</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Evidence</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Source</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Link</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Score</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Assessment</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Explanation</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Evidence</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Source</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>PT_00001</td>
+<td>3M Company</td>
+<td>US88579Y1010</td>
+<td>2595708</td>
+<td>North America</td>
+<td>United States</td>
+<td>Chemicals</td>
+<td>11.3</td>
+<td>21.6</td>
+<td>Male</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Sustainability Report_CY-2022</td>
+<td>https://multimedia.3m.com/mws/media/2292786O/3...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Sustainability Report_CY-2022</td>
+<td>https://multimedia.3m.com/mws/media/2292786O/3...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>PT_00006</td>
+<td>AbbVie</td>
+<td>US00287Y1091</td>
+<td>B92SR70</td>
+<td>North America</td>
+<td>United States</td>
+<td>Pharmaceuticals &amp; Biotechnology</td>
+<td>15.4</td>
+<td>29.5</td>
+<td>Male</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>The AbbVie Code of Business Conduct</td>
+<td>https://investors.abbvie.com/static-files/09fd...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>The AbbVie Code of Business Conduct</td>
+<td>https://investors.abbvie.com/static-files/09fd...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>PT_00007</td>
+<td>Abercrombie &amp; Fitch</td>
+<td>US0028962076</td>
+<td>2004185</td>
+<td>North America</td>
+<td>United States</td>
+<td>Apparel &amp; Footwear</td>
+<td>10.0</td>
+<td>19.1</td>
+<td>Female</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Form 10-K_2022-2023</td>
+<td>https://abercrombieandfitchcompany.gcs-web.com...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>PT_00024</td>
+<td>Adobe</td>
+<td>US00724F1012</td>
+<td>2008154</td>
+<td>North America</td>
+<td>United States</td>
+<td>Digital</td>
+<td>16.5</td>
+<td>31.6</td>
+<td>Male</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://www.adobe.com/content/dam/cc/en/corpor...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://www.adobe.com/content/dam/cc/en/corpor...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>PT_00027</td>
+<td>AMD</td>
+<td>US0079031078</td>
+<td>2007849</td>
+<td>North America</td>
+<td>United States</td>
+<td>Digital</td>
+<td>11.2</td>
+<td>21.5</td>
+<td>Female</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://d1io3yog0oux5.cloudfront.net/_ebdf5d9e...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://d1io3yog0oux5.cloudfront.net/_ebdf5d9e...</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 302 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_cik.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Company-name</th>
+<th data-quarto-table-cell-role="th">CIK-code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>3M Company</td>
+<td>CIK0000066740</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>AbbVie</td>
+<td>CIK0001551152</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Abercrombie &amp; Fitch</td>
+<td>CIK0001018840</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adobe</td>
+<td>CIK0000008680</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>AMD</td>
+<td>CIK0000002488</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-9" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge two dataframes</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_company <span class="op">=</span> pd.merge(df_cik, df_gender, on<span class="op">=</span><span class="st">"Company-name"</span>, how<span class="op">=</span><span class="st">"inner"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We dropped the NA values of two variables: CEO Gender and CIK-code, which are two of the most important variables, to ensure we can collect the data from EDGAR API successfully.</p>
+<div id="cell-11" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check "CEO Gender" and "CIK Code" for NA values</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>missing_ceo_gender <span class="op">=</span> df_company[<span class="st">'CEO Gender'</span>].isna().<span class="bu">sum</span>()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>missing_cik_code <span class="op">=</span> df_company[<span class="st">'CIK-code'</span>].isna().<span class="bu">sum</span>()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of missing values in 'CEO Gender': </span><span class="sc">{</span>missing_ceo_gender<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of missing values in 'CIK Code': </span><span class="sc">{</span>missing_cik_code<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of missing values in 'CEO Gender': 4
+Number of missing values in 'CIK Code': 35</code></pre>
+</div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete rows containing NA values in 'CEO Gender' and 'CIK Code'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_company <span class="op">=</span> df_company.dropna(subset<span class="op">=</span>[<span class="st">'CEO Gender'</span>, <span class="st">'CIK-code'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-13" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_company.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Company-name</th>
+<th data-quarto-table-cell-role="th">CIK-code</th>
+<th data-quarto-table-cell-role="th">WBA_ID</th>
+<th data-quarto-table-cell-role="th">ISIN</th>
+<th data-quarto-table-cell-role="th">SEDOL Code</th>
+<th data-quarto-table-cell-role="th">Region</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">Industry</th>
+<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">Percentage of Total Possible Score \n (out of 52.3)</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Explanation</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Evidence</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Source</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Link</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Score</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Assessment</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Explanation</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Evidence</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Source</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>3M Company</td>
+<td>CIK0000066740</td>
+<td>PT_00001</td>
+<td>US88579Y1010</td>
+<td>2595708</td>
+<td>North America</td>
+<td>United States</td>
+<td>Chemicals</td>
+<td>11.3</td>
+<td>21.6</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Sustainability Report_CY-2022</td>
+<td>https://multimedia.3m.com/mws/media/2292786O/3...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Sustainability Report_CY-2022</td>
+<td>https://multimedia.3m.com/mws/media/2292786O/3...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>AbbVie</td>
+<td>CIK0001551152</td>
+<td>PT_00006</td>
+<td>US00287Y1091</td>
+<td>B92SR70</td>
+<td>North America</td>
+<td>United States</td>
+<td>Pharmaceuticals &amp; Biotechnology</td>
+<td>15.4</td>
+<td>29.5</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>The AbbVie Code of Business Conduct</td>
+<td>https://investors.abbvie.com/static-files/09fd...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>The AbbVie Code of Business Conduct</td>
+<td>https://investors.abbvie.com/static-files/09fd...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Abercrombie &amp; Fitch</td>
+<td>CIK0001018840</td>
+<td>PT_00007</td>
+<td>US0028962076</td>
+<td>2004185</td>
+<td>North America</td>
+<td>United States</td>
+<td>Apparel &amp; Footwear</td>
+<td>10.0</td>
+<td>19.1</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Form 10-K_2022-2023</td>
+<td>https://abercrombieandfitchcompany.gcs-web.com...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adobe</td>
+<td>CIK0000008680</td>
+<td>PT_00024</td>
+<td>US00724F1012</td>
+<td>2008154</td>
+<td>North America</td>
+<td>United States</td>
+<td>Digital</td>
+<td>16.5</td>
+<td>31.6</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://www.adobe.com/content/dam/cc/en/corpor...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://www.adobe.com/content/dam/cc/en/corpor...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>AMD</td>
+<td>CIK0000002488</td>
+<td>PT_00027</td>
+<td>US0079031078</td>
+<td>2007849</td>
+<td>North America</td>
+<td>United States</td>
+<td>Digital</td>
+<td>11.2</td>
+<td>21.5</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://d1io3yog0oux5.cloudfront.net/_ebdf5d9e...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://d1io3yog0oux5.cloudfront.net/_ebdf5d9e...</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 303 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-14" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_company.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>(211, 303)</code></pre>
+</div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define output path</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>output_company_data_path <span class="op">=</span> <span class="st">"../../data/processed-data/company_data.csv"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save CSV</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>df_company.to_csv(output_company_data_path, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cleaned data saved to: </span><span class="sc">{</span>output_company_data_path<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cleaned data saved to: ../../data/processed-data/company_data.csv</code></pre>
+</div>
+</div>
+</section>
+<section id="clean-financial-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="clean-financial-dataset">Clean Financial Dataset</h2>
+<p>After data collection, we read the financial dataset now. Large numerical values were scaled down to thousands (k) and the column names were updated accordingly. This step ensures the data remains intact while being easier to interpret in subsequent analyses.</p>
+<div id="cell-18" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_fina <span class="op">=</span> pd.read_csv(<span class="st">"../../data/processed-data/financial_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_fina.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CIK-code</th>
+<th data-quarto-table-cell-role="th">NetIncomeLoss</th>
+<th data-quarto-table-cell-role="th">OperatingIncomeLoss</th>
+<th data-quarto-table-cell-role="th">GrossProfit</th>
+<th data-quarto-table-cell-role="th">ComprehensiveIncomeNetOfTax</th>
+<th data-quarto-table-cell-role="th">EarningsPerShareBasic</th>
+<th data-quarto-table-cell-role="th">RevenueFromContractWithCustomerExcludingAssessedTax</th>
+<th data-quarto-table-cell-role="th">EntityPublicFloat</th>
+<th data-quarto-table-cell-role="th">AllocatedShareBasedCompensationExpense</th>
+<th data-quarto-table-cell-role="th">CashAndCashEquivalentsAtCarryingValue</th>
+<th data-quarto-table-cell-role="th">AccountsReceivableNetCurrent</th>
+<th data-quarto-table-cell-role="th">Assets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>CIK0000014693</td>
+<td>9.030000e+08</td>
+<td>1.166000e+09</td>
+<td>2.094000e+09</td>
+<td>1.028000e+09</td>
+<td>1.89</td>
+<td>3.461000e+09</td>
+<td>2.340000e+10</td>
+<td>NaN</td>
+<td>1.150000e+09</td>
+<td>8.130000e+08</td>
+<td>6.373000e+09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>CIK0001868275</td>
+<td>-2.050000e+08</td>
+<td>-3.460000e+08</td>
+<td>NaN</td>
+<td>-2.060000e+08</td>
+<td>0.00</td>
+<td>1.725400e+10</td>
+<td>2.939646e+10</td>
+<td>47000000.0</td>
+<td>5.040000e+08</td>
+<td>2.585000e+09</td>
+<td>4.690900e+10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>CIK0000877890</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>CIK0000004447</td>
+<td>5.590000e+08</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>9.080000e+08</td>
+<td>1.82</td>
+<td>7.683000e+09</td>
+<td>3.759800e+10</td>
+<td>77000000.0</td>
+<td>2.486000e+09</td>
+<td>NaN</td>
+<td>2.169500e+10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>CIK0001307954</td>
+<td>1.045000e+09</td>
+<td>7.310000e+08</td>
+<td>1.584000e+09</td>
+<td>1.188000e+09</td>
+<td>4.77</td>
+<td>7.670000e+09</td>
+<td>4.518833e+09</td>
+<td>30000000.0</td>
+<td>6.540000e+08</td>
+<td>NaN</td>
+<td>8.220000e+09</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-20" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_fina.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>(202, 12)</code></pre>
+</div>
+</div>
+<div id="cell-21" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_fina.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>CIK-code                                                 0
+NetIncomeLoss                                           23
+OperatingIncomeLoss                                     38
+GrossProfit                                            110
+ComprehensiveIncomeNetOfTax                             22
+EarningsPerShareBasic                                   20
+RevenueFromContractWithCustomerExcludingAssessedTax     84
+EntityPublicFloat                                       13
+AllocatedShareBasedCompensationExpense                  64
+CashAndCashEquivalentsAtCarryingValue                   23
+AccountsReceivableNetCurrent                            52
+Assets                                                   8
+dtype: int64</code></pre>
+</div>
+</div>
+<p>In this stage, we do not drop any NA value since otherwise there will only be about 30 rows.</p>
+<div id="cell-23" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert large numbers (&gt;= 1000) to 'k' (thousands) scale</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df_fina.select_dtypes(include<span class="op">=</span>[<span class="st">'float64'</span>, <span class="st">'int64'</span>]).columns:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> df_fina[col].<span class="bu">max</span>() <span class="op">&gt;=</span> <span class="dv">1000</span> <span class="kw">or</span> df_fina[col].<span class="bu">min</span>() <span class="op">&lt;</span> <span class="op">-</span><span class="dv">1000</span>:  <span class="co"># Check if column has large numbers</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Divide all large numbers by 1000</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        df_fina[col] <span class="op">=</span> df_fina[col].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">/</span> <span class="dv">1000</span> <span class="cf">if</span> <span class="bu">abs</span>(x) <span class="op">&gt;=</span> <span class="dv">1000</span> <span class="cf">else</span> x)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Rename the column to indicate 'k'</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        df_fina.rename(columns<span class="op">=</span>{col: <span class="ss">f"</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss"> (k)"</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="merge-financial-dataset-and-company-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="merge-financial-dataset-and-company-dataset">Merge Financial Dataset and Company Dataset</h2>
+<p>The financial dataset was merged with the company dataset using the common CIK-code key through an inner join. This step combines financial and company-specific data into a single unified dataset, enabling comprehensive analysis across both datasets.</p>
+<div id="cell-26" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load CSV</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>company_data <span class="op">=</span> pd.read_csv(<span class="st">'../../data/processed-data/company_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-27" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the two datasets on the 'CIK-code' key</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>merged_data <span class="op">=</span> pd.merge(df_fina, company_data, on<span class="op">=</span><span class="st">'CIK-code'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>merged_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CIK-code</th>
+<th data-quarto-table-cell-role="th">NetIncomeLoss (k)</th>
+<th data-quarto-table-cell-role="th">OperatingIncomeLoss (k)</th>
+<th data-quarto-table-cell-role="th">GrossProfit (k)</th>
+<th data-quarto-table-cell-role="th">ComprehensiveIncomeNetOfTax (k)</th>
+<th data-quarto-table-cell-role="th">EarningsPerShareBasic</th>
+<th data-quarto-table-cell-role="th">RevenueFromContractWithCustomerExcludingAssessedTax (k)</th>
+<th data-quarto-table-cell-role="th">EntityPublicFloat (k)</th>
+<th data-quarto-table-cell-role="th">AllocatedShareBasedCompensationExpense (k)</th>
+<th data-quarto-table-cell-role="th">CashAndCashEquivalentsAtCarryingValue (k)</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Explanation</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Evidence</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Source</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EA-Link</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Score</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Assessment</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Explanation</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Evidence</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Source</th>
+<th data-quarto-table-cell-role="th">VHR-E02.EB-Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>CIK0000014693</td>
+<td>903000.0</td>
+<td>1166000.0</td>
+<td>2094000.0</td>
+<td>1028000.0</td>
+<td>1.89</td>
+<td>3461000.0</td>
+<td>2.340000e+07</td>
+<td>NaN</td>
+<td>1150000.0</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://www.brown-forman.com/sites/default/fil...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://www.brown-forman.com/sites/default/fil...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>CIK0001868275</td>
+<td>-205000.0</td>
+<td>-346000.0</td>
+<td>NaN</td>
+<td>-206000.0</td>
+<td>0.00</td>
+<td>17254000.0</td>
+<td>2.939646e+07</td>
+<td>47000.0</td>
+<td>504000.0</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://investors.constellationenergy.com/stat...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://investors.constellationenergy.com/stat...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>CIK0000877890</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>This assessment only evaluated publicly availa...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>This assessment only evaluated publicly availa...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>CIK0000004447</td>
+<td>559000.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>908000.0</td>
+<td>1.82</td>
+<td>7683000.0</td>
+<td>3.759800e+07</td>
+<td>77000.0</td>
+<td>2486000.0</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://investors.hess.com/static-files/d4010f...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://investors.hess.com/static-files/d4010f...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>CIK0001307954</td>
+<td>1045000.0</td>
+<td>731000.0</td>
+<td>1584000.0</td>
+<td>1188000.0</td>
+<td>4.77</td>
+<td>7670000.0</td>
+<td>4.518833e+06</td>
+<td>30000.0</td>
+<td>654000.0</td>
+<td>...</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Code of Conduct / Code of Ethics_2022-2023</td>
+<td>https://d1io3yog0oux5.cloudfront.net/huntsman/...</td>
+<td>0.0</td>
+<td>Unmet</td>
+<td>No evidence was found regarding whether the co...</td>
+<td>NaN</td>
+<td>Sustainability Report_CY-2022</td>
+<td>https://issuu.com/graphicengine/docs/huntsman-...</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 314 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="text-data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="text-data-cleaning">Text data Cleaning</h2>
+<p>To prepare the dataset for analysis, we cleaned text data cleaning across all relevant fields, which removed unnecessary noise. We want to improves the quality of the dataset, allowing for more accurate insights and meaningful results in subsequent analyses.</p>
+<p>We customized the default English stopwords list from the NLTK library by removing negative words such as “no,” “not,” and “never” to retain them for text analysis. This step ensures that important contextual information related to negations is preserved while irrelevant stopwords are excluded.</p>
+<div id="cell-31" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> <span class="bu">set</span>(stopwords.words(<span class="st">'english'</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"stop words:"</span>, stop_words)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>stop words: {'o', 'himself', 'those', "don't", "she's", 'under', 'most', 'will', 'ours', 'some', 'i', 'at', 'myself', 'yours', 'were', 'just', 'haven', 'he', 'until', 's', 'over', 'all', 'is', "needn't", 'd', 'me', 'against', 'yourself', 'do', 'when', 'between', 'y', 'shouldn', 'in', 'because', "isn't", 'shan', 'from', 'had', 'only', 'can', 'couldn', 'doesn', "mightn't", "didn't", 'isn', 'with', 'who', 'how', 'again', 'm', 'are', "haven't", 'him', 'not', 'after', 'they', 'about', 'out', 'been', 'mustn', 'themselves', 'this', 'our', "you're", 'her', 'of', 'mightn', 'doing', 'theirs', 'below', 'once', 'above', 'ain', 'into', 'hasn', 'any', 'should', 'wouldn', 'few', 'or', 'a', 'these', "you'd", "shan't", 'whom', 'didn', 'as', 'am', 'hadn', 'his', 'up', 'the', 'than', "weren't", 'off', 'here', 'their', 'which', 'during', "hasn't", 'them', 'was', 'herself', 'through', "doesn't", 'what', 'other', 'why', 'now', 'to', 'there', "mustn't", "won't", "you've", "couldn't", 're', 'if', 'has', 'too', 'did', 'while', 'each', 'yourselves', 'such', 'wasn', "you'll", 'hers', 've', 'don', 'by', 'before', 'own', "aren't", 'be', 'no', 'your', 'my', 'its', "hadn't", 'that', 'll', 'down', 'for', 'very', 'nor', 'further', "wouldn't", "it's", 'ourselves', 'it', 'won', 'ma', 'being', 'weren', 'same', 'but', 'needn', "that'll", "wasn't", 'you', 'does', 'so', "shouldn't", 'on', 'itself', 'an', 'having', 't', 'have', 'she', 'we', 'aren', 'both', 'then', 'where', 'and', 'more', "should've"}</code></pre>
+</div>
+</div>
+<p>We cleaned the Explanation and Evidence columns by removing non-English characters, HTML tags, special symbols, and extra spaces while retaining negation words. This process improved the clarity and usability of the text data.</p>
+<div id="cell-33" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the text cleaning function</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_text(text):</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Cleans the input text by:</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">    1. Removing non-English characters.</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">    2. Removing HTML tags.</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">    3. Removing special characters.</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">    4. Removing extra spaces.</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(text, <span class="bu">str</span>):  <span class="co"># Only process strings</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Convert text to lowercase</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> text.lower()</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Remove HTML tags</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> re.sub(<span class="vs">r'&lt;[^&gt;]*&gt;'</span>, <span class="st">''</span>, text)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Keep only English letters, numbers, and spaces</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> re.sub(<span class="vs">r'[^a-zA-Z0-9\s]'</span>, <span class="st">''</span>, text)</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Remove extra spaces</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> re.sub(<span class="vs">r'\s+'</span>, <span class="st">' '</span>, text).strip()</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Remove stop words (keeping 'no')</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>        words <span class="op">=</span> text.split()</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>        cleaned_words <span class="op">=</span> [word <span class="cf">for</span> word <span class="kw">in</span> words <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> stop_words]</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">' '</span>.join(cleaned_words)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-34" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all columns containing 'Explanation'</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>explanation_columns <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> merged_data.columns <span class="cf">if</span> <span class="st">'Explanation'</span> <span class="kw">in</span> col]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the selected column names</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Columns to clean:"</span>, explanation_columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Columns to clean: ['SA-A01.EA-Explanation', 'GT-A02.EA-Explanation', 'GT-A02.EC-Explanation', 'GDD-A04.EA-Explanation', 'GDD-A04.EB-Explanation', 'GM-A05.EA-Explanation', 'GM-A05.EB-Explanation', 'GM-A05.EC-Explanation', 'SE-A06.EA-Explanation', 'CAP-A07.EA-Explanation', 'CAP-A07.EB-Explanation', 'GL-B01.EA-Explanation', 'GL-B01.EB-Explanation', 'GL-B01.EC-Explanation', 'GL-B01.ED-Explanation', 'PD-B02.EA-Explanation', 'PD-B02.EB-Explanation', 'SD-B03.EA- Explanation', 'SD-B03.EB-Explanation', 'SD-B03.EC-Explanation', 'SD-B03.ED-Explanation', 'SC-B04.EA- Explanation', 'EE-B06.EB-Explanation', 'GR-B07.EA- Explanation', 'GR-B07.EB-Explanation', 'GPG-C01.EA-Explanation', 'GPG-C01.EB-Explanation', 'GPG-C01.EC-Explanation', 'PCL-C02.EA-Explanation', 'PCL-C02.EB-Explanation', 'PCL-C02.EC-Explanation', 'PCL-C02.ED-Explanation', 'CFS-C03.EA-Explanation', 'CFS-C03.EB-Explanation', 'FW-C04.EA-Explanation', 'FW-C04.EB-Explanation', 'FW-C04.EC-Explanation', 'FW-C04.ED-Explanation', 'LWS-C06.EA-Explanation', 'LWS-C06.EB-Explanation', 'HSW-D01.EA-Explanation', 'HSW-D01.EB-Explanation', 'HSW-D01.EC-Explanation', 'SHS-D02.EA-Explanation', 'SHS-D02.EC-Explanation', 'VHP-E01.EA-Explanation', 'VHR-E02.EA-Explanation', 'VHR-E02.EB-Explanation']</code></pre>
+</div>
+</div>
+<div id="cell-35" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the cleaning function to the selected columns</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> explanation_columns:</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    merged_data[col] <span class="op">=</span> merged_data[col].<span class="bu">apply</span>(clean_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-36" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged_data[explanation_columns].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                               SA-A01.EA-Explanation  \
+0  company states committed equality opportunity ...   
+1  company states values individual differences p...   
+2  company states committed equal employment oppo...   
+3  company states remains committed professional ...   
+4  evidence company public commitment gender equa...   
+
+                               GT-A02.EA-Explanation  \
+0  company identified specific timebound targets ...   
+1  evidence found whether company identified spec...   
+2  evidence found whether company identified spec...   
+3  evidence found whether company identified spec...   
+4  evidence found whether company identified spec...   
+
+                               GT-A02.EC-Explanation  \
+0  company discloses one timebound targets gender...   
+1  evidence found timebound targets gender equali...   
+2  evidence found timebound targets gender equali...   
+3  evidence found timebound targets gender equali...   
+4  evidence found timebound targets gender equali...   
+
+                              GDD-A04.EA-Explanation  \
+0  evidence found company assesses prioritises ge...   
+1  evidence found company assesses prioritises ge...   
+2  evidence found company assesses prioritises ge...   
+3  evidence found company assesses prioritises ge...   
+4  evidence found company assesses prioritises ge...   
+
+                              GDD-A04.EB-Explanation  \
+0  evidence found company engages women part risk...   
+1  evidence found company engages women part risk...   
+2  evidence found company engages women part risk...   
+3  evidence found company engages women part risk...   
+4  evidence found company engages women part risk...   
+
+                               GM-A05.EA-Explanation  \
+0  company provides email id hotline number websi...   
+1  company discloses website email address phone ...   
+2  company discloses complaints reported using he...   
+3  company discloses website phone number one cha...   
+4  company indicates one channelsmechanisms raise...   
+
+                               GM-A05.EB-Explanation  \
+0  company provides email id hotline number websi...   
+1  company discloses website email address phone ...   
+2  company discloses complaints reported using he...   
+3  company discloses website phone number one cha...   
+4  company indicates one channelsmechanisms raise...   
+
+                               GM-A05.EC-Explanation  \
+0  evidence found whether company collects analys...   
+1  evidence found whether company collects analys...   
+2  assessment evaluated publicly available inform...   
+3  evidence found whether company collects analys...   
+4  evidence found whether company collects analys...   
+
+                               SE-A06.EA-Explanation  \
+0  although company employee feedback mechanisms ...   
+1  although company employee feedback mechanisms ...   
+2  assessment evaluated publicly available inform...   
+3  although company employee feedback mechanisms ...   
+4  evidence found regarding employee surveys enga...   
+
+                              CAP-A07.EA-Explanation  ...  \
+0  evidence found whether company screens genderr...  ...   
+1  evidence found whether company screens genderr...  ...   
+2  assessment evaluated publicly available inform...  ...   
+3  company screens 1 genderrelated issue among su...  ...   
+4  evidence found whether company screens genderr...  ...   
+
+                              LWS-C06.EA-Explanation  \
+0  evidence found company requires suppliers pay ...   
+1  evidence found company requires suppliers pay ...   
+2  evidence found company requires suppliers pay ...   
+3       see comment living wage fundamentals csi 10c   
+4  evidence found company requires suppliers pay ...   
+
+                              LWS-C06.EB-Explanation  \
+0  evidence found company takes specific actions ...   
+1  evidence found company takes specific actions ...   
+2  evidence found company takes specific actions ...   
+3       see comment living wage fundamentals csi 10c   
+4  evidence found company takes specific actions ...   
+
+                              HSW-D01.EA-Explanation  \
+0  company publicly available policy statement co...   
+1  company publicly available policy statement co...   
+2  company publicly available policy statement co...   
+3  company publicly available policy statement co...   
+4  company discloses statement related respect he...   
+
+                              HSW-D01.EB-Explanation  \
+0  evidence found company discloses sexdisaggrega...   
+1  evidence found company discloses sexdisaggrega...   
+2  evidence found company discloses sexdisaggrega...   
+3  evidence found company discloses sexdisaggrega...   
+4  evidence found company discloses sexdisaggrega...   
+
+                              HSW-D01.EC-Explanation  \
+0  evidence found regarding whether company provi...   
+1  evidence found regarding whether company provi...   
+2  assessment evaluated publicly available inform...   
+3  company provides coverage health information s...   
+4  evidence found regarding whether company provi...   
+
+                              SHS-D02.EA-Explanation  \
+0  company publicly available statement policy ex...   
+1  company publicly available statement policy ex...   
+2  company publicly available statement policy ex...   
+3  company publicly available statement policy ex...   
+4  company discloses statement expecting business...   
+
+                              SHS-D02.EC-Explanation  \
+0  company states communicates compliance standar...   
+1  evidence found company monitors health safety ...   
+2  company expects supplierspartners provide safe...   
+3  company states adopted systematic uniform appr...   
+4  company states developed ehs management system...   
+
+                              VHP-E01.EA-Explanation  \
+0  company policy regarding violence harassment w...   
+1  company policy regarding violence harassment w...   
+2  assessment evaluated publicly available inform...   
+3  company policy regarding violence harassment w...   
+4  company policy regarding violence harassment w...   
+
+                              VHR-E02.EA-Explanation  \
+0  evidence found regarding whether company remed...   
+1  evidence found regarding whether company remed...   
+2  assessment evaluated publicly available inform...   
+3  evidence found regarding whether company remed...   
+4  evidence found regarding whether company remed...   
+
+                              VHR-E02.EB-Explanation  
+0  evidence found regarding whether company colle...  
+1  evidence found regarding whether company colle...  
+2  assessment evaluated publicly available inform...  
+3  evidence found regarding whether company colle...  
+4  evidence found regarding whether company colle...  
+
+[5 rows x 48 columns]</code></pre>
+</div>
+</div>
+<div id="cell-37" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all columns containing 'Evidence'</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>evidence_columns <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> merged_data.columns <span class="cf">if</span> <span class="st">'Evidence'</span> <span class="kw">in</span> col]</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the selected column names</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Columns to clean:"</span>, evidence_columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Columns to clean: ['SA-A01.EA-Evidence', 'GT-A02.EA-Evidence', 'GT-A02.EC-Evidence', 'GDD-A04.EA-Evidence', 'GDD-A04.EB-Evidence', 'GM-A05.EA-Evidence', 'GM-A05.EB-Evidence', 'GM-A05.EC-Evidence', 'SE-A06.EA-Evidence', 'CAP-A07.EA-Evidence', 'CAP-A07.EB-Evidence', 'GL-B01.EA-Evidence', 'GL-B01.EB-Evidence', 'GL-B01.EC-Evidence', 'GL-B01.ED-Evidence', 'GL-B01.EE-Evidence', 'PD-B02.EA-Evidence', 'PD-B02.EB-Evidence', 'SD-B03.EA- Evidence', 'SD-B03.EB-Evidence', 'SD-B03.EC-Evidence', 'SD-B03.ED-Evidence', 'SC-B04.EA- Evidence', 'EE-B06.EB-Evidence', 'GR-B07.EA- Evidence', 'GR-B07.EB-Evidence', 'GPG-C01.EA-Evidence', 'GPG-C01.EB-Evidence', 'GPG-C01.EC-Evidence', 'PCL-C02.EA-Evidence', 'PCL-C02.EB-Evidence', 'PCL-C02.EC-Evidence', 'PCL-C02.ED-Evidence', 'CFS-C03.EA-Evidence', 'CFS-C03.EB-Evidence', 'FW-C04.EA-Evidence', 'FW-C04.EB-Evidence', 'FW-C04.EC-Evidence', 'FW-C04.ED-Evidence', 'LWS-C06.EA-Evidence', 'LWS-C06.EB-Evidence', 'HSW-D01.EA-Evidence', 'HSW-D01.EB-Evidence', 'HSW-D01.EC-Evidence', 'SHS-D02.EA-Evidence', 'SHS-D02.EC-Evidence', 'VHP-E01.EA-Evidence', 'VHR-E02.EA-Evidence', 'VHR-E02.EB-Evidence']</code></pre>
+</div>
+</div>
+<div id="cell-38" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the cleaning function to the selected columns</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> evidence_columns:</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    merged_data[col] <span class="op">=</span> merged_data[col].<span class="bu">apply</span>(clean_text)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the cleaned data</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged_data[evidence_columns].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                  SA-A01.EA-Evidence  \
+0  brownforman committed equality opportunity asp...   
+1  constellation operates world thats extremely d...   
+2  citrix firmly committed equal employment oppor...   
+3  remain committed professional growth women 202...   
+4                                               None   
+
+                                  GT-A02.EA-Evidence  \
+0                                               None   
+1                                               None   
+2  citrix recently increased number female execut...   
+3                                               None   
+4                                               None   
+
+                                  GT-A02.EC-Evidence  \
+0                                               None   
+1                                               None   
+2  citrix recently increased number female execut...   
+3                                               None   
+4                                               None   
+
+                                 GDD-A04.EA-Evidence  \
+0                                               None   
+1                                               None   
+2                                               None   
+3  sustainability report 2020 company states due ...   
+4                                               None   
+
+                                 GDD-A04.EB-Evidence  \
+0                                               None   
+1  evolving understanding emerging esg trends aff...   
+2                                               None   
+3  human rights policy 2016 company states respec...   
+4                                               None   
+
+                                  GM-A05.EA-Evidence  \
+0  question concern regarding code conduct door a...   
+1  ethics help line web portal available stakehol...   
+2  citrix community obligation ask questions repo...   
+3  obligation speak potential suspected actual vi...   
+4  know suspect possible violation huntsmans busi...   
+
+                                  GM-A05.EB-Evidence  \
+0  question concern regarding code conduct door a...   
+1  ethics help line web portal available stakehol...   
+2  citrix community obligation ask questions repo...   
+3  obligation speak potential suspected actual vi...   
+4  know suspect possible violation huntsmans busi...   
+
+                                  GM-A05.EC-Evidence  \
+0                                               None   
+1                                               None   
+2                                               None   
+3  2021 received 315 grievances processes 94 reso...   
+4                                               None   
+
+                                  SE-A06.EA-Evidence  \
+0  decade earned perfect score corporate equality...   
+1  employee engagement labor relations constellat...   
+2                                               None   
+3  employee engagement regularly share informatio...   
+4                                               None   
+
+                                 CAP-A07.EA-Evidence  ...  \
+0                                               None  ...   
+1                                               None  ...   
+2                                               None  ...   
+3  human rights policy specifically prohibits chi...  ...   
+4                                               None  ...   
+
+                                 LWS-C06.EA-Evidence  \
+0                                               None   
+1  document contains labor aspects must compulsor...   
+2                                               None   
+3                                               None   
+4                                               None   
+
+                                 LWS-C06.EB-Evidence  \
+0                                               None   
+1  document contains labor aspects must compulsor...   
+2                                               None   
+3                                               None   
+4                                               None   
+
+                                 HSW-D01.EA-Evidence  \
+0  brownforman committed ensuring workplaces safe...   
+1  promoting safe healthy workplace code business...   
+2  citrix committed promoting occupational health...   
+3  hess corporation committed protecting health s...   
+4  huntsman committed highest standards health sa...   
+
+                                 HSW-D01.EB-Evidence  \
+0                                               None   
+1  company discloses recordable rate days away re...   
+2                                               None   
+3  sustainability report 2020 company discloses t...   
+4  company discloses number rate fatalities resul...   
+
+                                 HSW-D01.EC-Evidence  \
+0                                               None   
+1  employees families access digital physical the...   
+2                                               None   
+3  fertility support winfertilitys fertility supp...   
+4                                               None   
+
+                                 SHS-D02.EA-Evidence  \
+0  business partners must provide employees safe ...   
+1  safety public employees suppliers constellatio...   
+2  citrix supplierspartners must commit health sa...   
+3  must abide letter spirit code applies us emplo...   
+4  provide safe healthy work environment comply a...   
+
+                                 SHS-D02.EC-Evidence  \
+0  communicate compliance expectations business p...   
+1                                               None   
+2  preserving health safety supplierpartner emplo...   
+3  prospective contractors suppliers must meet fo...   
+4  prevention mitigation occupational health safe...   
+
+                                 VHP-E01.EA-Evidence VHR-E02.EA-Evidence  \
+0  value diversity inclusion strive provide healt...                None   
+1  people right work atmosphere free harassment r...                None   
+2                                               None                None   
+3  preventing discrimination harassment committed...                None   
+4  preventing harassment huntsman committed work ...                None   
+
+  VHR-E02.EB-Evidence  
+0                None  
+1                None  
+2                None  
+3                None  
+4                None  
+
+[5 rows x 49 columns]</code></pre>
+</div>
+</div>
+<p>To make analysis easier, we created new binary columns for all Evidence fields in the dataset, indicating whether evidence exists (1) or is missing (0). This step ensures a clear way to analyze and filter the data based on the availability of evidence for specific variables.</p>
+<div id="cell-40" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dictionary to store new columns</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>new_columns <span class="op">=</span> {}</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> evidence_columns:</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create new column name</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    new_col <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">-has_evidence"</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store the new column in the dictionary</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    new_columns[new_col] <span class="op">=</span> np.where(merged_data[col].isna(), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Add all new columns to the DataFrame at once</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>merged_data <span class="op">=</span> pd.concat([merged_data, pd.DataFrame(new_columns)], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the updated DataFrame</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged_data[[col <span class="cf">for</span> col <span class="kw">in</span> merged_data.columns <span class="cf">if</span> <span class="st">'has_evidence'</span> <span class="kw">in</span> col]].head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   SA-A01.EA-Evidence-has_evidence  GT-A02.EA-Evidence-has_evidence  \
+0                                1                                0   
+1                                1                                0   
+2                                1                                1   
+3                                1                                0   
+4                                0                                0   
+
+   GT-A02.EC-Evidence-has_evidence  GDD-A04.EA-Evidence-has_evidence  \
+0                                0                                 0   
+1                                0                                 0   
+2                                1                                 0   
+3                                0                                 1   
+4                                0                                 0   
+
+   GDD-A04.EB-Evidence-has_evidence  GM-A05.EA-Evidence-has_evidence  \
+0                                 0                                1   
+1                                 1                                1   
+2                                 0                                1   
+3                                 1                                1   
+4                                 0                                1   
+
+   GM-A05.EB-Evidence-has_evidence  GM-A05.EC-Evidence-has_evidence  \
+0                                1                                0   
+1                                1                                0   
+2                                1                                0   
+3                                1                                1   
+4                                1                                0   
+
+   SE-A06.EA-Evidence-has_evidence  CAP-A07.EA-Evidence-has_evidence  ...  \
+0                                1                                 0  ...   
+1                                1                                 0  ...   
+2                                0                                 0  ...   
+3                                1                                 1  ...   
+4                                0                                 0  ...   
+
+   LWS-C06.EA-Evidence-has_evidence  LWS-C06.EB-Evidence-has_evidence  \
+0                                 0                                 0   
+1                                 1                                 1   
+2                                 0                                 0   
+3                                 0                                 0   
+4                                 0                                 0   
+
+   HSW-D01.EA-Evidence-has_evidence  HSW-D01.EB-Evidence-has_evidence  \
+0                                 1                                 0   
+1                                 1                                 1   
+2                                 1                                 0   
+3                                 1                                 1   
+4                                 1                                 1   
+
+   HSW-D01.EC-Evidence-has_evidence  SHS-D02.EA-Evidence-has_evidence  \
+0                                 0                                 1   
+1                                 1                                 1   
+2                                 0                                 1   
+3                                 1                                 1   
+4                                 0                                 1   
+
+   SHS-D02.EC-Evidence-has_evidence  VHP-E01.EA-Evidence-has_evidence  \
+0                                 1                                 1   
+1                                 0                                 1   
+2                                 1                                 0   
+3                                 1                                 1   
+4                                 1                                 1   
+
+   VHR-E02.EA-Evidence-has_evidence  VHR-E02.EB-Evidence-has_evidence  
+0                                 0                                 0  
+1                                 0                                 0  
+2                                 0                                 0  
+3                                 0                                 0  
+4                                 0                                 0  
+
+[5 rows x 49 columns]</code></pre>
+</div>
+</div>
+<div id="cell-41" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the merged dataset to a new CSV</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>output_merged_data_path <span class="op">=</span> <span class="st">'../../data/processed-data/merged_data.csv'</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>merged_data.to_csv(output_merged_data_path, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="financial-data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="financial-data-cleaning">Financial Data Cleaning</h2>
+<p>In the EDA phase, we aim to explore the raw structure of the numerical data, so no transformations will be applied to numerical data. However, after exploration, we have decided to apply standardization in both the supervised and unsupervised learning phases, depending on the specific goals of each exploration. These steps will be reflected in the respective code sections. Since the data processing steps for supervised learning are more complex, we will detail them in this section. However, these steps are also presented in the dedicated section for supervised learning, which includes the selection of necessary subsets. Specifically, we will first apply Z-score transformation, followed by Min-Max scaling, and finally use multiple imputation for missing data.</p>
+<section id="before-cleaning-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="before-cleaning-visualization">Before cleaning visualization</h3>
+<div id="cell-45" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>columns_to_plot <span class="op">=</span> [<span class="st">'Assets (k)'</span>, <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>, </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'OperatingIncomeLoss (k)'</span>, <span class="st">'ComprehensiveIncomeNetOfTax (k)'</span>,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'EarningsPerShareBasic'</span>, <span class="st">'EntityPublicFloat (k)'</span>, </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>, </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'CashAndCashEquivalentsAtCarryingValue (k)'</span>, <span class="st">'AccountsReceivableNetCurrent (k)'</span>]</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>column_labels <span class="op">=</span> {</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Assets (k)'</span>: <span class="st">'Assets'</span>,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>: <span class="st">'Revenue (Excl. Tax)'</span>,</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OperatingIncomeLoss (k)'</span>: <span class="st">'Operating Income/Loss'</span>,</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ComprehensiveIncomeNetOfTax (k)'</span>: <span class="st">'Comprehensive Income (Net Tax)'</span>,</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'EarningsPerShareBasic'</span>: <span class="st">'Earnings Per Share'</span>,</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'EntityPublicFloat (k)'</span>: <span class="st">'Entity Public Float'</span>,</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>: <span class="st">'Share-Based Compensation'</span>,</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CashAndCashEquivalentsAtCarryingValue (k)'</span>: <span class="st">'Cash &amp; Equivalents'</span>,</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AccountsReceivableNetCurrent (k)'</span>: <span class="st">'Accounts Receivable'</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the column names with the shorter labels in the DataFrame</span></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>df_renamed <span class="op">=</span> merged_data[columns_to_plot].rename(columns<span class="op">=</span>column_labels)</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a pairplot with the shortened column names</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>sns.pairplot(df_renamed)</span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Pairplot of Selected Financial Columns'</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning">Cleaning</h3>
+<div id="cell-47" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>Asset_Profitability_columns <span class="op">=</span> [</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Assets (k)'</span>, <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>, </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OperatingIncomeLoss (k)'</span>, <span class="st">'ComprehensiveIncomeNetOfTax (k)'</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>Liquidity_Market_columns <span class="op">=</span> [</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'EarningsPerShareBasic'</span>, <span class="st">'EntityPublicFloat (k)'</span>, <span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>,</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CashAndCashEquivalentsAtCarryingValue (k)'</span>, <span class="st">'AccountsReceivableNetCurrent (k)'</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform multiple imputation for missing values in the financial columns</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>imputer <span class="op">=</span> IterativeImputer()</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>merged_data[Asset_Profitability_columns] <span class="op">=</span> imputer.fit_transform(merged_data[Asset_Profitability_columns])</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>merged_data[Liquidity_Market_columns] <span class="op">=</span> imputer.fit_transform(merged_data[Liquidity_Market_columns])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-48" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the columns to normalize (financial columns + Total)</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>columns_to_standardize <span class="op">=</span> Asset_Profitability_columns <span class="op">+</span> Liquidity_Market_columns <span class="op">+</span> [<span class="st">'Total'</span>]</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Z-score normalization</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>merged_data[columns_to_standardize] <span class="op">=</span> scaler.fit_transform(merged_data[columns_to_standardize])</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Min-Max normalization to the same columns</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>min_max_scaler <span class="op">=</span> MinMaxScaler()</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>merged_data[columns_to_standardize] <span class="op">=</span> min_max_scaler.fit_transform(merged_data[columns_to_standardize])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="after-cleaning-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="after-cleaning-visualization">After cleaning visualization</h3>
+<div id="cell-50" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>merged_data[columns_to_standardize].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Assets (k)</th>
+<th data-quarto-table-cell-role="th">RevenueFromContractWithCustomerExcludingAssessedTax (k)</th>
+<th data-quarto-table-cell-role="th">OperatingIncomeLoss (k)</th>
+<th data-quarto-table-cell-role="th">ComprehensiveIncomeNetOfTax (k)</th>
+<th data-quarto-table-cell-role="th">EarningsPerShareBasic</th>
+<th data-quarto-table-cell-role="th">EntityPublicFloat (k)</th>
+<th data-quarto-table-cell-role="th">AllocatedShareBasedCompensationExpense (k)</th>
+<th data-quarto-table-cell-role="th">CashAndCashEquivalentsAtCarryingValue (k)</th>
+<th data-quarto-table-cell-role="th">AccountsReceivableNetCurrent (k)</th>
+<th data-quarto-table-cell-role="th">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.014250</td>
+<td>0.008925</td>
+<td>0.044333</td>
+<td>0.024057</td>
+<td>0.014182</td>
+<td>0.002023</td>
+<td>0.011501</td>
+<td>0.021303</td>
+<td>0.017058</td>
+<td>0.400749</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.110727</td>
+<td>0.033700</td>
+<td>0.030927</td>
+<td>0.011276</td>
+<td>0.010785</td>
+<td>0.002541</td>
+<td>0.017195</td>
+<td>0.009315</td>
+<td>0.057146</td>
+<td>0.430712</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.129706</td>
+<td>0.075024</td>
+<td>0.081382</td>
+<td>0.061669</td>
+<td>0.024479</td>
+<td>0.013596</td>
+<td>0.053195</td>
+<td>0.061063</td>
+<td>0.084879</td>
+<td>0.123596</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.050717</td>
+<td>0.016509</td>
+<td>0.043063</td>
+<td>0.022815</td>
+<td>0.014056</td>
+<td>0.003250</td>
+<td>0.018796</td>
+<td>0.046096</td>
+<td>0.056278</td>
+<td>0.408240</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.018646</td>
+<td>0.016485</td>
+<td>0.040476</td>
+<td>0.025715</td>
+<td>0.019358</td>
+<td>0.000391</td>
+<td>0.016287</td>
+<td>0.012099</td>
+<td>0.034306</td>
+<td>0.314607</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-51" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>columns_to_plot <span class="op">=</span> [<span class="st">'Assets (k)'</span>, <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>, </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'OperatingIncomeLoss (k)'</span>, <span class="st">'ComprehensiveIncomeNetOfTax (k)'</span>,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'EarningsPerShareBasic'</span>, <span class="st">'EntityPublicFloat (k)'</span>, </span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>, </span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'CashAndCashEquivalentsAtCarryingValue (k)'</span>, <span class="st">'AccountsReceivableNetCurrent (k)'</span>]</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>column_labels <span class="op">=</span> {</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Assets (k)'</span>: <span class="st">'Assets'</span>,</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RevenueFromContractWithCustomerExcludingAssessedTax (k)'</span>: <span class="st">'Revenue (Excl. Tax)'</span>,</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OperatingIncomeLoss (k)'</span>: <span class="st">'Operating Income/Loss'</span>,</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ComprehensiveIncomeNetOfTax (k)'</span>: <span class="st">'Comprehensive Income (Net Tax)'</span>,</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'EarningsPerShareBasic'</span>: <span class="st">'Earnings Per Share'</span>,</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'EntityPublicFloat (k)'</span>: <span class="st">'Entity Public Float'</span>,</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AllocatedShareBasedCompensationExpense (k)'</span>: <span class="st">'Share-Based Compensation'</span>,</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CashAndCashEquivalentsAtCarryingValue (k)'</span>: <span class="st">'Cash &amp; Equivalents'</span>,</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AccountsReceivableNetCurrent (k)'</span>: <span class="st">'Accounts Receivable'</span></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the column names with the shorter labels in the DataFrame</span></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>df_renamed_2 <span class="op">=</span> merged_data[columns_to_plot].rename(columns<span class="op">=</span>column_labels)</span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a pairplot with the shortened column names</span></span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>sns.pairplot(df_renamed_2)</span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Pairplot of Selected Financial Columns'</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-32-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="summary-and-interpretation-of-results" class="level1">
+<h1>Summary and Interpretation of Results</h1>
+<p>In order to explore the original characteristics of the data, we did not perform standardization or deal with missing values in the EDA phase. At the same time, the data filtering and some other data preprocessing steps will be performed in the supervised and unsupervised learning phases, and we will put the code in the corresponding sections. At these specific stages, we will conduct more in-depth data preprocessing based on our exploration goals, such as the input of missing values and the normalization of data. Because the filtered data sets are different at different stages of exploration, the corresponding processing steps will also be different.</p>
+<p>To help viewers better understand the overall data processing workflow and the rationale behind our choices, we will explain these steps and processes in detail in the supervised and unsupervised learning sections. Therefore, the details of data filtering and related preprocessing will not be discussed in the data cleaning section, but will be elaborated in the subsequent model training section. However, we will still include some of the corresponding data processing to show the changes in the data visualization before and after we clean up (for supervised learning), while other processes will be discussed in more detail later.</p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Gender2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Alliance, W. B. <a href="https://www.worldbenchmarkingalliance.org/research/the-methodology-for-the-2023-gender-benchmark/">Gender benchmark and gender assessment data set</a>. (2023).</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -302,18 +1708,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -345,7 +1740,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -353,7 +1770,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
