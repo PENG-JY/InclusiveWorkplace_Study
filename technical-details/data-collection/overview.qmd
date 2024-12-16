@@ -6,11 +6,8 @@
 
 - **Objectives**: 
 1. Data Integration: Merge datasets containing company CEO gender, gender equality scores, and financial metrics for a comprehensive analysis.
-2. Statistical Analysis: Identify significant relationships between gender-related variables and key financial indicators such as revenue, profitability, and market capitalization.
-3. Predictive Modeling: Build models to predict financial performance based on gender-related attributes and other control variables.
+2. Statistical Analysis: Identify significant relationships between gender-related variables and key financial indicators such as revenue, profitability, and employee benefits.
+3. Predictive Modeling: Build models to explore the relationship between financial performance and gender-related attributes.
 4. Insights and Recommendations: Provide actionable insights for stakeholders to understand and leverage the impact of gender equity on organizational outcomes.
 
 Overall, this study combines financial and diversity data to provide evidence-based recommendations, supporting the integration of DEI practices in business strategies.
-
-
-

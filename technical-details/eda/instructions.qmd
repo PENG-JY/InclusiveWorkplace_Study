@@ -1,86 +1,3 @@
-# Instructions 
-
-`Note`: You should remove these instructions once you have read and understood them. They should not be included in your final submission.
-
-`Remember:` Exactly what do you put on this page will be specific you your project and data. Some things might "make more sense" on one page rather than another, depending on your workflow. Organize your project in a logical way that makes the most sense to you.  
-
-## Suggested page structure
-
-Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:
-
-`Audience`:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts. 
-
-- **Introduction and Motivation:** Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.
-- **Overview of Methods:** Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.
-- **Code:** Include the code you used to implement your workflow.
-- **Summary and Interpretation of Results:** Summarize your findings, interpret the results, and discuss their technical implications.
-
-## What to address 
-
-The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.
-
-The **EDA (Exploratory Data Analysis)** tab in your portfolio serves as a crucial foundation for your project. It provides a thorough overview of the dataset, highlights patterns, identifies potential issues, and prepares the data for further analysis. Follow these instructions to document your EDA effectively:
-
-The goal of EDA is to gain a deeper understanding of the dataset and its relevance to your project’s objectives. It involves summarizing key data characteristics, identifying patterns, anomalies, and preparing for future analysis phases.
-
-Here are suggestions for things to include on this page 
-
-**Univariate Analysis**:
-
-- **Numerical Variables**:
-    - Provide summary statistics (mean, median, standard deviation).
-    - Visualize distributions using histograms or density plots.
-- **Categorical Variables**:
-    - Present frequency counts and visualize distributions using bar charts or pie charts.
-- **Key Insights**:
-    - Highlight any notable trends or patterns observed.
-
-**Bivariate and Multivariate Analysis**:
-
-- **Correlation Analysis**:
-  - Analyze relationships between numerical variables using a correlation matrix.
-  - Visualize with heatmaps or pair plots and discuss any strong correlations.
-- **Crosstabulations**:
-  - For categorical variables, use crosstabs to explore relationships and visualize them with grouped bar plots.
-- **Feature Pairings**:
-  - Analyze relationships between key variables, particularly those related to your target.
-  - Visualize with scatter plots, box plots, or violin plots.
-
-**Data Distribution and Normalization**:
-
-- **Skewness and Kurtosis**:
- - Analyze and discuss the distribution of variables.
- - Apply transformations (e.g., log transformation) if needed for skewed data.
-- **Normalization**:
- - Apply normalization or scaling techniques (e.g., min-max scaling, z-score).
- - Document and visualize the impact of normalization.
-
-
-**Statistical Insights**:
-
-- Conduct basic statistical tests (e.g., T-tests, ANOVA, chi-square) to explore relationships between variables.
-- Summarize the statistical results and their implications for your analysis.
-
-
-**Data Visualization and Storytelling**:
-
-
-- **Visual Summary**:
- - Present key insights using charts and visualizations (e.g., Matplotlib, Seaborn, Plotly).
- - Ensure all visualizations are well-labeled and easy to interpret.
-- **Interactive Visualizations (Optional)**:
- - Include interactive elements (e.g., Plotly, Bokeh) to allow users to explore the data further.
-
-
-**Conclusions and Next Steps**:
-
-- **Summary of EDA Findings**:
- - Highlight the main takeaways from the EDA process (key trends, patterns, data quality issues).
-- **Implications for Modeling**:
- - Discuss how your EDA informs the next steps in your project (e.g., feature selection, data transformations).
- - Outline any further data cleaning or preparation required before moving into modeling.
-
-
 # Introduction and Motivation
 
 The Exploratory Data Analysis (EDA) in this project aims to explore the factors influencing gender equality practices within companies, particularly focusing on financial and governance indicators that impact key areas such as the gender equality score (Total) and CEO gender. By analyzing the relationships between financial metrics (e.g., revenue, assets, operating income) and gender-related practices, we seek to uncover patterns that reveal how companies with strong financial health align their operations with gender equity goals.
@@ -89,7 +6,34 @@ This analysis is motivated by the growing importance of gender equality in the w
 
 # Overview of Methods
 
+## Overview of Methods for Univariate Analysis
 
+Univariate analysis is a foundational technique for understanding the distribution and characteristics of individual variables in a dataset. In this project, univariate analysis was conducted on gender-related variables, gender equality scores and CEO gender, to provide insights into the data's characteristics.
+
+- **Descriptive Statistics**: 
+Descriptive statistics were used to summarize key aspects of variables. Measures such as the mean, median, standard deviation, and interquartile range were calculated to assess the central tendency and dispersion of variables. In our study, we examined the distribution of gender equality scores to determine whether they were skewed towards higher or lower values.
+
+- **Frequency Distribution**: 
+Frequency analysis was performed on categorical variables such as CEO gender to understand the proportion of companies with male versus female CEOs. This helped establish a baseline for understanding gender representation in leadership roles across companies in the dataset.
+
+- **Histogram and Density Plot**:
+Used to visualize the distribution of continuous variables such as gender equality scores. This helped identify any skewness or outliers in the data.
+
+## Overview of Methods for Bivariate and Multivariate Analysis
+
+Bivariate and multivariate analyses were employed to investigate the relationships between two or more variables. This allowed for a deeper understanding of the interdependencies between gender diversity metrics, CEO gender, and company financial performance. These analyses were key to identifying patterns, correlations, and potential causality.
+
+- **Z-Score Normalization and Min-Max Scaling**:
+Z-Score Normalization and Min-Max Scaling were applied to the financial data to address the differences in scale between variables.
+
+- **Histograms and Box Plots**:
+Used to compare the distribution of each financial indicator between companies led by male and female CEOs.
+
+- **Hypothesis Testing**:
+For each financial indicator, hypothesis testing was conducted to determine whether there is a significant difference in the mean values between male-led and female-led companies.
+
+- **Correlation Analysis**:
+Spearman correlation analysis was used to explore the relationship between financial indicators and gender equality scores.
 
 ## Overview of Methods for Text Analysis and Feature Engineering
 

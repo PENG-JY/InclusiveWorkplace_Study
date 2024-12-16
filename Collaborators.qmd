@@ -76,12 +76,17 @@ Her weekly project contribution log: [Click here to learn about: ](./technical-d
 
 ::: {.column width="45%"}
 
-![](assets/2024-10-14-16-56-34.png){width=100% height=100%}
+![](assets/Kexin_Lyu_headshot.jpg){width=100% height=100%}
 
-** **
+**Kexin Lyu**
 
+Georgetown University '26
+Master's in Data Science & Analytics
+
+Kexin Lyu is a first-year student in the Data Science and Analytics program at Georgetown University. She earned her Bachelor of Business Administration in Professional Accountancy from The Chinese University of Hong Kong (CUHK) in 2024. Her interests include deep learning and optimization, and she also enjoys exploring analytical tools essential for solving complex business challenges, drawing on her business background. Outside the classroom, she is eager to seize experiential learning opportunities, such as collaborating with real-world organizations and applying data science in practical settings.
 
 Her weekly project contribution log: [Click here to learn about: ](./technical-details/progress-log.qmd)
-:::
 
-::::
+::: {.column width="45%"}
+
+:::: {.columns}

@@ -1,19 +1,58 @@
 # Summary
 
-This section should be written for a **technical audience**, focusing on detailed analysis, factual reporting, and clear presentation of data. The following serves as a guide, but feel free to adjust as needed.
-
 ## Challenges
 
-- Discuss any technical challenges faced during the project, such as data limitations, computational issues, or obstacles encountered during analysis.
-- Explain unexpected results and their technical implications.
-- Identify areas for future work, including potential optimizations, further analysis, or scaling solutions.
+**Data Limitations:**
+
+1. Gender Equality Scores: The dataset was incomplete for several companies, necessitating extensive cleaning and manual imputations. This introduced potential biases in the analysis.
+2. CEO Gender Data: Manually collecting CEO gender information was labor-intensive and prone to inaccuracies, especially for companies with less prominent public information.
+3. Financial Indicators: Identifying the most relevant financial indicators from the SEC API required comprehensive accounting knowledge and significant preprocessing due to inconsistent data formats and missing fields.
+
+**Computational Issues:**
+
+1. Handling large JSON files from the SEC API required optimizing data extraction methods to avoid memory bottlenecks. Python libraries like pandas and json were leveraged, but computational inefficiencies surfaced during merging large datasets.
+2. During machine learning model training (e.g., supervised regression models), feature scaling and dimensionality reduction were crucial to mitigate overfitting and computational delays.
+
+**Unexpected Results:**
+
+1. Clustering Analysis: Unsupervised methods (e.g., K-Means clustering) did not yield clearly separable groups between high and low-performing companies based on gender diversity metrics. This suggests that the relationship may be non-linear or influenced by confounding factors.
+2. Supervised Learning: Regression models showed only moderate predictive power for financial performance using gender equality scores and CEO gender as predictors, indicating that additional features or a different modeling approach might be required.
+
+**Future Work:**
+
+1. Incorporating external datasets on company size, industry type, or regional economic indicators could enhance model accuracy.
+2. Automating data retrieval processes, particularly for CEO gender and financial metrics, would streamline data updates for scalability.
+3. Applying advanced non-linear models (e.g., Random Forests, XGBoost) or deep learning techniques may better capture complex relationships in the data.
+
 
 ## Benchmarks
 
-- Compare your findings to relevant research, industry benchmarks, or intuitive expectations, if applicable.
+**Industry Comparisons:**
+
+1. Previous studies have found weak-to-moderate correlations between gender diversity and financial performance, aligning with the project's findings. However, the analysis of CEO gender as a variable in conjunction with gender equality scores adds a novel dimension to this research.
+2. Clustering patterns did not strongly align with intuitive expectations, such as high-scoring companies outperforming others financially. This suggests further analysis is needed to explore these relationships with more nuanced metrics.
+
+**Research Alignment:**
+
+1， Studies emphasize the importance of contextual variables like industry and market conditions in explaining diversity-performance linkages. Future iterations of this project could integrate these benchmarks to improve interpretability.
+
 
 ## Conclusion and Future Steps
 
-- Summarize the key technical points and outcomes of the project.
-- Suggest potential improvements or refinements to this part of the project.
-- Based on the results, provide actionable recommendations for further research or optimization efforts.
+**Key Technical Points:**
+
+1. The data collection and preprocessing steps successfully merged gender equality, CEO gender, and financial performance data into a structured format.
+2. EDA revealed variability in gender diversity scores and financial indicators across sectors, but no clear, direct relationships were identified.
+3. Unsupervised and supervised ML models provided initial insights but were limited in predictive accuracy, highlighting the need for richer feature sets and refined methodologies.
+
+**Improvements and Refinements:**
+
+1. Feature Engineering: Additional variables, such as board diversity, R&D expenditures, and employee engagement scores, could enhance the analysis.
+2. Scaling: Employing distributed computing frameworks (e.g., Dask or Spark) would address computational challenges in handling large datasets.
+3. Modeling Enhancements: Testing ensemble methods or employing hyperparameter tuning for existing models could improve predictive performance.
+
+**Recommendations for Further Research:**
+
+1. Conduct a deeper analysis of industry-specific trends to understand how diversity influences performance in different contexts.
+2. Explore causality using advanced statistical techniques or natural experiments to validate findings.
+3. Develop interactive dashboards to visualize results, facilitating dissemination to stakeholders and aiding in decision-making.
