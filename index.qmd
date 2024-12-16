@@ -97,23 +97,24 @@ Does the gender of a company's CEO have an impact on the company's financial per
 
 This project delves into the intersection of gender equality and financial performance, exploring how organizational practices and leadership impact business outcomes. Through data-driven analysis, we examine how factors like CEO gender, company policies on diversity and inclusion, and financial performance correlate with organizational success. The website provides a comprehensive introduction to these topics, offering actionable insights into the relationship between gender equality and financial performance through data analysis and visualization. We hope that this website can provide some valuable findings that can guide organizations in making more inclusive and financially successful strategic decisions.
 
+### Questions We Are Addressing
+
+1. Is there a gender inequality problem in North American companies?
+
+2. Does a company’s gender equality score have an impact on the company’s financial performance? And conversely, how does a company’s financial performance influence its commitment to gender equality practices?
+
+3. Does the gender of a company's CEO have an impact on the company's financial performance?
+
+4. How do financial indicators and operational factors influence a company's decision to procure from women-owned businesses?
+
+5. How can textual evidence in reports be used to automate the assessment of a company’s performance in gender equality and healthcare standards?
+
+
 ## Literature review
 
 Enterprises are an important economic organization that is widespread in society. How to create an inclusive environment at the firm level, especially for gender equality, is a very important proposition that we would like to study in conjunction with the financial health, governance structure and business practices of firms.
 
 Reviewing previous research on the association of gender inequality with other factors at the firm level, Hoogendoorn et al. (2013) found that gender-balanced teams in business teams were more likely to have better sales and profit performance, although no direct factors were found to support this difference. Eagly and Heilman (2016) mentioned that the business case of “female participation enhances corporate financial performance” and argue that more in-depth analysis is needed if this idea is to be validated. Simionescu et al. (2021) argue that female board members have a positive impact on corporate performance, particularly in terms of price-earnings ratios. All of the above were studied using traditional qualitative analysis methods or econometric methods.
-
-## Questions We Are Addressing
-
-Is there a gender inequality problem in North American companies?
-
-Does a company’s gender equality score have an impact on the company’s financial performance? And conversely, how does a company’s financial performance influence its commitment to gender equality practices?
-
-Does the gender of a company's CEO have an impact on the company's financial performance?
-
-How do financial indicators and operational factors influence a company's decision to procure from women-owned businesses?
-
-How can textual evidence in reports be used to automate the assessment of a company’s performance in gender equality and healthcare standards?
 
 ## Motivation
 
@@ -167,7 +168,7 @@ Using supervised learning model and NLP techniques, we developed a model to auto
 
 ::: {.column width="45%"}
 
-<img src="./assets/undraw_working.svg"/>
+<img src="./assets/undraw_server.svg"/>
 
 :::
 
