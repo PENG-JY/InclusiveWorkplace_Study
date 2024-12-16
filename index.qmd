@@ -178,16 +178,9 @@ Using supervised learning model and NLP techniques, we developed a model to auto
 
 We encourage you to explore the insights and analyses presented in this project. Dive into the data-driven stories and uncover how gender equality practices are influencing business performance. Follow along as we continue to expand on these findings and share actionable insights. If you're interested in learning more or discussing how these findings can apply to your organization, feel free to reach out. Let's work together to drive positive change towards gender equality in the workplace and beyond!
 
-```{css}
-.image-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;  /* Align images vertically */
-  gap: 10px;  /* Optional: add some spacing between images */
-}
-.image-container img {
-  height: 200px;  /* Set the height for all images */
-  width: auto;    /* Keep the aspect ratio */
-}
-<div class="image-container"> ![](./assets/gender_pay_gap.png) ![](./assets/health_feature_wordcloud.png) ![](./assets/supply_chain_keywords.png) </div>
-```
+
+<div style="display: flex; justify-content: space-between; width: 100%; gap: 10px;">
+  <img src="./assets/gender_pay_gap.png" style="height: 200px; width: 32%; object-fit: contain;">
+  <img src="./assets/health_feature_wordcloud.png" style="height: 200px; width: 32%; object-fit: contain;">
+  <img src="./assets/supply_chain_keywords.png" style="height: 200px; width: 32%; object-fit: contain;">
+</div>
