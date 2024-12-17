@@ -1,3 +1,8 @@
+---
+bibliography:   ../../assets/references.bib
+csl:  ../../assets/nature.csl
+---
+
 # Introduction and Motivation 
 
 In recent years, much attention has been paid to the importance of gender equality in the corporate world, which is critical to promoting an inclusive environment. Through this study, we hope to explore how to create a more equitable society and strengthen aspects of corporate responsibility. Therefore, in this section, we will explore the intersection of business practices, performance and gender equality in enterprises based on supervised learning. In addition, this study explores the possibility of automatically assessing a company's gender score from text data reported by companies.

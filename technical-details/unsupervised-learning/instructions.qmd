@@ -1,3 +1,8 @@
+---
+bibliography:   ../../assets/references.bib
+csl:  ../../assets/nature.csl
+---
+
 # Introduction and Motivation
 
 Unsupervised learning techniques are crucial for exploring hidden patterns and structures in data without predefined labels. In the context of gender equality and corporate performance, unsupervised learning allows us to identify natural groupings or relationships between companies based on financial performance, gender equality scores, and leadership diversity. These techniques are particularly useful when we aim to discover intrinsic patterns, such as how certain corporate characteristics correlate with higher gender equality scores or financial success.

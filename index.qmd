@@ -1,5 +1,7 @@
 ---
 title: "Exploring the Intersection of Gender Equality and Financial Performance: Analyzing Leadership and Organizational Practices"
+bibliography:   ./assets/references.bib
+csl:  ./assets/nature.csl
 ---
 
 <img src="./assets/2.jpg" style="max-width: 100%; height: auto;" />

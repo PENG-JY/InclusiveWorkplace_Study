@@ -1,3 +1,8 @@
+---
+bibliography:   ../../assets/references.bib
+csl:  ../../assets/nature.csl
+---
+
 # Introduction and Motivation
 
 Data cleaning is a necessary step in data analysis, where our main goal is to merge different data sets and clean them to ensure consistency for next steps. We hope to ensure the stability of the model through data cleaning and explore meaningful insights into gender equality practices within the companies, especially for text data and financial data.
