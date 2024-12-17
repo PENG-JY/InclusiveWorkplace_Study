@@ -13,12 +13,14 @@ The study is motivated by the increasing emphasis on diversity, equity, and incl
 # Data Overview
 
 **Data Source Information**
+
 1. 2023 Gender Assessment Dataset: World Benchmarking Alliance
 2. CEO Gender: Original collection (manually gathered data about the gender of company CEOs).
 3. Company CIK Codes: SEC’s CIK Lookup Tool
 4. Financial Data: SEC’s EDGAR API
 
 **Data Collection Methods**
+
 1. 2023 Gender Assessment Dataset: Downloaded as a CSV file from the World Benchmarking Alliance website. Filtered to include only companies based in North America.
 2. CEO Gender: Manually researched and added as an additional column to the CSV file.
 3. CIK Codes: Retrieved using SEC’s CIK Lookup Tool, ensuring accurate company identification.
@@ -28,25 +30,33 @@ The study is motivated by the increasing emphasis on diversity, equity, and incl
 - Links to Code: The data collection code is part of the provided Jupyter Notebook (main.ipynb), facilitating replication.
 
 **Data Structure and Format**
+
 Raw Data:
+
 1. 2023 Gender Assessment Dataset:
 - Format: CSV
 - Structure: Includes rows for each company, with columns for company details and gender equality scores.
+
 2. CEO Gender Information:
 - Added as a new column to the CSV file.
+
 3. CIK Codes:
 - Retrieved and added as a column to the dataset for mapping to financial data.
+
 4. Financial Data:
 - Format: JSON
 - Structure: Includes key-value pairs for financial indicators (e.g., revenue, profit, expenses).
 
 Processed Data:
+
 1. Company Data:
 - Format: CSV
 - Structure: Rows for each company, and columns include CIK Codes, CEO Gender, and gender equality scores.
+
 2. Financial Data:
 - Format: CSV
 - Structure: Rows for each company identified by their CIK Codes, and columns for financial indicators.
+
 3. Merged Data:
 - Format: CSV
 - Structure: Merge the two datasets above together.

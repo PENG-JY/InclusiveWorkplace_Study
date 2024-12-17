@@ -33,7 +33,7 @@
 
 **Research Alignment:**
 
-1， Studies emphasize the importance of contextual variables like industry and market conditions in explaining diversity-performance linkages. Future iterations of this project could integrate these benchmarks to improve interpretability.
+1. Studies emphasize the importance of contextual variables like industry and market conditions in explaining diversity-performance linkages. Future iterations of this project could integrate these benchmarks to improve interpretability.
 
 ## Conclusion and Future Steps
 

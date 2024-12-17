@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -362,8 +362,19 @@ Name: Total, dtype: float64</code></pre>
 </div>
 </div>
 <p>The maximum possible Total Score is 100, representing the highest performance in terms of gender equality and respect. This includes aspects such as working environment, compensation and benefits, and the prevention of violence and harassment.</p>
-<p><strong>Statistical Summary</strong>: 1. Count: 202 companies are included in the dataset. 2. Mean: The average Total Score is 11.93, which is far below from the maximum possible score of 100. 3. Standard Deviation: The scores have a spread of 4.26, indicating moderate variability in performance. 4. Minimum: The lowest score is 0, suggesting that some companies performed extremely poorly in gender equality measures. 5. Maximum: The highest score in the dataset is 26.70, far below the theoretical maximum of 100, which highlights the overall poor performance.</p>
-<p><strong>Visual Observations</strong>: 1. Histogram: The majority of the scores are clustered around the 10-15 range, with the frequency peaking near the mean (11.93). Very few companies scored above 20, indicating that achieving high scores is uncommon in this dataset. 2. Density Plot: The density curve is slightly skewed to the right, with a long tail extending towards higher scores, highlighting a few outliers with better performance. The peak of the density aligns closely with the mean and median, reinforcing the clustering of scores in the mid-range.</p>
+<p><strong>Statistical Summary</strong>:</p>
+<ol type="1">
+<li>Count: 202 companies are included in the dataset.</li>
+<li>Mean: The average Total Score is 11.93, which is far below from the maximum possible score of 100.</li>
+<li>Standard Deviation: The scores have a spread of 4.26, indicating moderate variability in performance.</li>
+<li>Minimum: The lowest score is 0, suggesting that some companies performed extremely poorly in gender equality measures.</li>
+<li>Maximum: The highest score in the dataset is 26.70, far below the theoretical maximum of 100, which highlights the overall poor performance.</li>
+</ol>
+<p><strong>Visual Observations</strong>:</p>
+<ol type="1">
+<li>Histogram: The majority of the scores are clustered around the 10-15 range, with the frequency peaking near the mean (11.93). Very few companies scored above 20, indicating that achieving high scores is uncommon in this dataset.</li>
+<li>Density Plot: The density curve is slightly skewed to the right, with a long tail extending towards higher scores, highlighting a few outliers with better performance. The peak of the density aligns closely with the mean and median, reinforcing the clustering of scores in the mid-range.</li>
+</ol>
 <p><strong>Key Insights</strong>:</p>
 <p>The low mean, median, and maximum values underscore that most companies in the dataset are performing poorly on gender equality and respect indicators. There is a significant opportunity for improvement, as no company has achieved scores close to the theoretical maximum.</p>
 <div id="cell-9" class="cell" data-execution_count="200">
@@ -387,7 +398,11 @@ Name: Total, dtype: float64</code></pre>
 </div>
 </div>
 <p>When we put the data into a scale of 0-100 (the theoritical scale), we can see the overall performance of the companies in a more clear way:</p>
-<p><strong>Visual Observations</strong>: 1. Data Concentration: The majority of the Total Scores fall well below the midpoint of the 0-100 scale, with most scores concentrated between 0 and 30. 2. Lack of High Scores: No data points exceed a score of 30 out of 100, indicating that companies in the dataset perform significantly below the potential benchmark.</p>
+<p><strong>Visual Observations</strong>:</p>
+<ol type="1">
+<li>Data Concentration: The majority of the Total Scores fall well below the midpoint of the 0-100 scale, with most scores concentrated between 0 and 30.</li>
+<li>Lack of High Scores: No data points exceed a score of 30 out of 100, indicating that companies in the dataset perform significantly below the potential benchmark.</li>
+</ol>
 <p><strong>Key Insights</strong>:</p>
 <p>The visualization starkly highlights the underperformance of these companies in meeting gender equality standards. This may point to systemic issues or a lack of substantial initiatives toward achieving higher scores.</p>
 </section>
@@ -658,7 +673,8 @@ Name: count, dtype: int64</code></pre>
 <li>Null Hypothesis (H0): There is no difference in the mean of this financial indicator between male- and female-led companies.</li>
 <li>Alternative Hypothesis (H1): There is a significant difference in the mean of this financial indicator between male- and female-led companies.</li>
 </ul>
-<p><strong>Significance Level</strong>: The significance level (α) is set to 0.05. P-values below 0.05 indicate a rejection of the null hypothesis, meaning there is a significant difference in the means.</p>
+<p><strong>Significance Level</strong>:</p>
+<p>The significance level (α) is set to 0.05. P-values below 0.05 indicate a rejection of the null hypothesis, meaning there is a significant difference in the means.</p>
 <p><strong>Analysis</strong>:</p>
 <table class="caption-top table">
 <colgroup>
@@ -795,9 +811,99 @@ Spearman p-values between financial indicators and Total:
 9                   AccountsReceivableNetCurrent (k)  0.000013</code></pre>
 </div>
 </div>
-<p><strong>Key Metrics</strong>: 1. Spearman Correlation: Measures the monotonic relationship between each financial indicator and the Total Score. Values closer to 1 or -1 indicate stronger relationships. 2. p-Values: Evaluate the statistical significance of these correlations. A p-value below 0.05 suggests the relationship is statistically significant.</p>
-<p><strong>Key Findings</strong>: | <strong>Financial Indicator</strong> | <strong>Spearman Correlation</strong> | <strong>p-Value</strong> | <strong>Conclusion</strong> | |———————————————————–|—————————|————-|—————————————————————————————————————–| | <strong>NetIncomeLoss (k)</strong> | 0.301555 | 0.000041 | Total Score positively influences Net Income, suggesting companies with higher Total Scores tend to be more profitable. | | <strong>OperatingIncomeLoss (k)</strong> | 0.215105 | 0.005674 | Total Score has a moderate positive relationship with Operating Income, though the effect is less pronounced. | | <strong>GrossProfit (k)</strong> | 0.406968 | 0.000057 | Total Score strongly influences Gross Profit, indicating that companies excelling in gender equality likely operate more efficiently. | | <strong>ComprehensiveIncomeNetOfTax (k)</strong> | 0.290847 | 0.000075 | Higher Total Scores are associated with greater Comprehensive Income, reflecting broader financial benefits. | | <strong>EarningsPerShareBasic</strong> | 0.009864 | 0.894856 | No meaningful relationship exists between Total Score and Earnings Per Share. | | <strong>RevenueFromContractWithCustomerExcludingAssessedTax (k)</strong>| 0.211388 | 0.021570 | Higher Total Scores weakly influence Revenue, suggesting some alignment with revenue generation. | | <strong>EntityPublicFloat (k)</strong> | 0.250925 | 0.000496 | Total Score moderately influences Public Float, showing stronger market confidence in equitable companies. | | <strong>AllocatedShareBasedCompensationExpense (k)</strong> | 0.379946 | 0.000004 | Total Score strongly influences Share-Based Compensation, reflecting better employee-focused financial practices. | | <strong>CashAndCashEquivalentsAtCarryingValue (k)</strong> | 0.203521 | 0.006285 | Total Score weakly influences Cash Holdings, indicating minimal impact on liquidity. | | <strong>AccountsReceivableNetCurrent (k)</strong> | 0.347991 | 0.000013 | Total Score positively impacts Accounts Receivable, suggesting better operational reach or customer relationships. |</p>
-<p><strong>Summary of Relationships</strong>: 1. Strongest Positive Correlations: - Gross Profit (k) (r=0.41, p&lt;0.001): Companies with higher Total Scores tend to have significantly higher gross profits. - Allocated Share-Based Compensation Expense (k) (r=0.38, p&lt;0.001): Companies with better Total Scores tend to invest more in share-based compensation. - Accounts Receivable (k) (r=0.35, p&lt;0.001): Companies perform better in Total Score generally have higher receivables.</p>
+<p><strong>Key Metrics</strong>:</p>
+<ol type="1">
+<li>Spearman Correlation: Measures the monotonic relationship between each financial indicator and the Total Score. Values closer to 1 or -1 indicate stronger relationships.</li>
+<li>p-Values: Evaluate the statistical significance of these correlations. A p-value below 0.05 suggests the relationship is statistically significant.</li>
+</ol>
+<p><strong>Key Findings</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Financial Indicator</strong></th>
+<th><strong>Spearman Correlation</strong></th>
+<th><strong>p-Value</strong></th>
+<th><strong>Conclusion</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>NetIncomeLoss (k)</strong></td>
+<td>0.301555</td>
+<td>0.000041</td>
+<td>Total Score positively influences Net Income, suggesting companies with higher Total Scores tend to be more profitable.</td>
+</tr>
+<tr class="even">
+<td><strong>OperatingIncomeLoss (k)</strong></td>
+<td>0.215105</td>
+<td>0.005674</td>
+<td>Total Score has a moderate positive relationship with Operating Income, though the effect is less pronounced.</td>
+</tr>
+<tr class="odd">
+<td><strong>GrossProfit (k)</strong></td>
+<td>0.406968</td>
+<td>0.000057</td>
+<td>Total Score strongly influences Gross Profit, indicating that companies excelling in gender equality likely operate more efficiently.</td>
+</tr>
+<tr class="even">
+<td><strong>ComprehensiveIncomeNetOfTax (k)</strong></td>
+<td>0.290847</td>
+<td>0.000075</td>
+<td>Higher Total Scores are associated with greater Comprehensive Income, reflecting broader financial benefits.</td>
+</tr>
+<tr class="odd">
+<td><strong>EarningsPerShareBasic</strong></td>
+<td>0.009864</td>
+<td>0.894856</td>
+<td>No meaningful relationship exists between Total Score and Earnings Per Share.</td>
+</tr>
+<tr class="even">
+<td><strong>RevenueFromContractWithCustomerExcludingAssessedTax (k)</strong></td>
+<td>0.211388</td>
+<td>0.021570</td>
+<td>Higher Total Scores weakly influence Revenue, suggesting some alignment with revenue generation.</td>
+</tr>
+<tr class="odd">
+<td><strong>EntityPublicFloat (k)</strong></td>
+<td>0.250925</td>
+<td>0.000496</td>
+<td>Total Score moderately influences Public Float, showing stronger market confidence in equitable companies.</td>
+</tr>
+<tr class="even">
+<td><strong>AllocatedShareBasedCompensationExpense (k)</strong></td>
+<td>0.379946</td>
+<td>0.000004</td>
+<td>Total Score strongly influences Share-Based Compensation, reflecting better employee-focused financial practices.</td>
+</tr>
+<tr class="odd">
+<td><strong>CashAndCashEquivalentsAtCarryingValue (k)</strong></td>
+<td>0.203521</td>
+<td>0.006285</td>
+<td>Total Score weakly influences Cash Holdings, indicating minimal impact on liquidity.</td>
+</tr>
+<tr class="even">
+<td><strong>AccountsReceivableNetCurrent (k)</strong></td>
+<td>0.347991</td>
+<td>0.000013</td>
+<td>Total Score positively impacts Accounts Receivable, suggesting better operational reach or customer relationships.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summary of Relationships</strong>:</p>
+<ol type="1">
+<li>Strongest Positive Correlations:</li>
+</ol>
+<ul>
+<li>Gross Profit (k) (r=0.41, p&lt;0.001): Companies with higher Total Scores tend to have significantly higher gross profits.</li>
+<li>Allocated Share-Based Compensation Expense (k) (r=0.38, p&lt;0.001): Companies with better Total Scores tend to invest more in share-based compensation.</li>
+<li>Accounts Receivable (k) (r=0.35, p&lt;0.001): Companies perform better in Total Score generally have higher receivables.</li>
+</ul>
 <ol start="2" type="1">
 <li>Moderate Positive Correlations:</li>
 </ol>
@@ -810,7 +916,14 @@ Spearman p-values between financial indicators and Total:
 <ul>
 <li>Earnings Per Share Basic (r=0.01,p=0.89): No meaningful relationship, indicating that Total Score does not significantly contribute to EPS.</li>
 </ul>
-<p><strong>Key Insights</strong>: 1. Total Score as a Predictor: - Total Score, as a measure of gender equality and respect, is positively correlated with key financial indicators, suggesting that equitable practices can drive financial success. - The strongest relationships exist with Gross Profit, Share-Based Compensation Expense, and Accounts Receivable, indicating that companies with better Total Scores tend to excel in profitability, employee-focused expenditures, and operational reach.</p>
+<p><strong>Key Insights</strong>:</p>
+<ol type="1">
+<li>Total Score as a Predictor:</li>
+</ol>
+<ul>
+<li>Total Score, as a measure of gender equality and respect, is positively correlated with key financial indicators, suggesting that equitable practices can drive financial success.</li>
+<li>The strongest relationships exist with Gross Profit, Share-Based Compensation Expense, and Accounts Receivable, indicating that companies with better Total Scores tend to excel in profitability, employee-focused expenditures, and operational reach.</li>
+</ul>
 <ol start="2" type="1">
 <li>Weak or Insignificant Effects:</li>
 </ol>

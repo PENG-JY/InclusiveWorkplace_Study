@@ -2,8 +2,11 @@
 
 ## Data
 The primary method on this page involves the collection of data related to:
+
 - **CEO Gender**: Gathering information on whether the company's CEO is male or female.
+
 - **Gender Equality Scores**: Quantitative metrics that assess the company's gender diversity, equity, and inclusion performance.
+
 - **Financial Performance Metrics**: Key financial indicators, such as revenue, profit margins, and stock performance.
 
 ## Process

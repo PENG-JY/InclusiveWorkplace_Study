@@ -17,6 +17,7 @@ This section will focus on how unsupervised learning models, such as clustering 
 In this study, two unsupervised learning models were employed: Dimensionality Reduction (PCA and t-SNE) and K-Means Clustering.
 
 ## Dimensionality Reduction
+
 - **PCA**: PCA is a dimensionality reduction technique that transforms high-dimensional data into a smaller set of uncorrelated variables known as principal components. These components explain the maximum variance in the data. PCA was used in this study to reduce the complexity of the dataset and identify the most important factors that explain variability in gender equality scores. By applying PCA, we could better visualize the data and identify which assessment dimensions (e.g., workplace environment, compensation and benefits, prevention of violence and harassment) had the greatest influence on the total score.[@mackiewicz1993principal]
 
 - **t-SNE**: t-SNE is another dimensionality reduction technique, particularly effective for visualizing high-dimensional data in a two- or three-dimensional space. It works by minimizing the divergence between probability distributions in high-dimensional space and their corresponding distributions in lower dimensions. In this study, t-SNE was also applied to explore how companies clustered together based on their gender equality scores.[@van2008visualizing]
