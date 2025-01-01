@@ -25,7 +25,7 @@ csl:  ./assets/nature.csl
 
 # Literature review
 
-Enterprises are an important economic organization that is widespread in society. How to create an inclusive environment at the firm level, especially for gender equality, is a very important proposition that we would like to study in conjunction with the financial health, governance structure and business practices of firms.
+The enterprise is an important economic organization that is widespread in society. How to create an inclusive environment at the firm level, especially for gender equality, is a very important proposition that we would like to study in conjunction with the financial health, governance structure and business practices of firms.
 
 Reviewing previous research on the association of gender inequality with other factors at the firm level, Hoogendoorn et al. (2013)[@1dcc2f31-751f-32db-875e-66a27c4aad57] found that gender-balanced teams in business teams were more likely to have better sales and profit performance, although no direct factors were found to support this difference. Eagly and Heilman (2016)[@EAGLY2016349] mentioned that the business case of “female participation enhances corporate financial performance” and argue that more in-depth analysis is needed if this idea is to be validated. Simionescu et al. (2021)[@article] argue that female board members have a positive impact on corporate performance, particularly in terms of price-earnings ratios. All of the above were studied using traditional qualitative analysis methods or econometric methods.
 
